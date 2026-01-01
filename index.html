@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RQTDW© 사고 운영체제 - MVP Demo</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -871,10 +872,24 @@
                                 <div class="flex-1">
                                     <h5 class="font-semibold text-sm text-gray-900 mb-1">사고 구조화 (Head·Heart·Body)</h5>
                                     <ul class="text-sm text-gray-700 space-y-1">
-                                        <li><strong>Head:</strong> 시장성, 수익모델 분석</li>
-                                        <li><strong>Heart:</strong> 왜 이 일을 하고 싶은가?</li>
-                                        <li><strong>Body:</strong> 지금 당장 시작할 수 있는 것</li>
+                                        <li><strong>Head:</strong> '검증'이 필요, MVP로 테스트</li>
+                                        <li><strong>Heart:</strong> 불안하지만 용기 생김</li>
+                                        <li><strong>Body:</strong> 이번 주 고객 10명 대화</li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2 flex-shrink-0">D</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 mb-1">질문 기반 토론</h5>
+                                    <p class="text-xs text-gray-600 italic">"확신 없이도 움직이는 법을 배우는 게 목표 아닐까?"</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2 flex-shrink-0">W</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 mb-1">핵심 통찰</h5>
+                                    <p class="text-xs text-gray-700">"'확신'을 기다리는 것 자체가 함정. 작은 검증 반복이 답"</p>
                                 </div>
                             </div>
                         </div>
@@ -933,6 +948,20 @@
                                         <li><strong>근본:</strong> 공통 목표의 부재</li>
                                         <li><strong>재정의:</strong> "Why가 정렬되지 않은 문제"</li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2 flex-shrink-0">D</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 mb-1">질문 기반 토론</h5>
+                                    <p class="text-xs text-gray-600 italic">"팀원마다 '최종 목표'를 물으면 같은 답 나올까?"</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2 flex-shrink-0">W</div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-sm text-gray-900 mb-1">핵심 통찰</h5>
+                                    <p class="text-xs text-gray-700">"문제는 '협업 부족'이 아니라 'Why의 부재'"</p>
                                 </div>
                             </div>
                         </div>
@@ -996,8 +1025,32 @@
                 
                 <!-- 좌측: 프레임워크 선택 -->
                 <div class="lg:col-span-1">
+                    <!-- 안내 메시지 -->
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl shadow-lg p-5 mb-4 border-2 border-green-300">
+                        <div class="flex items-start">
+                            <div class="text-3xl mr-3 animate-bounce">💡</div>
+                            <div>
+                                <h3 class="font-bold text-green-900 mb-2 text-base">사고 프레임 선택</h3>
+                                <p class="text-sm text-green-800 leading-relaxed mb-3">
+                                    <strong>왼쪽 프레임</strong>을 클릭하면<br/>
+                                    오른쪽 입력창이 자동으로 바뀝니다!
+                                </p>
+                                <div class="bg-white bg-opacity-80 rounded-lg p-3 text-xs text-green-900 space-y-1">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">👉</span>
+                                        <span>각 프레임을 클릭해보세요</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="mr-2">✨</span>
+                                        <span>프레임마다 다른 시각으로 사고</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="bg-white rounded-xl shadow-md p-6 sticky top-8">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">사고 프레임 선택</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">프레임 목록</h3>
                         <div class="space-y-3">
                             <button onclick="selectFramework('hhb')" class="framework-btn w-full text-left p-4 rounded-lg transition-all bg-rqtdw-think text-white shadow-md" data-framework="hhb">
                                 <div class="font-semibold text-sm mb-1">Head • Heart • Body</div>
@@ -1112,8 +1165,514 @@
         </div>
     </div>
 
+    <!-- Discussion 화면 -->
+    <div id="discussion-screen" class="hidden min-h-screen bg-gradient-to-br from-purple-50 to-indigo-50">
+        
+        <!-- 상단 바 -->
+        <div class="bg-white border-b shadow-sm">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-6">
+                    <h1 class="text-xl font-bold text-gray-900">RQTDW©</h1>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">R</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">Q</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">T</span>
+                        <span class="px-3 py-1 bg-rqtdw-discuss text-white rounded text-sm font-semibold">D</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">W</span>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-600">집단지성 토론 단계</div>
+            </div>
+        </div>
+
+        <!-- 메인 영역 -->
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- 좌측: 토론 가이드 -->
+                <div class="lg:col-span-1">
+                    <!-- 안내 메시지 -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-lg p-5 mb-4 border-2 border-purple-300">
+                        <div class="flex items-start">
+                            <div class="text-3xl mr-3">💬</div>
+                            <div>
+                                <h3 class="font-bold text-purple-900 mb-2 text-base">질문 기반 토론</h3>
+                                <p class="text-sm text-purple-800 leading-relaxed mb-3">
+                                    답변이 아닌 <strong>질문으로</strong><br/>
+                                    서로의 사고를 촉발합니다
+                                </p>
+                                <div class="bg-white bg-opacity-80 rounded-lg p-3 text-xs text-purple-900 space-y-1">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">❌</span>
+                                        <span>"이렇게 하세요" (답변)</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="mr-2">✅</span>
+                                        <span>"왜 그렇게 생각하나요?" (질문)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md p-6 sticky top-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">토론 원칙</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <div class="font-semibold text-purple-900 mb-1">1. 질문으로 대화</div>
+                                <div class="text-xs text-purple-700">의견 대신 질문을 던지세요</div>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <div class="font-semibold text-purple-900 mb-1">2. 전제를 의심</div>
+                                <div class="text-xs text-purple-700">당연한 것을 물어보세요</div>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <div class="font-semibold text-purple-900 mb-1">3. 관점 확장</div>
+                                <div class="text-xs text-purple-700">다른 시각을 제시하세요</div>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <div class="font-semibold text-purple-900 mb-1">4. 경청과 존중</div>
+                                <div class="text-xs text-purple-700">모든 질문은 가치가 있습니다</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-purple-50 rounded-lg">
+                            <p class="text-sm text-gray-700">
+                                🧠 <strong>핵심</strong><br/>
+                                채팅이 아니라 질문 기반 토론입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 중앙+우측: 토론 공간 -->
+                <div class="lg:col-span-3 space-y-6">
+                    
+                    <!-- 현재 주제 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-sm font-semibold text-gray-500 mb-2">토론 주제</h3>
+                        <p class="text-xl text-gray-900 leading-relaxed mb-4" id="discussion-topic"></p>
+                        <div class="flex items-center gap-2 text-sm text-gray-600">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full font-semibold">질문 기반 토론</span>
+                            <span>•</span>
+                            <span>3-5명이 적정 인원입니다</span>
+                        </div>
+                    </div>
+
+                    <!-- 토론 스레드 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="mb-6">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">집단지성 토론</h2>
+                            <p class="text-gray-600">질문으로 서로의 생각을 깨우세요</p>
+                        </div>
+
+                        <!-- 토론 메시지 영역 -->
+                        <div class="space-y-4 mb-6 max-h-96 overflow-y-auto" id="discussion-messages">
+                            <!-- 샘플 메시지 -->
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                    A
+                                </div>
+                                <div class="flex-1">
+                                    <div class="bg-purple-50 rounded-lg p-4">
+                                        <div class="font-semibold text-gray-900 mb-1">참여자 A</div>
+                                        <p class="text-gray-700">우리가 '확신'이라고 부르는 것이 정말 필요한 걸까요? 혹시 확신 대신 다른 것이 필요한 건 아닐까요?</p>
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-1 ml-2">질문으로 시작하기</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                    B
+                                </div>
+                                <div class="flex-1">
+                                    <div class="bg-indigo-50 rounded-lg p-4">
+                                        <div class="font-semibold text-gray-900 mb-1">참여자 B</div>
+                                        <p class="text-gray-700">그 질문 좋네요. 그렇다면 '확신'과 '검증'은 어떻게 다를까요? 우리는 어떤 걸 먼저 찾아야 할까요?</p>
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-1 ml-2">질문에 질문으로 응답</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                                    C
+                                </div>
+                                <div class="flex-1">
+                                    <div class="bg-pink-50 rounded-lg p-4">
+                                        <div class="font-semibold text-gray-900 mb-1">참여자 C</div>
+                                        <p class="text-gray-700">만약 고객 입장에서 본다면, 우리의 확신보다 중요한 게 뭘까요? 고객은 정말 우리의 확신을 원하는 걸까요?</p>
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-1 ml-2">관점 전환 질문</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 질문 입력 -->
+                        <div class="border-t pt-6">
+                            <textarea 
+                                id="discussion-input"
+                                placeholder="질문을 입력하세요... (예: 왜 그렇게 생각하나요? / 다른 관점에서 본다면? / 전제가 맞나요?)"
+                                class="w-full h-32 p-4 border-2 border-purple-300 focus:border-purple-500 rounded-xl focus:outline-none resize-none"
+                            ></textarea>
+                            <div class="flex justify-between items-center mt-4">
+                                <div class="text-sm text-gray-600">
+                                    💡 Tip: "왜?", "만약?", "정말?" 같은 질문으로 시작하세요
+                                </div>
+                                <button class="px-6 py-3 bg-rqtdw-discuss text-white rounded-xl font-semibold hover:bg-opacity-90 transition-all shadow-md">
+                                    질문 공유하기
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- AI 퍼실리테이터 -->
+                        <div class="mt-6 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border-l-4 border-rqtdw-discuss">
+                            <div class="flex items-start">
+                                <div class="text-2xl mr-3">🎯</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">AI 퍼실리테이터</h4>
+                                    <p class="text-gray-700">
+                                        토론이 한 방향으로 치우치고 있습니다. 반대 관점에서 질문해보는 건 어떨까요?
+                                        "만약 확신이 전혀 필요 없다면, 우리는 무엇을 해야 할까요?"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 완료 버튼 -->
+                        <div class="flex justify-between items-center mt-8 pt-6 border-t">
+                            <button onclick="goBackToThink()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all">
+                                ← Think로 돌아가기
+                            </button>
+                            <button onclick="completeDiscussion()" class="px-6 py-3 bg-rqtdw-discuss text-white rounded-xl font-semibold hover:bg-opacity-90 transition-all shadow-md">
+                                토론 완료 → Write
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 진행 상황 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-sm font-semibold text-gray-500 mb-3">사고 진행 상황</h3>
+                        <div class="flex space-x-2">
+                            <div class="flex-1 h-2 bg-rqtdw-read rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-question rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-think rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-discuss rounded"></div>
+                            <div class="flex-1 h-2 bg-gray-200 rounded"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Read</span>
+                            <span>Question</span>
+                            <span>Think</span>
+                            <span class="font-semibold text-rqtdw-discuss">Discussion</span>
+                            <span>Write</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Write 화면 -->
+    <div id="write-screen" class="hidden min-h-screen bg-gradient-to-br from-gray-50 to-slate-50">
+        
+        <!-- 상단 바 -->
+        <div class="bg-white border-b shadow-sm">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-6">
+                    <h1 class="text-xl font-bold text-gray-900">RQTDW©</h1>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">R</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">Q</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">T</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded text-sm">D</span>
+                        <span class="px-3 py-1 bg-rqtdw-write text-white rounded text-sm font-semibold">W</span>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-600">통찰 기록 단계</div>
+            </div>
+        </div>
+
+        <!-- 메인 영역 -->
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- 좌측: 기록 가이드 -->
+                <div class="lg:col-span-1">
+                    <!-- 안내 메시지 -->
+                    <div class="bg-gradient-to-br from-gray-100 to-slate-100 rounded-xl shadow-lg p-5 mb-4 border-2 border-gray-400">
+                        <div class="flex items-start">
+                            <div class="text-3xl mr-3">📝</div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 mb-2 text-base">통찰을 기록하세요</h3>
+                                <p class="text-sm text-gray-800 leading-relaxed mb-3">
+                                    사고를 흘려보내지 않고<br/>
+                                    <strong>성장으로 축적</strong>합니다
+                                </p>
+                                <div class="bg-white bg-opacity-80 rounded-lg p-3 text-xs text-gray-900 space-y-1">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">💡</span>
+                                        <span>깨달은 점을 기록</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="mr-2">📈</span>
+                                        <span>사고 레벨 측정</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-md p-6 sticky top-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">기록 항목</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <div class="font-semibold text-gray-900 mb-1">핵심 통찰</div>
+                                <div class="text-xs text-gray-600">가장 중요한 깨달음</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <div class="font-semibold text-gray-900 mb-1">질문 변화</div>
+                                <div class="text-xs text-gray-600">처음 → 최종 질문</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <div class="font-semibold text-gray-900 mb-1">실행 계획</div>
+                                <div class="text-xs text-gray-600">다음 액션 아이템</div>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <div class="font-semibold text-gray-900 mb-1">성장 지표</div>
+                                <div class="text-xs text-gray-600">사고 레벨 확인</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                            <p class="text-sm text-gray-700">
+                                📊 <strong>축적의 힘</strong><br/>
+                                오늘의 질문이 내일의 사고 레벨을 만듭니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 중앙+우측: 기록 공간 -->
+                <div class="lg:col-span-3 space-y-6">
+                    
+                    <!-- 여정 요약 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-sm font-semibold text-gray-500 mb-4">사고 여정 요약</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                <div class="text-2xl mb-2">📖</div>
+                                <div class="text-xs text-gray-600 mb-1">Read</div>
+                                <div class="text-sm font-semibold text-gray-900">의미 해체</div>
+                            </div>
+                            <div class="text-center p-4 bg-orange-50 rounded-lg">
+                                <div class="text-2xl mb-2">❓</div>
+                                <div class="text-xs text-gray-600 mb-1">Question</div>
+                                <div class="text-sm font-semibold text-gray-900">질문 재구성</div>
+                            </div>
+                            <div class="text-center p-4 bg-green-50 rounded-lg">
+                                <div class="text-2xl mb-2">🧠</div>
+                                <div class="text-xs text-gray-600 mb-1">Think</div>
+                                <div class="text-sm font-semibold text-gray-900">구조화</div>
+                            </div>
+                            <div class="text-center p-4 bg-purple-50 rounded-lg">
+                                <div class="text-2xl mb-2">💬</div>
+                                <div class="text-xs text-gray-600 mb-1">Discussion</div>
+                                <div class="text-sm font-semibold text-gray-900">집단지성</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 통찰 기록 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="mb-6">
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">통찰 기록</h2>
+                            <p class="text-gray-600">이번 사고 훈련에서 얻은 통찰을 기록하세요</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- 핵심 통찰 -->
+                            <div>
+                                <label class="block mb-2">
+                                    <span class="text-lg font-semibold text-gray-800 flex items-center">
+                                        <span class="text-2xl mr-2">💡</span>
+                                        핵심 통찰
+                                    </span>
+                                    <span class="text-sm text-gray-600">가장 중요한 깨달음은 무엇인가요?</span>
+                                </label>
+                                <textarea 
+                                    placeholder="예: '확신'이 필요한 게 아니라 '검증 가능한 작은 시작'이 필요하다는 걸 깨달았습니다..."
+                                    class="w-full h-32 p-4 border-2 border-gray-300 focus:border-gray-500 rounded-xl focus:outline-none resize-none"
+                                ></textarea>
+                            </div>
+
+                            <!-- 질문의 변화 -->
+                            <div>
+                                <label class="block mb-2">
+                                    <span class="text-lg font-semibold text-gray-800 flex items-center">
+                                        <span class="text-2xl mr-2">🔄</span>
+                                        질문의 변화
+                                    </span>
+                                    <span class="text-sm text-gray-600">처음 질문과 최종 질문을 비교해보세요</span>
+                                </label>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-700 mb-2">처음 질문</div>
+                                        <div class="p-4 bg-gray-50 rounded-lg border-2 border-gray-200">
+                                            <p class="text-gray-700" id="initial-question-display">창업 아이디어가 확신이 안 서는데, 어떻게 해야 할까요?</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-700 mb-2">최종 질문</div>
+                                        <textarea 
+                                            placeholder="질문이 어떻게 발전했나요?"
+                                            class="w-full h-24 p-4 border-2 border-green-300 focus:border-green-500 rounded-lg focus:outline-none resize-none"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 실행 계획 -->
+                            <div>
+                                <label class="block mb-2">
+                                    <span class="text-lg font-semibold text-gray-800 flex items-center">
+                                        <span class="text-2xl mr-2">🎯</span>
+                                        실행 계획
+                                    </span>
+                                    <span class="text-sm text-gray-600">다음 액션 아이템은 무엇인가요?</span>
+                                </label>
+                                <textarea 
+                                    placeholder="예: 1) 고객 10명과 대화하기 2) 프로토타입 만들어 검증하기 3) ..."
+                                    class="w-full h-32 p-4 border-2 border-gray-300 focus:border-gray-500 rounded-xl focus:outline-none resize-none"
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <!-- 사고 레벨 리포트 -->
+                        <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1 flex items-center">
+                                        <span class="text-2xl mr-2">📈</span>
+                                        사고 레벨 리포트
+                                    </h4>
+                                    <p class="text-sm text-gray-600">이번 훈련에서 측정된 사고 성장 지표</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 레이더 차트 -->
+                            <div class="bg-white rounded-lg p-6 mb-4">
+                                <canvas id="thinkingLevelChart" width="400" height="300"></canvas>
+                            </div>
+
+                            <!-- 수치 카드 -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-xs text-gray-600 mb-1">질문 깊이</div>
+                                    <div class="text-2xl font-bold text-blue-600" id="depth-score">7.5/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">표면 → 본질 질문</div>
+                                    <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full transition-all duration-1000" id="depth-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-xs text-gray-600 mb-1">관점 다양성</div>
+                                    <div class="text-2xl font-bold text-green-600" id="perspective-score">8.0/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">다면적 시각 확보</div>
+                                    <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-600 h-2 rounded-full transition-all duration-1000" id="perspective-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-xs text-gray-600 mb-1">구조화 능력</div>
+                                    <div class="text-2xl font-bold text-purple-600" id="structure-score">7.0/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">프레임워크 활용</div>
+                                    <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-purple-600 h-2 rounded-full transition-all duration-1000" id="structure-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 종합 평가 -->
+                            <div class="bg-white rounded-lg p-4">
+                                <div class="flex items-start">
+                                    <div class="text-2xl mr-3">🎯</div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-900 mb-2">AI 종합 평가</h5>
+                                        <p class="text-sm text-gray-700 mb-3" id="ai-feedback">
+                                            <strong>성장 포인트:</strong> 질문을 재구성하는 능력이 뛰어납니다. 
+                                            다음에는 더 다양한 프레임워크를 활용해보세요.
+                                        </p>
+                                        <div class="grid grid-cols-2 gap-2 text-xs">
+                                            <div class="flex items-center text-green-700">
+                                                <span class="mr-1">✓</span>
+                                                <span>질문 깊이 우수</span>
+                                            </div>
+                                            <div class="flex items-center text-green-700">
+                                                <span class="mr-1">✓</span>
+                                                <span>다양한 관점 확보</span>
+                                            </div>
+                                            <div class="flex items-center text-blue-700">
+                                                <span class="mr-1">→</span>
+                                                <span>프레임워크 다양화 필요</span>
+                                            </div>
+                                            <div class="flex items-center text-blue-700">
+                                                <span class="mr-1">→</span>
+                                                <span>토론 참여 횟수 증가 권장</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 성장 추이 그래프 -->
+                            <div class="mt-4 bg-white rounded-lg p-4">
+                                <h5 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                    <span class="text-xl mr-2">📊</span>
+                                    최근 5회 성장 추이
+                                </h5>
+                                <canvas id="growthTrendChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- 완료 버튼 -->
+                        <div class="flex justify-between items-center mt-8 pt-6 border-t">
+                            <button onclick="goBackToDiscussion()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all">
+                                ← Discussion으로
+                            </button>
+                            <button onclick="completeWriting()" class="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-xl">
+                                🎉 사고 훈련 완료!
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 진행 상황 -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="text-sm font-semibold text-gray-500 mb-3">사고 진행 상황</h3>
+                        <div class="flex space-x-2">
+                            <div class="flex-1 h-2 bg-rqtdw-read rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-question rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-think rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-discuss rounded"></div>
+                            <div class="flex-1 h-2 bg-rqtdw-write rounded"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Read</span>
+                            <span>Question</span>
+                            <span>Think</span>
+                            <span>Discussion</span>
+                            <span class="font-semibold text-rqtdw-write">Write</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         let currentQuestion = '';
+        let currentSample = null; // 현재 선택된 샘플 데이터
         
         // 샘플 데이터
         const samples = {
@@ -1141,7 +1700,42 @@
                         reason: '확신보다 중요한 것은 검증 가능한 작은 시작입니다'
                     }
                 ],
-                framework: 'hhb'
+                framework: 'hhb',
+                thinking: {
+                    head: "논리적으로는 '확신'이 아니라 '검증'이 필요하다는 걸 알게 됨. MVP를 만들어 고객 반응을 보는 게 먼저.",
+                    heart: "불안하지만, 완벽하지 않아도 시작할 수 있다는 생각에 용기가 생김. 실패해도 배울 수 있다는 마음.",
+                    body: "이번 주 안에 고객 10명과 대화하기. 간단한 프로토타입 스케치 시작."
+                },
+                discussion: [
+                    {
+                        participant: "A",
+                        question: "확신이 없다는 건, 혹시 아이디어 자체보다 '실패에 대한 두려움'이 더 큰 건 아닐까요?",
+                        type: "전제 의심"
+                    },
+                    {
+                        participant: "B",
+                        question: "만약 확신이 100%라면, 그게 오히려 위험 신호일 수도 있지 않을까요? 시장을 제대로 본 게 맞나요?",
+                        type: "역발상 질문"
+                    },
+                    {
+                        participant: "C",
+                        question: "지금 필요한 건 '확신을 얻는 것'일까요, 아니면 '확신 없이도 움직이는 법을 배우는 것'일까요?",
+                        type: "재정의 질문"
+                    }
+                ],
+                insights: {
+                    core: "'확신'을 기다리는 것 자체가 함정이었습니다. 진짜 필요한 건 작은 검증을 반복하며 배우는 과정입니다.",
+                    questionEvolution: {
+                        initial: "창업 아이디어가 확신이 안 서는데, 어떻게 해야 할까요?",
+                        final: "확신 대신 어떤 작은 실험으로 고객의 진짜 문제를 검증할 수 있을까?"
+                    },
+                    actionPlan: "1) 이번 주 고객 10명 인터뷰\n2) 가설 3가지 세우기\n3) 가장 간단한 MVP 스케치\n4) 2주 안에 첫 검증 완료",
+                    growthMetrics: {
+                        depth: 8.5,
+                        perspective: 7.5,
+                        structure: 8.0
+                    }
+                }
             },
             sample2: {
                 question: "우리 팀은 회의는 많은데 결정은 안 되고, 각자 다른 방향으로 일하는 것 같아요. 소통은 많이 하는데 왜 협업이 안 되는 걸까요?",
@@ -1167,7 +1761,42 @@
                         reason: '문제를 재정의하면 해결책이 달라집니다'
                     }
                 ],
-                framework: 'problem'
+                framework: 'problem',
+                thinking: {
+                    surface: "회의가 많고 소통이 많다",
+                    root: "공통된 목표(Why)가 없어서 각자 다른 방향으로 일함",
+                    reframed: "'협업 부족' 문제가 아니라 'Why가 정렬되지 않은' 문제"
+                },
+                discussion: [
+                    {
+                        participant: "A",
+                        question: "우리가 '회의'라고 부르는 게 진짜 의사결정 회의일까요, 아니면 그냥 정보 공유일까요?",
+                        type: "구분 질문"
+                    },
+                    {
+                        participant: "B",
+                        question: "만약 팀원 각자에게 '우리 팀의 최종 목표가 뭐예요?'라고 물으면 같은 답이 나올까요?",
+                        type: "가정 질문"
+                    },
+                    {
+                        participant: "C",
+                        question: "소통이 많다는 게 좋은 신호일까요, 나쁜 신호일까요? 혹시 목표가 불명확해서 계속 확인하는 건 아닐까요?",
+                        type: "관점 전환"
+                    }
+                ],
+                insights: {
+                    core: "문제는 '협업 부족'이 아니라 'Why의 부재'였습니다. 소통은 많지만 방향이 없었던 겁니다.",
+                    questionEvolution: {
+                        initial: "우리 팀은 회의는 많은데 결정은 안 되고, 각자 다른 방향으로 일하는 것 같아요.",
+                        final: "우리 팀이 함께 달성하려는 하나의 Why는 무엇이고, 그걸 어떻게 정렬할 수 있을까?"
+                    },
+                    actionPlan: "1) 팀 전체 워크샵: 우리의 Why 정의하기\n2) 의사결정 기준 3가지 합의\n3) 회의 유형 구분: 정보공유 vs 의사결정\n4) 주간 목표 정렬 체크인 도입",
+                    growthMetrics: {
+                        depth: 9.0,
+                        perspective: 8.5,
+                        structure: 7.5
+                    }
+                }
             }
         };
         
@@ -1191,6 +1820,8 @@
             document.getElementById('samples-screen').classList.add('hidden');
             document.getElementById('question-screen').classList.add('hidden');
             document.getElementById('think-screen').classList.add('hidden');
+            document.getElementById('discussion-screen').classList.add('hidden');
+            document.getElementById('write-screen').classList.add('hidden');
             document.getElementById('home-screen').classList.remove('hidden');
             window.scrollTo(0, 0);
         }
@@ -1199,6 +1830,7 @@
         function startSample1() {
             const sample = samples.sample1;
             currentQuestion = sample.question;
+            currentSample = sample; // 현재 샘플 저장
             
             document.getElementById('samples-screen').classList.add('hidden');
             document.getElementById('question-screen').classList.remove('hidden');
@@ -1215,6 +1847,7 @@
         function startSample2() {
             const sample = samples.sample2;
             currentQuestion = sample.question;
+            currentSample = sample; // 현재 샘플 저장
             
             document.getElementById('samples-screen').classList.add('hidden');
             document.getElementById('question-screen').classList.remove('hidden');
@@ -1434,13 +2067,244 @@
         }
         
         function completeThinking() {
-            alert('🎉 사고 구조화 완료!\n\n다음 단계:\n• Discussion: 다른 사람과 토론\n• Write: 기록과 정리\n\n(MVP에서는 여기까지 구현되었습니다)\n\n처음으로 돌아가서 다른 질문을 탐색해보세요!');
+            const question = document.getElementById('think-question').textContent;
+            document.getElementById('discussion-topic').textContent = question;
             
-            // 처음으로
             document.getElementById('think-screen').classList.add('hidden');
+            document.getElementById('discussion-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+        
+        // Discussion → Think
+        function goBackToThink() {
+            document.getElementById('discussion-screen').classList.add('hidden');
+            document.getElementById('think-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+        
+        // Discussion → Write
+        function completeDiscussion() {
+            const question = document.getElementById('discussion-topic').textContent;
+            document.getElementById('initial-question-display').textContent = question;
+            
+            document.getElementById('discussion-screen').classList.add('hidden');
+            document.getElementById('write-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            // 차트 초기화
+            setTimeout(() => {
+                initializeCharts();
+            }, 100);
+        }
+        
+        // Write → Discussion
+        function goBackToDiscussion() {
+            document.getElementById('write-screen').classList.add('hidden');
+            document.getElementById('discussion-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+        
+        // Write 완료
+        function completeWriting() {
+            // 축하 알림
+            alert('🎉 사고 훈련을 완료했습니다!\n\n이번 훈련을 통해:\n✓ 질문을 재구성하는 능력이 향상되었습니다\n✓ 구조화된 사고 방법을 익혔습니다\n✓ 집단지성의 힘을 경험했습니다\n\n계속해서 RQTDW© 사고법을 훈련하세요!');
+            
+            // 홈으로 돌아가기
+            document.getElementById('write-screen').classList.add('hidden');
             document.getElementById('home-screen').classList.remove('hidden');
             document.getElementById('main-question').value = '';
             questionInput.dispatchEvent(new Event('input'));
+            window.scrollTo(0, 0);
+        }
+        
+        // 차트 초기화 함수
+        function initializeCharts() {
+            // 현재 샘플의 지표 가져오기
+            const metrics = currentSample?.insights?.growthMetrics || {
+                depth: 7.5,
+                perspective: 8.0,
+                structure: 7.0
+            };
+            
+            // 점수 업데이트
+            document.getElementById('depth-score').textContent = `${metrics.depth}/10`;
+            document.getElementById('perspective-score').textContent = `${metrics.perspective}/10`;
+            document.getElementById('structure-score').textContent = `${metrics.structure}/10`;
+            
+            // 프로그레스 바 애니메이션
+            setTimeout(() => {
+                document.getElementById('depth-bar').style.width = `${metrics.depth * 10}%`;
+                document.getElementById('perspective-bar').style.width = `${metrics.perspective * 10}%`;
+                document.getElementById('structure-bar').style.width = `${metrics.structure * 10}%`;
+            }, 200);
+            
+            // 레이더 차트
+            const radarCtx = document.getElementById('thinkingLevelChart');
+            if (radarCtx) {
+                new Chart(radarCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            '질문 깊이',
+                            '관점 다양성',
+                            '구조화 능력',
+                            '비판적 사고',
+                            '창의적 연결',
+                            '실행력'
+                        ],
+                        datasets: [{
+                            label: '현재 레벨',
+                            data: [
+                                metrics.depth,
+                                metrics.perspective,
+                                metrics.structure,
+                                metrics.depth * 0.9,
+                                metrics.perspective * 0.95,
+                                metrics.structure * 1.1
+                            ],
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            borderColor: 'rgb(59, 130, 246)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgb(59, 130, 246)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(59, 130, 246)'
+                        }, {
+                            label: '평균 레벨',
+                            data: [6, 6, 6, 6, 6, 6],
+                            backgroundColor: 'rgba(156, 163, 175, 0.1)',
+                            borderColor: 'rgb(156, 163, 175)',
+                            borderWidth: 1,
+                            borderDash: [5, 5],
+                            pointBackgroundColor: 'rgb(156, 163, 175)',
+                            pointBorderColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 10,
+                                ticks: {
+                                    stepSize: 2,
+                                    font: {
+                                        size: 11
+                                    }
+                                },
+                                pointLabels: {
+                                    font: {
+                                        size: 12,
+                                        weight: 'bold'
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 12
+                                    },
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.parsed.r + '/10';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // 성장 추이 차트
+            const trendCtx = document.getElementById('growthTrendChart');
+            if (trendCtx) {
+                new Chart(trendCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['1회차', '2회차', '3회차', '4회차', '5회차 (현재)'],
+                        datasets: [{
+                            label: '질문 깊이',
+                            data: [5.5, 6.0, 6.5, 7.0, metrics.depth],
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.3,
+                            fill: true,
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }, {
+                            label: '관점 다양성',
+                            data: [6.0, 6.5, 7.0, 7.5, metrics.perspective],
+                            borderColor: 'rgb(16, 185, 129)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.3,
+                            fill: true,
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }, {
+                            label: '구조화 능력',
+                            data: [5.0, 5.5, 6.0, 6.5, metrics.structure],
+                            borderColor: 'rgb(139, 92, 246)',
+                            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                            tension: 0.3,
+                            fill: true,
+                            pointRadius: 4,
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 10,
+                                ticks: {
+                                    stepSize: 2,
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 12
+                                    },
+                                    padding: 15
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.parsed.y + '/10';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
         }
     </script>
 
