@@ -3756,501 +3756,374 @@
             const doc = new jsPDF();
             
             // 현재 데이터 가져오기
-            const question = document.getElementById('initial-question-display').textContent;
+            const question = document.getElementById('initial-question-display')?.textContent || currentQuestion || '질문이 입력되지 않았습니다';
             const metrics = currentSample?.insights?.growthMetrics || {
                 depth: 7.5,
                 perspective: 8.0,
-                structure: 7.0
+                structure: 7.0,
+                discussion: 7.5,
+                application: 6.5
             };
             
             // 날짜
             const today = new Date();
             const dateStr = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+            const timeStr = `${String(today.getHours()).padStart(2, '0')}:${String(today.getMinutes()).padStart(2, '0')}`;
             
-            // AI 피드백 생성 함수 (5등급 시스템)
-            function generateAIFeedback(score, skillName) {
-                const feedbacks = {
-                    depth: {
-                        master: {
-                            excellence: "완벽한 질문 체계 구축 - 본질을 꿰뚫는 질문 능력",
-                            influence: "다른 이들에게 질문하는 법을 가르치세요. 멘토링을 통해 질문 문화를 확산하세요.",
-                            leadership: "새로운 질문 프레임워크를 창조하세요. 당신만의 질문 철학을 체계화하고 공유하세요."
-                        },
-                        expert: {
-                            strength: "탁월한 질문 깊이 - 근본 원인까지 파고드는 능력",
-                            maintain: "돌파구를 찾은 질문들을 저널에 기록하세요. 매주 리뷰하여 자신의 최고 사고 패턴을 파악하세요.",
-                            next: "'내가 묻지 않는 질문은 무엇인가?' 스스로 질문하여 사각지대를 찾으세요"
-                        },
-                        advanced: {
-                            growth: "좋은 질문 깊이 - Why 질문을 자주 활용함",
-                            method: "'5 Whys' 기법을 체계적으로 사용하세요. 각 답변 후 'Why?'를 5번 반복하여 근본 원인을 찾으세요.",
-                            practice: "하루 1개 문제에 5 Whys 적용 → 주 2회 저널 기록 → 월 1회 패턴 분석"
-                        },
-                        intermediate: {
-                            status: "기본적인 질문 능력 - 표면적 질문에서 벗어나는 중",
-                            improve: "매일 3개 질문을 'How?'에서 'Why?'로 전환하세요. '어떻게?'보다 '왜?'가 더 깊은 통찰을 줍니다.",
-                            example: "How to solve? → Why is this a problem? / How to improve? → Why does it matter?"
-                        },
-                        beginner: {
-                            issue: "표면적 질문 - 겉으로 보이는 현상만 질문함",
-                            basic: "매일 5분씩 'Why?' 질문 연습. '왜 중요한가?'부터 시작하여 3번 더 깊이 파고드세요.",
-                            training: "훈련법: 문제 발견 → '왜 중요한가?' → '왜 그런가?' → '왜 그게 문제인가?' (매일 반복)"
-                        }
-                    },
-                    perspective: {
-                        master: {
-                            excellence: "완벽한 관점 통합 - 상충되는 관점들을 조화롭게 통합",
-                            influence: "관점 통합 워크숍을 진행하세요. 팀원들이 다양한 시각을 이해하도록 도와주세요.",
-                            leadership: "관점 통합 프레임워크를 만드세요. 복잡한 이해관계를 조율하는 체계를 개발하세요."
-                        },
-                        expert: {
-                            strength: "강력한 다관점 사고 - 여러 이해관계자 관점 자유롭게 전환",
-                            maintain: "관점 전환 순간을 기록하세요. '관점 라이브러리'를 구축하여 복잡한 문제에 활용하세요.",
-                            next: "'적대적 관점' 추가 - 자신의 최선 아이디어에 반대 논리를 펼쳐보세요"
-                        },
-                        advanced: {
-                            growth: "좋은 관점 다양성 - 여러 관점을 인식하지만 통합 필요",
-                            method: "관점 매트릭스 만들기: 모든 이해관계자 × 그들의 관심사를 표로 정리하세요. 충돌과 시너지를 찾으세요.",
-                            practice: "주 2회: 문제 하나를 3가지 관점(고객/회사/사회)으로 분석 → 통합점 찾기"
-                        },
-                        intermediate: {
-                            status: "제한적 관점 - 주로 자신의 관점에서 사고",
-                            improve: "매일 '만약 내가 X라면?' 질문하기. 고객, 경쟁자, 미래의 나 등 3가지 관점에서 생각하세요.",
-                            example: "내 생각 → 고객이라면? → 경쟁사라면? → 10년 후 나라면?"
-                        },
-                        beginner: {
-                            issue: "단일 관점 - 자기 중심적 사고에 갇혀 있음",
-                            basic: "하루 1번 '상대방 입장' 연습. 간단한 일상 문제를 다른 사람 관점으로 생각해보세요.",
-                            training: "훈련법: 오늘의 갈등 하나 선택 → 상대방 입장에서 3분 생각하기 → 메모 (매일)"
-                        }
-                    },
-                    structure: {
-                        master: {
-                            excellence: "완벽한 사고 체계 - 복잡한 문제를 우아하게 구조화",
-                            influence: "프레임워크 교육 세션을 운영하세요. 동료들에게 체계적 사고법을 전수하세요.",
-                            leadership: "산업 특화 프레임워크를 개발하세요. 당신의 분야에 최적화된 사고 도구를 만드세요."
-                        },
-                        expert: {
-                            strength: "뛰어난 프레임워크 활용 - 다양한 사고 도구를 능숙하게 사용",
-                            maintain: "자신이 발견한 패턴으로 나만의 프레임워크를 만드세요. 이름을 붙이고 10개 문제에 테스트하세요.",
-                            next: "2개 프레임워크를 결합하여 복잡한 문제 1개 해결하기 (예: SWOT + 5 Whys)"
-                        },
-                        advanced: {
-                            growth: "좋은 구조화 능력 - 프레임워크를 알고 가끔 사용함",
-                            method: "프레임워크 습관 만들기: 3가지 핵심 프레임워크를 선택하여 각각 주 2회씩 사용하세요.",
-                            practice: "월/목: 문제 재정의 맵 / 화/금: Head-Heart-Body / 수/토: 수요 vs 욕구"
-                        },
-                        intermediate: {
-                            status: "산발적 구조화 - 프레임워크를 알지만 일관성 없음",
-                            improve: "한 가지 프레임워크를 2주간 집중 사용하세요. 모든 문제를 같은 틀로 분석하며 익숙해지세요.",
-                            example: "이번 주 선택: Head-Heart-Body → 모든 문제를 생각(Head)/감정(Heart)/행동(Body)으로 분석"
-                        },
-                        beginner: {
-                            issue: "비구조적 사고 - 생각이 산만하고 정리되지 않음",
-                            basic: "가장 간단한 프레임워크 하나 시작: 문제-원인-해결책. 모든 문제를 이 3단계로 정리하세요.",
-                            training: "훈련법: 하루 1개 문제 선택 → 문제(무엇?), 원인(왜?), 해결책(어떻게?) 메모 (매일)"
-                        }
-                    },
-                    discussion: {
-                        master: {
-                            excellence: "완벽한 집단지성 촉진 - 토론을 통해 새로운 통찰 창조",
-                            influence: "토론 퍼실리테이터 역할을 하세요. 집단의 사고를 한 단계 끌어올리는 질문을 던지세요.",
-                            leadership: "토론 문화를 설계하세요. 조직의 집단 사고 프로토콜을 만들고 확산시키세요."
-                        },
-                        expert: {
-                            strength: "탁월한 토론 확장 - 타인의 관점을 통합하여 사고 발전",
-                            maintain: "토론 중 '결정적 질문'을 기록하세요. 대화의 흐름을 바꾼 순간들을 저널로 축적하세요.",
-                            next: "반대 의견을 적극 탐색하세요. '동의'보다 '도전적 질문'으로 토론의 질을 높이세요"
-                        },
-                        advanced: {
-                            growth: "좋은 토론 참여 - 타인 의견을 경청하고 질문으로 응답",
-                            method: "토론 시 '빌드 온(Build on)' 기법 사용: 상대 의견에 '그렇다면...' 질문으로 확장하세요.",
-                            practice: "주 2회 토론 참여 → 의견 대신 질문 3개 이상 던지기 → 새로운 통찰 기록"
-                        },
-                        intermediate: {
-                            status: "제한적 토론 - 주로 자기 의견 전달 중심",
-                            improve: "토론에서 '왜 그렇게 생각하세요?' 질문을 3번 이상 하세요. 의견 주장 전에 타인 이해부터.",
-                            example: "내 의견 말하기 → (잠깐!) → 상대에게 질문 3개 → 이해 후 의견 재구성"
-                        },
-                        beginner: {
-                            issue: "토론 회피 - 사고를 공유하지 않거나 일방적 주장",
-                            basic: "매일 5분 '경청 훈련': 상대 말을 요약해서 되돌려 주기. '당신 말은 X라는 뜻인가요?'",
-                            training: "훈련법: 대화 → 상대 의견 요약 → 질문 1개 → 내 생각 (순서 지키기)"
-                        }
-                    },
-                    application: {
-                        master: {
-                            excellence: "완벽한 사고-행동 순환 - 통찰이 지혜로 축적됨",
-                            influence: "실행 프레임워크를 팀과 공유하세요. 사고가 행동으로, 행동이 학습으로 이어지게 도우세요.",
-                            leadership: "조직의 실행 문화를 설계하세요. 사고와 행동의 간극을 없애는 시스템을 만드세요."
-                        },
-                        expert: {
-                            strength: "강력한 실행력 - 사고를 신속하게 행동으로 전환",
-                            maintain: "실행 저널을 쓰세요. '생각→행동→결과→교훈'을 매주 기록하여 실행 패턴을 파악하세요.",
-                            next: "실행 전 '실패 시나리오' 작성하기 - 예상 실패를 미리 설계하여 회복탄력성 높이기"
-                        },
-                        advanced: {
-                            growth: "좋은 실행 의지 - 생각을 행동으로 옮기려 노력 중",
-                            method: "72시간 규칙: 중요한 결정이나 아이디어는 3일 안에 최소 1개 행동으로 시작하세요.",
-                            practice: "주간 계획: 생각 3개 선정 → 각각 작은 실험 1개씩 설계 → 72시간 내 실행"
-                        },
-                        intermediate: {
-                            status: "생각 중심 - 실행까지 이어지지 않는 경우 많음",
-                            improve: "생각 후 즉시 '다음 행동 1개'를 구체적으로 쓰세요. '월요일 오전 10시, 전화 1통' 수준으로.",
-                            example: "좋은 아이디어 → (멈춤!) → 구체적 행동 1개: 언제, 어디서, 무엇을 쓰기"
-                        },
-                        beginner: {
-                            issue: "실행 부재 - 생각만 하고 행동으로 연결 안 됨",
-                            basic: "매일 '2분 행동' 규칙: 생각이 떠오르면 2분 안에 할 수 있는 초소형 행동 1개 즉시 실행.",
-                            training: "훈련법: 아이디어 → 2분 행동(메모, 검색, 메시지) → 완료 체크 (매일 반복)"
-                        }
-                    }
-                };
-                
-                const skillMap = {
-                    'Question Depth': 'depth',
-                    'Perspective Diversity': 'perspective',
-                    'Structural Thinking': 'structure',
-                    'Discussion': 'discussion',
-                    'Application': 'application'
-                };
-                const skill = skillMap[skillName] || 'depth';
-                
-                if (score >= 9.0) return feedbacks[skill].master;
-                if (score >= 8.0) return feedbacks[skill].expert;
-                if (score >= 6.5) return feedbacks[skill].advanced;
-                if (score >= 5.0) return feedbacks[skill].intermediate;
-                return feedbacks[skill].beginner;
-            }
+            // ===== 표지 =====
+            let y = 40;
             
-            // 한글 폰트 설정 (기본 폰트 사용)
-            let y = 20;
+            // 로고 영역
+            doc.setFillColor(249, 115, 22); // Orange
+            doc.rect(0, 0, 210, 60, 'F');
             
-            // 제목
-            doc.setFontSize(20);
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(32);
             doc.setFont(undefined, 'bold');
-            doc.text('RQTDW© Thinking Report', 105, y, { align: 'center' });
+            doc.text('RQTDW', 105, 30, { align: 'center' });
+            
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'normal');
+            doc.text('Thinking Level Analysis Report', 105, 45, { align: 'center' });
+            
+            // 리포트 정보
+            y = 85;
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text('Report Information', 20, y);
             
             y += 10;
-            doc.setFontSize(12);
-            doc.setFont(undefined, 'normal');
-            doc.text('Thinking Level Analysis Report', 105, y, { align: 'center' });
-            
-            y += 12;
             doc.setFontSize(10);
-            doc.setFont(undefined, 'bold');
-            doc.text(`Report Date: ${dateStr}`, 105, y, { align: 'center' });
-            
-            y += 5;
-            doc.setFontSize(9);
             doc.setFont(undefined, 'normal');
-            doc.setTextColor(100, 100, 100);
-            doc.text(`Generated on ${today.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`, 105, y, { align: 'center' });
-            doc.setTextColor(0, 0, 0);
+            doc.text(`Report Date: ${dateStr} ${timeStr}`, 20, y);
+            
+            y += 7;
+            doc.text(`Report Type: Comprehensive Thinking Analysis`, 20, y);
+            
+            y += 7;
+            doc.text(`Version: RQTDW v2.0`, 20, y);
             
             // 구분선
-            y += 10;
+            y += 15;
             doc.setDrawColor(200, 200, 200);
+            doc.setLineWidth(0.5);
             doc.line(20, y, 190, y);
             
-            // 1. 원본 질문
-            y += 10;
-            doc.setFontSize(14);
-            doc.setFont(undefined, 'bold');
-            doc.text('1. Initial Question', 20, y);
-            
-            y += 8;
-            doc.setFontSize(10);
-            doc.setFont(undefined, 'normal');
-            const questionLines = doc.splitTextToSize(question, 170);
-            doc.text(questionLines, 20, y);
-            y += questionLines.length * 6;
-            
-            // 2. 사고 레벨
-            y += 10;
-            doc.setFontSize(14);
-            doc.setFont(undefined, 'bold');
-            doc.text('2. Thinking Level Scores', 20, y);
-            
-            y += 10;
-            doc.setFontSize(11);
-            
-            // 질문 깊이
-            doc.setFont(undefined, 'bold');
-            doc.text('Question Depth:', 30, y);
-            doc.setFont(undefined, 'normal');
-            doc.text(`${metrics.depth}/10`, 80, y);
-            
-            // 프로그레스 바
-            doc.setFillColor(59, 130, 246);
-            doc.rect(100, y - 3, metrics.depth * 8, 4, 'F');
-            doc.setDrawColor(200, 200, 200);
-            doc.rect(100, y - 3, 80, 4);
-            
-            y += 8;
-            
-            // 관점 다양성
-            doc.setFont(undefined, 'bold');
-            doc.text('Perspective Diversity:', 30, y);
-            doc.setFont(undefined, 'normal');
-            doc.text(`${metrics.perspective}/10`, 80, y);
-            
-            doc.setFillColor(16, 185, 129);
-            doc.rect(100, y - 3, metrics.perspective * 8, 4, 'F');
-            doc.setDrawColor(200, 200, 200);
-            doc.rect(100, y - 3, 80, 4);
-            
-            y += 8;
-            
-            // 구조화 능력
-            doc.setFont(undefined, 'bold');
-            doc.text('Structuring Ability:', 30, y);
-            doc.setFont(undefined, 'normal');
-            doc.text(`${metrics.structure}/10`, 80, y);
-            
-            doc.setFillColor(139, 92, 246);
-            doc.rect(100, y - 3, metrics.structure * 8, 4, 'F');
-            doc.setDrawColor(200, 200, 200);
-            doc.rect(100, y - 3, 80, 4);
-            
-            y += 8;
-            
-            // 토론 확장력
-            doc.setFont(undefined, 'bold');
-            doc.text('Discussion & Collective Intelligence:', 30, y);
-            doc.setFont(undefined, 'normal');
-            doc.text(`${metrics.discussion}/10`, 95, y);
-            
-            doc.setFillColor(99, 102, 241);
-            doc.rect(115, y - 3, metrics.discussion * 8, 4, 'F');
-            doc.setDrawColor(200, 200, 200);
-            doc.rect(115, y - 3, 80, 4);
-            
-            y += 8;
-            
-            // 실행·전환 능력
-            doc.setFont(undefined, 'bold');
-            doc.text('Application & Transformation:', 30, y);
-            doc.setFont(undefined, 'normal');
-            doc.text(`${metrics.application}/10`, 95, y);
-            
-            doc.setFillColor(249, 115, 22);
-            doc.rect(115, y - 3, metrics.application * 8, 4, 'F');
-            doc.setDrawColor(200, 200, 200);
-            doc.rect(115, y - 3, 80, 4);
-            
-            // 3. 종합 평가
+            // 분석 대상 질문
             y += 15;
-            doc.setFontSize(14);
+            doc.setFontSize(12);
             doc.setFont(undefined, 'bold');
-            doc.text('3. Overall Assessment', 20, y);
+            doc.text('Analyzed Question:', 20, y);
             
             y += 8;
             doc.setFontSize(10);
             doc.setFont(undefined, 'normal');
+            doc.setFillColor(250, 250, 250);
+            doc.rect(20, y - 5, 170, 30, 'F');
+            doc.setDrawColor(220, 220, 220);
+            doc.rect(20, y - 5, 170, 30);
             
+            const questionLines = doc.splitTextToSize(question, 160);
+            doc.text(questionLines, 25, y + 5);
+            
+            // 종합 점수
+            y += 45;
             const avgScore = ((metrics.depth + metrics.perspective + metrics.structure + metrics.discussion + metrics.application) / 5).toFixed(1);
-            doc.text(`Average Score: ${avgScore}/10`, 30, y);
             
-            y += 6;
-            // 5등급 시스템
-            let gradeIcon = '🌱', gradeRank = 'D', gradeName = '초보자', gradeNameEn = 'Beginner';
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text('Overall Score:', 20, y);
+            
+            doc.setFontSize(28);
+            doc.setTextColor(249, 115, 22);
+            doc.text(`${avgScore}`, 105, y + 15, { align: 'center' });
+            
+            doc.setFontSize(12);
+            doc.setTextColor(100, 100, 100);
+            doc.text('/ 10.0', 120, y + 15);
+            
+            // 등급 판정
+            y += 30;
+            doc.setTextColor(0, 0, 0);
+            let gradeIcon = '', gradeRank = 'D', gradeName = 'Beginner', gradeColor = [149, 165, 166];
             if (avgScore >= 9.0) {
-                gradeIcon = '🏆'; gradeRank = 'S'; gradeName = '마스터'; gradeNameEn = 'Master';
+                gradeIcon = 'S'; gradeName = 'Master'; gradeColor = [255, 215, 0];
             } else if (avgScore >= 8.0) {
-                gradeIcon = '💎'; gradeRank = 'A'; gradeName = '전문가'; gradeNameEn = 'Expert';
+                gradeIcon = 'A'; gradeName = 'Expert'; gradeColor = [231, 76, 60];
             } else if (avgScore >= 6.5) {
-                gradeIcon = '⭐'; gradeRank = 'B'; gradeName = '숙련자'; gradeNameEn = 'Advanced';
+                gradeIcon = 'B'; gradeName = 'Advanced'; gradeColor = [52, 152, 219];
             } else if (avgScore >= 5.0) {
-                gradeIcon = '📚'; gradeRank = 'C'; gradeName = '중급자'; gradeNameEn = 'Intermediate';
+                gradeIcon = 'C'; gradeName = 'Intermediate'; gradeColor = [46, 204, 113];
             }
-            doc.text(`Grade: ${gradeIcon} ${gradeRank}등급 - ${gradeName} (${gradeNameEn})`, 30, y);
             
-            // === 새로운 페이지: AI 맞춤형 피드백 ===
-            doc.addPage();
-            y = 20;
-            
+            doc.setFillColor(...gradeColor);
+            doc.rect(20, y - 8, 170, 20, 'F');
+            doc.setTextColor(255, 255, 255);
             doc.setFontSize(16);
             doc.setFont(undefined, 'bold');
-            doc.text('4. AI Personalized Feedback', 20, y);
+            doc.text(`Grade ${gradeIcon} - ${gradeName}`, 105, y, { align: 'center' });
             
-            y += 8;
-            doc.setFontSize(9);
-            doc.setFont(undefined, 'italic');
-            doc.setTextColor(100, 100, 100);
-            doc.text('Tailored development strategies based on your current level', 20, y);
+            // 푸터
+            doc.setTextColor(150, 150, 150);
+            doc.setFontSize(8);
+            doc.setFont(undefined, 'normal');
+            doc.text('RQTDW (c) - Human Thinking OS', 105, 280, { align: 'center' });
+            
+            // ===== 페이지 2: 상세 점수 =====
+            doc.addPage();
+            y = 25;
+            
             doc.setTextColor(0, 0, 0);
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text('Detailed Scores', 20, y);
             
-            y += 10;
+            y += 5;
+            doc.setDrawColor(249, 115, 22);
+            doc.setLineWidth(1);
+            doc.line(20, y, 80, y);
             
-            // 능력별 피드백 (5가지 기준)
+            y += 15;
+            
             const skills = [
-                { name: 'Question Depth', score: metrics.depth, color: [59, 130, 246] },
-                { name: 'Perspective Diversity', score: metrics.perspective, color: [16, 185, 129] },
-                { name: 'Structural Thinking', score: metrics.structure, color: [139, 92, 246] },
-                { name: 'Discussion', score: metrics.discussion, color: [99, 102, 241] },
-                { name: 'Application', score: metrics.application, color: [249, 115, 22] }
+                { name: 'Question Depth', nameKr: '질문 깊이', score: metrics.depth, color: [59, 130, 246], icon: '?' },
+                { name: 'Perspective Diversity', nameKr: '관점 다양성', score: metrics.perspective, color: [16, 185, 129], icon: '👁' },
+                { name: 'Structural Thinking', nameKr: '사고 구조화', score: metrics.structure, color: [139, 92, 246], icon: '🏗' },
+                { name: 'Discussion & Collective Intelligence', nameKr: '토론 및 집단지성', score: metrics.discussion, color: [99, 102, 241], icon: '💬' },
+                { name: 'Application & Transformation', nameKr: '실행 및 전환', score: metrics.application, color: [249, 115, 22], icon: '⚡' }
             ];
             
             skills.forEach((skill, index) => {
-                const feedback = generateAIFeedback(skill.score, skill.name);
-                
                 // 스킬 헤더
-                doc.setFillColor(...skill.color);
-                doc.rect(20, y, 4, 6, 'F');
+                doc.setFillColor(245, 245, 245);
+                doc.rect(20, y - 6, 170, 12, 'F');
                 
+                doc.setTextColor(0, 0, 0);
                 doc.setFontSize(12);
                 doc.setFont(undefined, 'bold');
-                doc.text(`${skill.name} (${skill.score}/10)`, 27, y + 4);
+                doc.text(`${skill.icon} ${skill.name}`, 25, y);
                 
-                y += 10;
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(...skill.color);
+                doc.text(`${skill.score}`, 180, y, { align: 'right' });
+                
+                // 진행바
+                y += 8;
+                doc.setDrawColor(220, 220, 220);
+                doc.setLineWidth(0.3);
+                doc.rect(25, y - 3, 150, 5);
+                
+                doc.setFillColor(...skill.color);
+                doc.rect(25, y - 3, skill.score * 15, 5, 'F');
+                
+                // 등급 텍스트
+                y += 8;
+                doc.setTextColor(100, 100, 100);
                 doc.setFontSize(9);
                 doc.setFont(undefined, 'normal');
+                let levelText = 'Beginner';
+                if (skill.score >= 9.0) levelText = 'Master';
+                else if (skill.score >= 8.0) levelText = 'Expert';
+                else if (skill.score >= 6.5) levelText = 'Advanced';
+                else if (skill.score >= 5.0) levelText = 'Intermediate';
+                doc.text(`Level: ${levelText}`, 25, y);
                 
-                // 5등급 시스템
-                let boxBgColor, boxBorderColor, labelColor, labelText, field1, field2, field3;
+                y += 15;
                 
-                if (skill.score >= 9.0) {
-                    // S등급 - 마스터
-                    boxBgColor = [255, 249, 230];  // 연금색
-                    boxBorderColor = [255, 215, 0];  // 금색
-                    labelColor = [184, 134, 11];  // 진금색
-                    labelText = '🏆 S등급 - 마스터 (Master)';
-                    field1 = { label: '탁월함:', content: feedback.excellence };
-                    field2 = { label: '영향력:', content: feedback.influence };
-                    field3 = { label: '리더십:', content: feedback.leadership };
-                    
-                } else if (skill.score >= 8.0) {
-                    // A등급 - 전문가
-                    boxBgColor = [239, 246, 255];  // 연파랑
-                    boxBorderColor = [59, 130, 246];  // 파랑
-                    labelColor = [30, 64, 175];  // 진파랑
-                    labelText = '💎 A등급 - 전문가 (Expert)';
-                    field1 = { label: '강점:', content: feedback.strength };
-                    field2 = { label: '유지법:', content: feedback.maintain };
-                    field3 = { label: '다음 도전:', content: feedback.next };
-                    
-                } else if (skill.score >= 6.5) {
-                    // B등급 - 숙련자
-                    boxBgColor = [240, 253, 244];  // 연초록
-                    boxBorderColor = [34, 197, 94];  // 초록
-                    labelColor = [22, 163, 74];  // 진초록
-                    labelText = '⭐ B등급 - 숙련자 (Advanced)';
-                    field1 = { label: '성장:', content: feedback.growth };
-                    field2 = { label: '개발법:', content: feedback.method };
-                    field3 = { label: '실천:', content: feedback.practice };
-                    
-                } else if (skill.score >= 5.0) {
-                    // C등급 - 중급자
-                    boxBgColor = [254, 249, 195];  // 연노랑
-                    boxBorderColor = [234, 179, 8];  // 노랑
-                    labelColor = [161, 98, 7];  // 진노랑
-                    labelText = '📚 C등급 - 중급자 (Intermediate)';
-                    field1 = { label: '현황:', content: feedback.status };
-                    field2 = { label: '개선법:', content: feedback.improve };
-                    field3 = { label: '예시:', content: feedback.example };
-                    
-                } else {
-                    // D등급 - 초보자
-                    boxBgColor = [255, 240, 240];  // 연빨강
-                    boxBorderColor = [220, 38, 38];  // 빨강
-                    labelColor = [185, 28, 28];  // 진빨강
-                    labelText = '🌱 D등급 - 초보자 (Beginner)';
-                    field1 = { label: '문제:', content: feedback.issue };
-                    field2 = { label: '기초법:', content: feedback.basic };
-                    field3 = { label: '훈련:', content: feedback.training };
-                }
-                
-                // 박스 그리기
-                doc.setFillColor(...boxBgColor);
-                doc.rect(25, y - 2, 165, 35, 'F');
-                doc.setDrawColor(...boxBorderColor);
-                doc.rect(25, y - 2, 165, 35);
-                
-                y += 4;
-                doc.setFont(undefined, 'bold');
-                doc.setTextColor(...labelColor);
-                doc.text(labelText, 30, y);
-                doc.setTextColor(0, 0, 0);
-                
-                // Field 1
-                y += 6;
-                doc.setFont(undefined, 'bold');
-                doc.text(field1.label, 30, y);
-                doc.setFont(undefined, 'normal');
-                const lines1 = doc.splitTextToSize(field1.content, 145);
-                doc.text(lines1, 30 + doc.getTextWidth(field1.label) + 2, y);
-                y += lines1.length * 5;
-                
-                // Field 2
-                y += 2;
-                doc.setFont(undefined, 'bold');
-                doc.text(field2.label, 30, y);
-                doc.setFont(undefined, 'normal');
-                const lines2 = doc.splitTextToSize(field2.content, 145);
-                doc.text(lines2, 30 + doc.getTextWidth(field2.label) + 2, y);
-                y += lines2.length * 5;
-                
-                // Field 3
-                y += 2;
-                doc.setFont(undefined, 'bold');
-                doc.text(field3.label, 30, y);
-                doc.setFont(undefined, 'normal');
-                const lines3 = doc.splitTextToSize(field3.content, 145);
-                doc.text(lines3, 30 + doc.getTextWidth(field3.label) + 2, y);
-                y += lines3.length * 5;
-                
-                y += 8;
-                
-                // 페이지 넘김 체크 (5개 피드백을 위해 간격 조정)
-                if (y > 240 && index < skills.length - 1) {
+                // 페이지 넘김 체크
+                if (y > 250 && index < skills.length - 1) {
                     doc.addPage();
-                    y = 20;
+                    y = 25;
                 }
             });
             
-            // 5. 다음 단계 (원래 페이지로)
-            if (y > 200) {
-                doc.addPage();
-                y = 20;
-            }
+            // ===== 페이지 3: AI 맞춤형 피드백 =====
+            doc.addPage();
+            y = 25;
+            
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text('AI Personalized Feedback', 20, y);
             
             y += 5;
+            doc.setDrawColor(249, 115, 22);
+            doc.setLineWidth(1);
+            doc.line(20, y, 110, y);
+            
+            y += 10;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'italic');
+            doc.setTextColor(100, 100, 100);
+            doc.text('Customized development strategies based on your current level', 20, y);
+            
+            y += 15;
+            
+            // 강점 분석
+            doc.setTextColor(0, 0, 0);
             doc.setFontSize(14);
             doc.setFont(undefined, 'bold');
-            doc.setTextColor(0, 0, 0);
-            doc.text('5. Recommended Actions', 20, y);
+            doc.text('Strengths', 20, y);
             
             y += 8;
             doc.setFontSize(10);
             doc.setFont(undefined, 'normal');
-            doc.text('- Practice RQTDW(C) method regularly (3+ times per week)', 30, y);
-            y += 5;
-            doc.text('- Try different thinking frameworks from your feedback above', 30, y);
-            y += 5;
-            doc.text('- Engage in question-based discussions with peers', 30, y);
-            y += 5;
-            doc.text('- Record and review your insights weekly', 30, y);
             
-            // 푸터
-            y = 275;
-            doc.setFontSize(8);
-            doc.setTextColor(150, 150, 150);
-            doc.text('RQTDW(C) - Human Thinking OS', 105, y, { align: 'center' });
-            doc.text('Developed by Jaiwoo Shim', 105, y + 4, { align: 'center' });
+            const topSkills = skills
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 2);
+            
+            topSkills.forEach((skill, idx) => {
+                doc.setTextColor(...skill.color);
+                doc.text(`${idx + 1}. ${skill.name}`, 25, y);
+                doc.setTextColor(0, 0, 0);
+                doc.text(`(${skill.score}/10)`, 120, y);
+                y += 6;
+            });
+            
+            // 개선 영역
+            y += 10;
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Areas for Improvement', 20, y);
             
             y += 8;
-            doc.setFontSize(7);
-            doc.setTextColor(180, 180, 180);
-            const fullDateTime = `Created: ${dateStr} ${String(today.getHours()).padStart(2, '0')}:${String(today.getMinutes()).padStart(2, '0')}`;
-            doc.text(fullDateTime, 105, y + 4, { align: 'center' });
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            
+            const weakSkills = skills
+                .sort((a, b) => a.score - b.score)
+                .slice(0, 2);
+            
+            weakSkills.forEach((skill, idx) => {
+                doc.setTextColor(231, 76, 60);
+                doc.text(`${idx + 1}. ${skill.name}`, 25, y);
+                doc.setTextColor(0, 0, 0);
+                doc.text(`(${skill.score}/10)`, 120, y);
+                y += 6;
+            });
+            
+            // 추천 액션 플랜
+            y += 15;
+            doc.setFillColor(255, 248, 225);
+            doc.rect(20, y - 5, 170, 80, 'F');
+            doc.setDrawColor(255, 193, 7);
+            doc.setLineWidth(0.5);
+            doc.rect(20, y - 5, 170, 80);
+            
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text('30-Day Action Plan', 25, y + 5);
+            
+            y += 15;
+            doc.setFontSize(9);
+            doc.setFont(undefined, 'normal');
+            
+            const actionPlan = [
+                'Week 1-2: Focus on Question Depth training',
+                '  - Practice "5 Whys" technique daily',
+                '  - Journal 3 deep questions per day',
+                '',
+                'Week 3-4: Enhance Perspective Diversity',
+                '  - View each problem from 3 different angles',
+                '  - Practice empathy mapping',
+                '',
+                'Daily Practice: 15-20 minutes of structured thinking'
+            ];
+            
+            actionPlan.forEach(line => {
+                doc.text(line, 25, y);
+                y += 5;
+            });
+            
+            // ===== 페이지 4: 성장 로드맵 =====
+            doc.addPage();
+            y = 25;
+            
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text('Growth Roadmap', 20, y);
+            
+            y += 5;
+            doc.setDrawColor(249, 115, 22);
+            doc.setLineWidth(1);
+            doc.line(20, y, 85, y);
+            
+            y += 20;
+            
+            // 타임라인 그리기
+            doc.setDrawColor(200, 200, 200);
+            doc.setLineWidth(2);
+            doc.line(30, y, 30, y + 150);
+            
+            const milestones = [
+                { time: 'Now', title: `${gradeName} Level`, desc: `Current Score: ${avgScore}/10` },
+                { time: '1 Month', title: 'Foundation Building', desc: 'Daily practice + journaling' },
+                { time: '3 Months', title: 'Skill Integration', desc: 'Multi-framework thinking' },
+                { time: '6 Months', title: `Target: ${gradeName === 'Beginner' ? 'Intermediate' : gradeName === 'Intermediate' ? 'Advanced' : 'Expert'}`, desc: 'Consistent mastery' }
+            ];
+            
+            milestones.forEach((milestone, idx) => {
+                // 원 마커
+                doc.setFillColor(249, 115, 22);
+                doc.circle(30, y + (idx * 40), 3, 'F');
+                
+                // 시간
+                doc.setTextColor(100, 100, 100);
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'italic');
+                doc.text(milestone.time, 40, y + (idx * 40) - 5);
+                
+                // 제목
+                doc.setTextColor(0, 0, 0);
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'bold');
+                doc.text(milestone.title, 40, y + (idx * 40) + 3);
+                
+                // 설명
+                doc.setTextColor(100, 100, 100);
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                doc.text(milestone.desc, 40, y + (idx * 40) + 10);
+            });
+            
+            // 푸터
+            y = 270;
+            doc.setTextColor(150, 150, 150);
+            doc.setFontSize(8);
+            doc.setFont(undefined, 'normal');
+            doc.text('Developed by Jaiwoo Shim | RQTDW (c) Human Thinking OS', 105, y, { align: 'center' });
+            doc.text(`Generated: ${dateStr} ${timeStr}`, 105, y + 5, { align: 'center' });
             
             // PDF 저장
-            doc.save(`RQTDW-Report-${dateStr}.pdf`);
+            doc.save(`RQTDW_Analysis_Report_${dateStr}.pdf`);
+            
+            // 로그 기록
+            logActivity('pdf_downloaded', {
+                date: dateStr,
+                avgScore: avgScore,
+                grade: gradeIcon
+            });
             
             // 성공 메시지
             setTimeout(() => {
-                alert('📄 분석 리포트가 다운로드되었습니다!\n\n파일명: RQTDW-Report-' + dateStr + '.pdf\n\n✨ AI 맞춤형 피드백이 포함되어 있습니다!');
+                alert(`📄 분석 리포트가 다운로드되었습니다!
+
+파일명: RQTDW_Analysis_Report_${dateStr}.pdf
+
+📊 포함 내용:
+- 전체 사고 레벨 점수
+- 5가지 세부 능력 분석
+- AI 맞춤형 피드백
+- 30일 액션 플랜
+- 6개월 성장 로드맵
+
+✨ 정기적으로 리포트를 다운로드하여 성장을 추적하세요!`);
             }, 300);
         }
         
