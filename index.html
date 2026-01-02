@@ -6,6 +6,7 @@
     <title>RQTDW© 사고 운영체제 - MVP Demo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -206,13 +207,11 @@
                 <div class="flex justify-between items-center mt-6">
                     <p class="text-sm text-gray-500" id="char-count">
                         <span class="inline-block w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></span>
-                        질문을 입력하고 Enter를 누르거나 버튼을 클릭하세요
+                        질문을 입력하세요
                     </p>
                     <button
-                        onclick="startThinking()"
                         id="start-btn"
-                        class="px-8 py-3 rounded-xl font-semibold text-lg transition-all bg-gray-200 text-gray-400 cursor-not-allowed shadow-md"
-                        disabled
+                        class="px-8 py-3 rounded-xl font-semibold text-lg transition-all bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg cursor-pointer"
                     >
                         사고 시작하기 →
                     </button>
@@ -338,10 +337,16 @@
                             class="w-full h-32 p-4 border-2 border-gray-200 rounded-xl focus:border-rqtdw-question focus:outline-none resize-none"
                         ></textarea>
                         
-                        <div class="flex justify-end mt-4">
+                        <div class="flex gap-4 mt-4">
+                            <button
+                                onclick="backToHome()"
+                                class="flex-1 px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all"
+                            >
+                                ← 처음으로
+                            </button>
                             <button
                                 onclick="goToThink()"
-                                class="px-6 py-3 bg-rqtdw-question text-white rounded-xl font-semibold hover:bg-opacity-90 transition-all"
+                                class="flex-1 px-6 py-3 bg-rqtdw-question text-white rounded-xl font-semibold hover:bg-opacity-90 transition-all"
                             >
                                 다음: 사고 구조화 (Think) →
                             </button>
@@ -894,6 +899,64 @@
                             </div>
                         </div>
 
+                        <!-- 사고 레벨 미리보기 -->
+                        <div class="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                            <h5 class="text-xs font-semibold text-gray-700 mb-3 flex items-center">
+                                <span class="mr-1">📊</span>
+                                예상 사고 레벨 (5가지 기준)
+                            </h5>
+                            <div class="space-y-2">
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">질문 깊이</span>
+                                        <span class="font-semibold text-blue-600">8.5/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-blue-600 h-1.5 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">관점 다양성</span>
+                                        <span class="font-semibold text-green-600">7.5/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-green-600 h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">구조화 능력</span>
+                                        <span class="font-semibold text-purple-600">8.0/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-purple-600 h-1.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">토론 확장력</span>
+                                        <span class="font-semibold text-indigo-600">7.2/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">실행·전환</span>
+                                        <span class="font-semibold text-orange-600">7.8/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-orange-600 h-1.5 rounded-full" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-3 italic">
+                                💡 Why 질문 활용으로 높은 질문 깊이 예상
+                            </p>
+                        </div>
+
                         <button 
                             onclick="startSample1()"
                             class="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all shadow-md"
@@ -964,6 +1027,64 @@
                                     <p class="text-xs text-gray-700">"문제는 '협업 부족'이 아니라 'Why의 부재'"</p>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- 사고 레벨 미리보기 -->
+                        <div class="mb-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+                            <h5 class="text-xs font-semibold text-gray-700 mb-3 flex items-center">
+                                <span class="mr-1">📊</span>
+                                예상 사고 레벨 (5가지 기준)
+                            </h5>
+                            <div class="space-y-2">
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">질문 깊이</span>
+                                        <span class="font-semibold text-blue-600">9.0/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-blue-600 h-1.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">관점 다양성</span>
+                                        <span class="font-semibold text-green-600">8.5/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-green-600 h-1.5 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">구조화 능력</span>
+                                        <span class="font-semibold text-purple-600">7.5/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-purple-600 h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">토론 확장력</span>
+                                        <span class="font-semibold text-indigo-600">8.8/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-gray-600">실행·전환</span>
+                                        <span class="font-semibold text-orange-600">8.2/10</span>
+                                    </div>
+                                    <div class="bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-orange-600 h-1.5 rounded-full" style="width: 82%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-3 italic">
+                                💡 문제 재정의 맵으로 최고 질문 깊이 달성
+                            </p>
                         </div>
 
                         <button 
@@ -1507,28 +1628,82 @@
                                 ></textarea>
                             </div>
 
-                            <!-- 질문의 변화 -->
-                            <div>
-                                <label class="block mb-2">
-                                    <span class="text-lg font-semibold text-gray-800 flex items-center">
-                                        <span class="text-2xl mr-2">🔄</span>
-                                        질문의 변화
+                            <!-- 질문의 변화 (강화) -->
+                            <div class="p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200">
+                                <label class="block mb-4">
+                                    <span class="text-xl font-bold text-gray-900 flex items-center">
+                                        <span class="text-3xl mr-2">🚀</span>
+                                        사고의 이동 (Before → After)
                                     </span>
-                                    <span class="text-sm text-gray-600">처음 질문과 최종 질문을 비교해보세요</span>
+                                    <span class="text-sm text-gray-600">초기 질문에서 최종 질문까지의 성장을 확인하세요</span>
                                 </label>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <div class="text-sm font-semibold text-gray-700 mb-2">처음 질문</div>
-                                        <div class="p-4 bg-gray-50 rounded-lg border-2 border-gray-200">
-                                            <p class="text-gray-700" id="initial-question-display">창업 아이디어가 확신이 안 서는데, 어떻게 해야 할까요?</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <!-- 초기 질문 -->
+                                    <div class="bg-white rounded-lg p-4 border-2 border-gray-300">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm font-semibold text-gray-600">📚 초기 질문</span>
+                                            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs font-semibold">📚 C등급 - 중급자</span>
+                                        </div>
+                                        <div class="p-3 bg-gray-50 rounded border border-gray-200">
+                                            <p class="text-gray-700 text-sm" id="initial-question-display">"창업 아이디어가 확신이 안 서는데, 어떻게 해야 할까요?"</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="text-sm font-semibold text-gray-700 mb-2">최종 질문</div>
+
+                                    <!-- 최종 질문 -->
+                                    <div class="bg-white rounded-lg p-4 border-2 border-blue-500">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm font-semibold text-blue-600">💎 최종 질문</span>
+                                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">💎 A등급 - 전문가</span>
+                                        </div>
                                         <textarea 
-                                            placeholder="질문이 어떻게 발전했나요?"
-                                            class="w-full h-24 p-4 border-2 border-green-300 focus:border-green-500 rounded-lg focus:outline-none resize-none"
+                                            id="final-question-input"
+                                            placeholder="RQTDW 과정을 거쳐 발전한 최종 질문을 작성하세요..."
+                                            class="w-full h-24 p-3 border-2 border-blue-300 focus:border-blue-500 rounded-lg focus:outline-none resize-none text-sm"
                                         ></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- 등급 변화 시각화 -->
+                                <div class="bg-white rounded-lg p-4">
+                                    <h4 class="text-sm font-bold text-gray-800 mb-3 flex items-center">
+                                        <span class="mr-2">📊</span>
+                                        등급 변화 요약
+                                    </h4>
+                                    <div class="flex items-center justify-center space-x-4 mb-4">
+                                        <div class="text-center">
+                                            <div class="text-3xl mb-1">📚</div>
+                                            <div class="text-xs text-gray-600">C등급</div>
+                                            <div class="text-lg font-bold text-yellow-600">5.8</div>
+                                        </div>
+                                        <div class="flex-1 flex items-center justify-center">
+                                            <div class="flex items-center space-x-1">
+                                                <div class="text-2xl text-green-600">→</div>
+                                                <div class="text-sm font-semibold text-green-700">+2.4점 상승</div>
+                                                <div class="text-2xl text-green-600">→</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-3xl mb-1">💎</div>
+                                            <div class="text-xs text-gray-600">A등급</div>
+                                            <div class="text-lg font-bold text-blue-600">8.2</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 주요 변화 -->
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+                                        <div class="flex items-start p-2 bg-green-50 rounded">
+                                            <span class="text-green-600 mr-1 flex-shrink-0">✓</span>
+                                            <span class="text-gray-700"><strong>질문 깊이:</strong> 판단 요청 → 전제 의심</span>
+                                        </div>
+                                        <div class="flex items-start p-2 bg-green-50 rounded">
+                                            <span class="text-green-600 mr-1 flex-shrink-0">✓</span>
+                                            <span class="text-gray-700"><strong>관점 확장:</strong> 개인 → 고객 관점</span>
+                                        </div>
+                                        <div class="flex items-start p-2 bg-green-50 rounded">
+                                            <span class="text-green-600 mr-1 flex-shrink-0">✓</span>
+                                            <span class="text-gray-700"><strong>실행 설계:</strong> 고민 → 검증 실험</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1567,29 +1742,45 @@
                             </div>
 
                             <!-- 수치 카드 -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4">
                                 <div class="bg-white p-4 rounded-lg">
                                     <div class="text-xs text-gray-600 mb-1">질문 깊이</div>
-                                    <div class="text-2xl font-bold text-blue-600" id="depth-score">7.5/10</div>
-                                    <div class="text-xs text-gray-500 mt-1">표면 → 본질 질문</div>
+                                    <div class="text-2xl font-bold text-blue-600" id="depth-score">8.5/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">본질 탐색</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
                                         <div class="bg-blue-600 h-2 rounded-full transition-all duration-1000" id="depth-bar" style="width: 0%"></div>
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg">
                                     <div class="text-xs text-gray-600 mb-1">관점 다양성</div>
-                                    <div class="text-2xl font-bold text-green-600" id="perspective-score">8.0/10</div>
-                                    <div class="text-xs text-gray-500 mt-1">다면적 시각 확보</div>
+                                    <div class="text-2xl font-bold text-green-600" id="perspective-score">8.2/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">다면적 시각</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
                                         <div class="bg-green-600 h-2 rounded-full transition-all duration-1000" id="perspective-bar" style="width: 0%"></div>
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg">
                                     <div class="text-xs text-gray-600 mb-1">구조화 능력</div>
-                                    <div class="text-2xl font-bold text-purple-600" id="structure-score">7.0/10</div>
-                                    <div class="text-xs text-gray-500 mt-1">프레임워크 활용</div>
+                                    <div class="text-2xl font-bold text-purple-600" id="structure-score">8.0/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">프레임워크</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
                                         <div class="bg-purple-600 h-2 rounded-full transition-all duration-1000" id="structure-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-xs text-gray-600 mb-1">토론 확장력</div>
+                                    <div class="text-2xl font-bold text-indigo-600" id="discussion-score">7.8/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">집단지성</div>
+                                    <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-indigo-600 h-2 rounded-full transition-all duration-1000" id="discussion-bar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-xs text-gray-600 mb-1">실행·전환</div>
+                                    <div class="text-2xl font-bold text-orange-600" id="application-score">7.5/10</div>
+                                    <div class="text-xs text-gray-500 mt-1">행동 전환</div>
+                                    <div class="mt-2 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-orange-600 h-2 rounded-full transition-all duration-1000" id="application-bar" style="width: 0%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1641,9 +1832,17 @@
                             <button onclick="goBackToDiscussion()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all">
                                 ← Discussion으로
                             </button>
-                            <button onclick="completeWriting()" class="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-xl">
-                                🎉 사고 훈련 완료!
-                            </button>
+                            <div class="flex gap-3">
+                                <button onclick="downloadPDFReport()" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all shadow-md flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    분석 리포트 PDF
+                                </button>
+                                <button onclick="completeWriting()" class="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-700 hover:to-emerald-700 transition-all shadow-xl">
+                                    🎉 사고 훈련 완료!
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -1918,20 +2117,53 @@
             }
         });
         
-        function startThinking() {
+        // startThinking 함수를 전역으로 명시적 선언
+        window.startThinking = function() {
+            console.log('🚀 startThinking 함수 호출됨');
+            
+            const questionInput = document.getElementById('main-question');
+            console.log('📝 입력 요소:', questionInput);
+            
+            if (!questionInput) {
+                console.error('❌ main-question 요소를 찾을 수 없습니다');
+                return;
+            }
+            
             currentQuestion = questionInput.value.trim();
-            if (!currentQuestion) return;
+            console.log('📄 입력된 질문:', currentQuestion);
+            
+            if (!currentQuestion) {
+                console.log('⚠️ 질문이 비어있습니다');
+                alert('질문을 입력해주세요!');
+                return;
+            }
             
             // 화면 전환
-            document.getElementById('home-screen').classList.add('hidden');
-            document.getElementById('question-screen').classList.remove('hidden');
+            console.log('🔄 화면 전환 시작');
+            const homeScreen = document.getElementById('home-screen');
+            const questionScreen = document.getElementById('question-screen');
+            
+            console.log('화면 요소:', {homeScreen, questionScreen});
+            
+            if (!homeScreen || !questionScreen) {
+                console.error('❌ 화면 요소를 찾을 수 없습니다');
+                return;
+            }
+            
+            homeScreen.classList.add('hidden');
+            questionScreen.classList.remove('hidden');
+            console.log('✅ 화면 전환 완료');
             
             // 원래 질문 표시
-            document.getElementById('original-question').textContent = currentQuestion;
+            const originalQuestionEl = document.getElementById('original-question');
+            if (originalQuestionEl) {
+                originalQuestionEl.textContent = currentQuestion;
+                console.log('✅ 질문 표시 완료');
+            }
             
             // AI 재구성 시뮬레이션
             setTimeout(generateReframedQuestions, 1500);
-        }
+        };
         
         function generateReframedQuestions() {
             const questions = [
@@ -2117,28 +2349,537 @@
             window.scrollTo(0, 0);
         }
         
-        // 차트 초기화 함수
-        function initializeCharts() {
-            // 현재 샘플의 지표 가져오기
+        // PDF 리포트 다운로드
+        function downloadPDFReport() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // 현재 데이터 가져오기
+            const question = document.getElementById('initial-question-display').textContent;
             const metrics = currentSample?.insights?.growthMetrics || {
                 depth: 7.5,
                 perspective: 8.0,
                 structure: 7.0
             };
             
-            // 점수 업데이트
+            // 날짜
+            const today = new Date();
+            const dateStr = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
+            
+            // AI 피드백 생성 함수 (5등급 시스템)
+            function generateAIFeedback(score, skillName) {
+                const feedbacks = {
+                    depth: {
+                        master: {
+                            excellence: "완벽한 질문 체계 구축 - 본질을 꿰뚫는 질문 능력",
+                            influence: "다른 이들에게 질문하는 법을 가르치세요. 멘토링을 통해 질문 문화를 확산하세요.",
+                            leadership: "새로운 질문 프레임워크를 창조하세요. 당신만의 질문 철학을 체계화하고 공유하세요."
+                        },
+                        expert: {
+                            strength: "탁월한 질문 깊이 - 근본 원인까지 파고드는 능력",
+                            maintain: "돌파구를 찾은 질문들을 저널에 기록하세요. 매주 리뷰하여 자신의 최고 사고 패턴을 파악하세요.",
+                            next: "'내가 묻지 않는 질문은 무엇인가?' 스스로 질문하여 사각지대를 찾으세요"
+                        },
+                        advanced: {
+                            growth: "좋은 질문 깊이 - Why 질문을 자주 활용함",
+                            method: "'5 Whys' 기법을 체계적으로 사용하세요. 각 답변 후 'Why?'를 5번 반복하여 근본 원인을 찾으세요.",
+                            practice: "하루 1개 문제에 5 Whys 적용 → 주 2회 저널 기록 → 월 1회 패턴 분석"
+                        },
+                        intermediate: {
+                            status: "기본적인 질문 능력 - 표면적 질문에서 벗어나는 중",
+                            improve: "매일 3개 질문을 'How?'에서 'Why?'로 전환하세요. '어떻게?'보다 '왜?'가 더 깊은 통찰을 줍니다.",
+                            example: "How to solve? → Why is this a problem? / How to improve? → Why does it matter?"
+                        },
+                        beginner: {
+                            issue: "표면적 질문 - 겉으로 보이는 현상만 질문함",
+                            basic: "매일 5분씩 'Why?' 질문 연습. '왜 중요한가?'부터 시작하여 3번 더 깊이 파고드세요.",
+                            training: "훈련법: 문제 발견 → '왜 중요한가?' → '왜 그런가?' → '왜 그게 문제인가?' (매일 반복)"
+                        }
+                    },
+                    perspective: {
+                        master: {
+                            excellence: "완벽한 관점 통합 - 상충되는 관점들을 조화롭게 통합",
+                            influence: "관점 통합 워크숍을 진행하세요. 팀원들이 다양한 시각을 이해하도록 도와주세요.",
+                            leadership: "관점 통합 프레임워크를 만드세요. 복잡한 이해관계를 조율하는 체계를 개발하세요."
+                        },
+                        expert: {
+                            strength: "강력한 다관점 사고 - 여러 이해관계자 관점 자유롭게 전환",
+                            maintain: "관점 전환 순간을 기록하세요. '관점 라이브러리'를 구축하여 복잡한 문제에 활용하세요.",
+                            next: "'적대적 관점' 추가 - 자신의 최선 아이디어에 반대 논리를 펼쳐보세요"
+                        },
+                        advanced: {
+                            growth: "좋은 관점 다양성 - 여러 관점을 인식하지만 통합 필요",
+                            method: "관점 매트릭스 만들기: 모든 이해관계자 × 그들의 관심사를 표로 정리하세요. 충돌과 시너지를 찾으세요.",
+                            practice: "주 2회: 문제 하나를 3가지 관점(고객/회사/사회)으로 분석 → 통합점 찾기"
+                        },
+                        intermediate: {
+                            status: "제한적 관점 - 주로 자신의 관점에서 사고",
+                            improve: "매일 '만약 내가 X라면?' 질문하기. 고객, 경쟁자, 미래의 나 등 3가지 관점에서 생각하세요.",
+                            example: "내 생각 → 고객이라면? → 경쟁사라면? → 10년 후 나라면?"
+                        },
+                        beginner: {
+                            issue: "단일 관점 - 자기 중심적 사고에 갇혀 있음",
+                            basic: "하루 1번 '상대방 입장' 연습. 간단한 일상 문제를 다른 사람 관점으로 생각해보세요.",
+                            training: "훈련법: 오늘의 갈등 하나 선택 → 상대방 입장에서 3분 생각하기 → 메모 (매일)"
+                        }
+                    },
+                    structure: {
+                        master: {
+                            excellence: "완벽한 사고 체계 - 복잡한 문제를 우아하게 구조화",
+                            influence: "프레임워크 교육 세션을 운영하세요. 동료들에게 체계적 사고법을 전수하세요.",
+                            leadership: "산업 특화 프레임워크를 개발하세요. 당신의 분야에 최적화된 사고 도구를 만드세요."
+                        },
+                        expert: {
+                            strength: "뛰어난 프레임워크 활용 - 다양한 사고 도구를 능숙하게 사용",
+                            maintain: "자신이 발견한 패턴으로 나만의 프레임워크를 만드세요. 이름을 붙이고 10개 문제에 테스트하세요.",
+                            next: "2개 프레임워크를 결합하여 복잡한 문제 1개 해결하기 (예: SWOT + 5 Whys)"
+                        },
+                        advanced: {
+                            growth: "좋은 구조화 능력 - 프레임워크를 알고 가끔 사용함",
+                            method: "프레임워크 습관 만들기: 3가지 핵심 프레임워크를 선택하여 각각 주 2회씩 사용하세요.",
+                            practice: "월/목: 문제 재정의 맵 / 화/금: Head-Heart-Body / 수/토: 수요 vs 욕구"
+                        },
+                        intermediate: {
+                            status: "산발적 구조화 - 프레임워크를 알지만 일관성 없음",
+                            improve: "한 가지 프레임워크를 2주간 집중 사용하세요. 모든 문제를 같은 틀로 분석하며 익숙해지세요.",
+                            example: "이번 주 선택: Head-Heart-Body → 모든 문제를 생각(Head)/감정(Heart)/행동(Body)으로 분석"
+                        },
+                        beginner: {
+                            issue: "비구조적 사고 - 생각이 산만하고 정리되지 않음",
+                            basic: "가장 간단한 프레임워크 하나 시작: 문제-원인-해결책. 모든 문제를 이 3단계로 정리하세요.",
+                            training: "훈련법: 하루 1개 문제 선택 → 문제(무엇?), 원인(왜?), 해결책(어떻게?) 메모 (매일)"
+                        }
+                    },
+                    discussion: {
+                        master: {
+                            excellence: "완벽한 집단지성 촉진 - 토론을 통해 새로운 통찰 창조",
+                            influence: "토론 퍼실리테이터 역할을 하세요. 집단의 사고를 한 단계 끌어올리는 질문을 던지세요.",
+                            leadership: "토론 문화를 설계하세요. 조직의 집단 사고 프로토콜을 만들고 확산시키세요."
+                        },
+                        expert: {
+                            strength: "탁월한 토론 확장 - 타인의 관점을 통합하여 사고 발전",
+                            maintain: "토론 중 '결정적 질문'을 기록하세요. 대화의 흐름을 바꾼 순간들을 저널로 축적하세요.",
+                            next: "반대 의견을 적극 탐색하세요. '동의'보다 '도전적 질문'으로 토론의 질을 높이세요"
+                        },
+                        advanced: {
+                            growth: "좋은 토론 참여 - 타인 의견을 경청하고 질문으로 응답",
+                            method: "토론 시 '빌드 온(Build on)' 기법 사용: 상대 의견에 '그렇다면...' 질문으로 확장하세요.",
+                            practice: "주 2회 토론 참여 → 의견 대신 질문 3개 이상 던지기 → 새로운 통찰 기록"
+                        },
+                        intermediate: {
+                            status: "제한적 토론 - 주로 자기 의견 전달 중심",
+                            improve: "토론에서 '왜 그렇게 생각하세요?' 질문을 3번 이상 하세요. 의견 주장 전에 타인 이해부터.",
+                            example: "내 의견 말하기 → (잠깐!) → 상대에게 질문 3개 → 이해 후 의견 재구성"
+                        },
+                        beginner: {
+                            issue: "토론 회피 - 사고를 공유하지 않거나 일방적 주장",
+                            basic: "매일 5분 '경청 훈련': 상대 말을 요약해서 되돌려 주기. '당신 말은 X라는 뜻인가요?'",
+                            training: "훈련법: 대화 → 상대 의견 요약 → 질문 1개 → 내 생각 (순서 지키기)"
+                        }
+                    },
+                    application: {
+                        master: {
+                            excellence: "완벽한 사고-행동 순환 - 통찰이 지혜로 축적됨",
+                            influence: "실행 프레임워크를 팀과 공유하세요. 사고가 행동으로, 행동이 학습으로 이어지게 도우세요.",
+                            leadership: "조직의 실행 문화를 설계하세요. 사고와 행동의 간극을 없애는 시스템을 만드세요."
+                        },
+                        expert: {
+                            strength: "강력한 실행력 - 사고를 신속하게 행동으로 전환",
+                            maintain: "실행 저널을 쓰세요. '생각→행동→결과→교훈'을 매주 기록하여 실행 패턴을 파악하세요.",
+                            next: "실행 전 '실패 시나리오' 작성하기 - 예상 실패를 미리 설계하여 회복탄력성 높이기"
+                        },
+                        advanced: {
+                            growth: "좋은 실행 의지 - 생각을 행동으로 옮기려 노력 중",
+                            method: "72시간 규칙: 중요한 결정이나 아이디어는 3일 안에 최소 1개 행동으로 시작하세요.",
+                            practice: "주간 계획: 생각 3개 선정 → 각각 작은 실험 1개씩 설계 → 72시간 내 실행"
+                        },
+                        intermediate: {
+                            status: "생각 중심 - 실행까지 이어지지 않는 경우 많음",
+                            improve: "생각 후 즉시 '다음 행동 1개'를 구체적으로 쓰세요. '월요일 오전 10시, 전화 1통' 수준으로.",
+                            example: "좋은 아이디어 → (멈춤!) → 구체적 행동 1개: 언제, 어디서, 무엇을 쓰기"
+                        },
+                        beginner: {
+                            issue: "실행 부재 - 생각만 하고 행동으로 연결 안 됨",
+                            basic: "매일 '2분 행동' 규칙: 생각이 떠오르면 2분 안에 할 수 있는 초소형 행동 1개 즉시 실행.",
+                            training: "훈련법: 아이디어 → 2분 행동(메모, 검색, 메시지) → 완료 체크 (매일 반복)"
+                        }
+                    }
+                };
+                
+                const skillMap = {
+                    'Question Depth': 'depth',
+                    'Perspective Diversity': 'perspective',
+                    'Structural Thinking': 'structure',
+                    'Discussion': 'discussion',
+                    'Application': 'application'
+                };
+                const skill = skillMap[skillName] || 'depth';
+                
+                if (score >= 9.0) return feedbacks[skill].master;
+                if (score >= 8.0) return feedbacks[skill].expert;
+                if (score >= 6.5) return feedbacks[skill].advanced;
+                if (score >= 5.0) return feedbacks[skill].intermediate;
+                return feedbacks[skill].beginner;
+            }
+            
+            // 한글 폰트 설정 (기본 폰트 사용)
+            let y = 20;
+            
+            // 제목
+            doc.setFontSize(20);
+            doc.setFont(undefined, 'bold');
+            doc.text('RQTDW© Thinking Report', 105, y, { align: 'center' });
+            
+            y += 10;
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'normal');
+            doc.text('Thinking Level Analysis Report', 105, y, { align: 'center' });
+            
+            y += 12;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Report Date: ${dateStr}`, 105, y, { align: 'center' });
+            
+            y += 5;
+            doc.setFontSize(9);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(100, 100, 100);
+            doc.text(`Generated on ${today.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`, 105, y, { align: 'center' });
+            doc.setTextColor(0, 0, 0);
+            
+            // 구분선
+            y += 10;
+            doc.setDrawColor(200, 200, 200);
+            doc.line(20, y, 190, y);
+            
+            // 1. 원본 질문
+            y += 10;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('1. Initial Question', 20, y);
+            
+            y += 8;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            const questionLines = doc.splitTextToSize(question, 170);
+            doc.text(questionLines, 20, y);
+            y += questionLines.length * 6;
+            
+            // 2. 사고 레벨
+            y += 10;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('2. Thinking Level Scores', 20, y);
+            
+            y += 10;
+            doc.setFontSize(11);
+            
+            // 질문 깊이
+            doc.setFont(undefined, 'bold');
+            doc.text('Question Depth:', 30, y);
+            doc.setFont(undefined, 'normal');
+            doc.text(`${metrics.depth}/10`, 80, y);
+            
+            // 프로그레스 바
+            doc.setFillColor(59, 130, 246);
+            doc.rect(100, y - 3, metrics.depth * 8, 4, 'F');
+            doc.setDrawColor(200, 200, 200);
+            doc.rect(100, y - 3, 80, 4);
+            
+            y += 8;
+            
+            // 관점 다양성
+            doc.setFont(undefined, 'bold');
+            doc.text('Perspective Diversity:', 30, y);
+            doc.setFont(undefined, 'normal');
+            doc.text(`${metrics.perspective}/10`, 80, y);
+            
+            doc.setFillColor(16, 185, 129);
+            doc.rect(100, y - 3, metrics.perspective * 8, 4, 'F');
+            doc.setDrawColor(200, 200, 200);
+            doc.rect(100, y - 3, 80, 4);
+            
+            y += 8;
+            
+            // 구조화 능력
+            doc.setFont(undefined, 'bold');
+            doc.text('Structuring Ability:', 30, y);
+            doc.setFont(undefined, 'normal');
+            doc.text(`${metrics.structure}/10`, 80, y);
+            
+            doc.setFillColor(139, 92, 246);
+            doc.rect(100, y - 3, metrics.structure * 8, 4, 'F');
+            doc.setDrawColor(200, 200, 200);
+            doc.rect(100, y - 3, 80, 4);
+            
+            y += 8;
+            
+            // 토론 확장력
+            doc.setFont(undefined, 'bold');
+            doc.text('Discussion & Collective Intelligence:', 30, y);
+            doc.setFont(undefined, 'normal');
+            doc.text(`${metrics.discussion}/10`, 95, y);
+            
+            doc.setFillColor(99, 102, 241);
+            doc.rect(115, y - 3, metrics.discussion * 8, 4, 'F');
+            doc.setDrawColor(200, 200, 200);
+            doc.rect(115, y - 3, 80, 4);
+            
+            y += 8;
+            
+            // 실행·전환 능력
+            doc.setFont(undefined, 'bold');
+            doc.text('Application & Transformation:', 30, y);
+            doc.setFont(undefined, 'normal');
+            doc.text(`${metrics.application}/10`, 95, y);
+            
+            doc.setFillColor(249, 115, 22);
+            doc.rect(115, y - 3, metrics.application * 8, 4, 'F');
+            doc.setDrawColor(200, 200, 200);
+            doc.rect(115, y - 3, 80, 4);
+            
+            // 3. 종합 평가
+            y += 15;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('3. Overall Assessment', 20, y);
+            
+            y += 8;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            
+            const avgScore = ((metrics.depth + metrics.perspective + metrics.structure + metrics.discussion + metrics.application) / 5).toFixed(1);
+            doc.text(`Average Score: ${avgScore}/10`, 30, y);
+            
+            y += 6;
+            // 5등급 시스템
+            let gradeIcon = '🌱', gradeRank = 'D', gradeName = '초보자', gradeNameEn = 'Beginner';
+            if (avgScore >= 9.0) {
+                gradeIcon = '🏆'; gradeRank = 'S'; gradeName = '마스터'; gradeNameEn = 'Master';
+            } else if (avgScore >= 8.0) {
+                gradeIcon = '💎'; gradeRank = 'A'; gradeName = '전문가'; gradeNameEn = 'Expert';
+            } else if (avgScore >= 6.5) {
+                gradeIcon = '⭐'; gradeRank = 'B'; gradeName = '숙련자'; gradeNameEn = 'Advanced';
+            } else if (avgScore >= 5.0) {
+                gradeIcon = '📚'; gradeRank = 'C'; gradeName = '중급자'; gradeNameEn = 'Intermediate';
+            }
+            doc.text(`Grade: ${gradeIcon} ${gradeRank}등급 - ${gradeName} (${gradeNameEn})`, 30, y);
+            
+            // === 새로운 페이지: AI 맞춤형 피드백 ===
+            doc.addPage();
+            y = 20;
+            
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            doc.text('4. AI Personalized Feedback', 20, y);
+            
+            y += 8;
+            doc.setFontSize(9);
+            doc.setFont(undefined, 'italic');
+            doc.setTextColor(100, 100, 100);
+            doc.text('Tailored development strategies based on your current level', 20, y);
+            doc.setTextColor(0, 0, 0);
+            
+            y += 10;
+            
+            // 능력별 피드백 (5가지 기준)
+            const skills = [
+                { name: 'Question Depth', score: metrics.depth, color: [59, 130, 246] },
+                { name: 'Perspective Diversity', score: metrics.perspective, color: [16, 185, 129] },
+                { name: 'Structural Thinking', score: metrics.structure, color: [139, 92, 246] },
+                { name: 'Discussion', score: metrics.discussion, color: [99, 102, 241] },
+                { name: 'Application', score: metrics.application, color: [249, 115, 22] }
+            ];
+            
+            skills.forEach((skill, index) => {
+                const feedback = generateAIFeedback(skill.score, skill.name);
+                
+                // 스킬 헤더
+                doc.setFillColor(...skill.color);
+                doc.rect(20, y, 4, 6, 'F');
+                
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text(`${skill.name} (${skill.score}/10)`, 27, y + 4);
+                
+                y += 10;
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                
+                // 5등급 시스템
+                let boxBgColor, boxBorderColor, labelColor, labelText, field1, field2, field3;
+                
+                if (skill.score >= 9.0) {
+                    // S등급 - 마스터
+                    boxBgColor = [255, 249, 230];  // 연금색
+                    boxBorderColor = [255, 215, 0];  // 금색
+                    labelColor = [184, 134, 11];  // 진금색
+                    labelText = '🏆 S등급 - 마스터 (Master)';
+                    field1 = { label: '탁월함:', content: feedback.excellence };
+                    field2 = { label: '영향력:', content: feedback.influence };
+                    field3 = { label: '리더십:', content: feedback.leadership };
+                    
+                } else if (skill.score >= 8.0) {
+                    // A등급 - 전문가
+                    boxBgColor = [239, 246, 255];  // 연파랑
+                    boxBorderColor = [59, 130, 246];  // 파랑
+                    labelColor = [30, 64, 175];  // 진파랑
+                    labelText = '💎 A등급 - 전문가 (Expert)';
+                    field1 = { label: '강점:', content: feedback.strength };
+                    field2 = { label: '유지법:', content: feedback.maintain };
+                    field3 = { label: '다음 도전:', content: feedback.next };
+                    
+                } else if (skill.score >= 6.5) {
+                    // B등급 - 숙련자
+                    boxBgColor = [240, 253, 244];  // 연초록
+                    boxBorderColor = [34, 197, 94];  // 초록
+                    labelColor = [22, 163, 74];  // 진초록
+                    labelText = '⭐ B등급 - 숙련자 (Advanced)';
+                    field1 = { label: '성장:', content: feedback.growth };
+                    field2 = { label: '개발법:', content: feedback.method };
+                    field3 = { label: '실천:', content: feedback.practice };
+                    
+                } else if (skill.score >= 5.0) {
+                    // C등급 - 중급자
+                    boxBgColor = [254, 249, 195];  // 연노랑
+                    boxBorderColor = [234, 179, 8];  // 노랑
+                    labelColor = [161, 98, 7];  // 진노랑
+                    labelText = '📚 C등급 - 중급자 (Intermediate)';
+                    field1 = { label: '현황:', content: feedback.status };
+                    field2 = { label: '개선법:', content: feedback.improve };
+                    field3 = { label: '예시:', content: feedback.example };
+                    
+                } else {
+                    // D등급 - 초보자
+                    boxBgColor = [255, 240, 240];  // 연빨강
+                    boxBorderColor = [220, 38, 38];  // 빨강
+                    labelColor = [185, 28, 28];  // 진빨강
+                    labelText = '🌱 D등급 - 초보자 (Beginner)';
+                    field1 = { label: '문제:', content: feedback.issue };
+                    field2 = { label: '기초법:', content: feedback.basic };
+                    field3 = { label: '훈련:', content: feedback.training };
+                }
+                
+                // 박스 그리기
+                doc.setFillColor(...boxBgColor);
+                doc.rect(25, y - 2, 165, 35, 'F');
+                doc.setDrawColor(...boxBorderColor);
+                doc.rect(25, y - 2, 165, 35);
+                
+                y += 4;
+                doc.setFont(undefined, 'bold');
+                doc.setTextColor(...labelColor);
+                doc.text(labelText, 30, y);
+                doc.setTextColor(0, 0, 0);
+                
+                // Field 1
+                y += 6;
+                doc.setFont(undefined, 'bold');
+                doc.text(field1.label, 30, y);
+                doc.setFont(undefined, 'normal');
+                const lines1 = doc.splitTextToSize(field1.content, 145);
+                doc.text(lines1, 30 + doc.getTextWidth(field1.label) + 2, y);
+                y += lines1.length * 5;
+                
+                // Field 2
+                y += 2;
+                doc.setFont(undefined, 'bold');
+                doc.text(field2.label, 30, y);
+                doc.setFont(undefined, 'normal');
+                const lines2 = doc.splitTextToSize(field2.content, 145);
+                doc.text(lines2, 30 + doc.getTextWidth(field2.label) + 2, y);
+                y += lines2.length * 5;
+                
+                // Field 3
+                y += 2;
+                doc.setFont(undefined, 'bold');
+                doc.text(field3.label, 30, y);
+                doc.setFont(undefined, 'normal');
+                const lines3 = doc.splitTextToSize(field3.content, 145);
+                doc.text(lines3, 30 + doc.getTextWidth(field3.label) + 2, y);
+                y += lines3.length * 5;
+                
+                y += 8;
+                
+                // 페이지 넘김 체크 (5개 피드백을 위해 간격 조정)
+                if (y > 240 && index < skills.length - 1) {
+                    doc.addPage();
+                    y = 20;
+                }
+            });
+            
+            // 5. 다음 단계 (원래 페이지로)
+            if (y > 200) {
+                doc.addPage();
+                y = 20;
+            }
+            
+            y += 5;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(0, 0, 0);
+            doc.text('5. Recommended Actions', 20, y);
+            
+            y += 8;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text('- Practice RQTDW(C) method regularly (3+ times per week)', 30, y);
+            y += 5;
+            doc.text('- Try different thinking frameworks from your feedback above', 30, y);
+            y += 5;
+            doc.text('- Engage in question-based discussions with peers', 30, y);
+            y += 5;
+            doc.text('- Record and review your insights weekly', 30, y);
+            
+            // 푸터
+            y = 275;
+            doc.setFontSize(8);
+            doc.setTextColor(150, 150, 150);
+            doc.text('RQTDW(C) - Human Thinking OS', 105, y, { align: 'center' });
+            doc.text('Developed by Jaiwoo Shim', 105, y + 4, { align: 'center' });
+            
+            y += 8;
+            doc.setFontSize(7);
+            doc.setTextColor(180, 180, 180);
+            const fullDateTime = `Created: ${dateStr} ${String(today.getHours()).padStart(2, '0')}:${String(today.getMinutes()).padStart(2, '0')}`;
+            doc.text(fullDateTime, 105, y + 4, { align: 'center' });
+            
+            // PDF 저장
+            doc.save(`RQTDW-Report-${dateStr}.pdf`);
+            
+            // 성공 메시지
+            setTimeout(() => {
+                alert('📄 분석 리포트가 다운로드되었습니다!\n\n파일명: RQTDW-Report-' + dateStr + '.pdf\n\n✨ AI 맞춤형 피드백이 포함되어 있습니다!');
+            }, 300);
+        }
+        
+        // 차트 초기화 함수
+        function initializeCharts() {
+            // 점수 업데이트 (5개 기준) - 기본값 설정
+            const metrics = {
+                depth: 8.5,
+                perspective: 8.2,
+                structure: 8.0,
+                discussion: 7.8,
+                application: 7.5
+            };
+            
             document.getElementById('depth-score').textContent = `${metrics.depth}/10`;
             document.getElementById('perspective-score').textContent = `${metrics.perspective}/10`;
             document.getElementById('structure-score').textContent = `${metrics.structure}/10`;
+            document.getElementById('discussion-score').textContent = `${metrics.discussion}/10`;
+            document.getElementById('application-score').textContent = `${metrics.application}/10`;
             
-            // 프로그레스 바 애니메이션
+            // 프로그레스 바 애니메이션 (5개)
             setTimeout(() => {
                 document.getElementById('depth-bar').style.width = `${metrics.depth * 10}%`;
                 document.getElementById('perspective-bar').style.width = `${metrics.perspective * 10}%`;
                 document.getElementById('structure-bar').style.width = `${metrics.structure * 10}%`;
+                document.getElementById('discussion-bar').style.width = `${metrics.discussion * 10}%`;
+                document.getElementById('application-bar').style.width = `${metrics.application * 10}%`;
             }, 200);
             
-            // 레이더 차트
+            // 레이더 차트 (5개 기준)
             const radarCtx = document.getElementById('thinkingLevelChart');
             if (radarCtx) {
                 new Chart(radarCtx, {
@@ -2148,9 +2889,8 @@
                             '질문 깊이',
                             '관점 다양성',
                             '구조화 능력',
-                            '비판적 사고',
-                            '창의적 연결',
-                            '실행력'
+                            '토론 확장력',
+                            '실행·전환'
                         ],
                         datasets: [{
                             label: '현재 레벨',
@@ -2158,9 +2898,8 @@
                                 metrics.depth,
                                 metrics.perspective,
                                 metrics.structure,
-                                metrics.depth * 0.9,
-                                metrics.perspective * 0.95,
-                                metrics.structure * 1.1
+                                metrics.discussion,
+                                metrics.application
                             ],
                             backgroundColor: 'rgba(59, 130, 246, 0.2)',
                             borderColor: 'rgb(59, 130, 246)',
@@ -2171,7 +2910,7 @@
                             pointHoverBorderColor: 'rgb(59, 130, 246)'
                         }, {
                             label: '평균 레벨',
-                            data: [6, 6, 6, 6, 6, 6],
+                            data: [6.5, 6.5, 6.5, 6.5, 6.5],
                             backgroundColor: 'rgba(156, 163, 175, 0.1)',
                             borderColor: 'rgb(156, 163, 175)',
                             borderWidth: 1,
@@ -2306,6 +3045,64 @@
                 });
             }
         }
+        
+        // 페이지 로드 후 이벤트 연결 (가장 확실한 방법)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ DOM 로드 완료');
+            
+            const startBtn = document.getElementById('start-btn');
+            const questionInput = document.getElementById('main-question');
+            
+            if (startBtn && questionInput) {
+                console.log('✅ 버튼과 입력 필드 찾음');
+                
+                // 버튼 클릭 이벤트
+                startBtn.addEventListener('click', function() {
+                    console.log('🖱️ 버튼 클릭됨');
+                    
+                    const text = questionInput.value.trim();
+                    console.log('📄 입력된 질문:', text);
+                    
+                    if (!text) {
+                        alert('질문을 입력해주세요!');
+                        return;
+                    }
+                    
+                    currentQuestion = text;
+                    
+                    // 화면 전환
+                    const homeScreen = document.getElementById('home-screen');
+                    const questionScreen = document.getElementById('question-screen');
+                    
+                    if (homeScreen && questionScreen) {
+                        homeScreen.classList.add('hidden');
+                        questionScreen.classList.remove('hidden');
+                        console.log('✅ 화면 전환 완료');
+                        
+                        // 질문 표시
+                        const originalQuestionEl = document.getElementById('original-question');
+                        if (originalQuestionEl) {
+                            originalQuestionEl.textContent = currentQuestion;
+                        }
+                        
+                        // AI 재구성
+                        setTimeout(generateReframedQuestions, 1500);
+                    }
+                });
+                
+                // Enter 키 이벤트
+                questionInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        startBtn.click();
+                    }
+                });
+                
+                console.log('✅ 모든 이벤트 연결 완료');
+            } else {
+                console.error('❌ 버튼이나 입력 필드를 찾을 수 없음');
+            }
+        });
     </script>
 
 </body>
