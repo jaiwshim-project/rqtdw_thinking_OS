@@ -39,6 +39,17 @@
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-bold text-gray-900">RQTDW©</h1>
                     <div class="flex gap-3">
+                        <!-- 언어 전환 버튼 -->
+                        <button 
+                            id="lang-toggle"
+                            onclick="toggleLanguage()"
+                            class="inline-flex items-center px-4 py-2 bg-purple-50 border-2 border-purple-300 text-purple-700 rounded-lg font-semibold text-sm hover:bg-purple-100 transition-all"
+                        >
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                            </svg>
+                            <span id="lang-toggle-text">English</span>
+                        </button>
                         <button 
                             onclick="showGuide()"
                             class="inline-flex items-center px-4 py-2 bg-blue-50 border-2 border-blue-300 text-blue-700 rounded-lg font-semibold text-sm hover:bg-blue-100 transition-all"
@@ -46,7 +57,7 @@
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            사고법 안내
+                            <span data-i18n="nav.guide">사고법 안내</span>
                         </button>
                         <button 
                             onclick="showSamples()"
@@ -56,7 +67,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
-                            샘플 보기
+                            <span data-i18n="nav.samples">샘플 보기</span>
                         </button>
                     </div>
                 </div>
@@ -67,16 +78,16 @@
             
             <!-- 헤더 -->
             <div class="text-center mb-12">
-                <h1 class="text-5xl font-bold text-gray-900 mb-4">RQTDW©</h1>
-                <p class="text-xl text-gray-600 mb-2">Human Thinking OS</p>
-                <p class="text-sm text-gray-500">Read · Question · Think · Discussion · Write</p>
+                <h1 class="text-5xl font-bold text-gray-900 mb-4" data-i18n="home.title">RQTDW©</h1>
+                <p class="text-xl text-gray-600 mb-2" data-i18n="home.subtitle">Human Thinking OS</p>
+                <p class="text-sm text-gray-500" data-i18n="home.process">Read · Question · Think · Discussion · Write</p>
             </div>
 
 
 
             <!-- 사용 가이드 -->
             <div class="bg-white rounded-xl shadow-md p-8 mb-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">
+                <h3 class="text-xl font-bold text-gray-900 mb-6 text-center" data-i18n="home.training">
                     💡 RQTDW© 사고법 훈련 과정
                 </h3>
                 
@@ -85,8 +96,8 @@
                     <div class="flex items-start mb-3">
                         <div class="w-8 h-8 bg-rqtdw-question rounded-full flex items-center justify-center text-white font-bold mr-3 flex-shrink-0">1</div>
                         <div>
-                            <h4 class="font-semibold text-gray-900 mb-1">지금 고민되는 질문을 입력하세요</h4>
-                            <p class="text-sm text-gray-600">
+                            <h4 class="font-semibold text-gray-900 mb-1" data-i18n="home.step1.title">지금 고민되는 질문을 입력하세요</h4>
+                            <p class="text-sm text-gray-600" data-i18n="home.step1.desc">
                                 "창업 아이디어가 확신이 안 서요", "팀 협업이 안 돼요", "어떻게 더 깊게 생각할 수 있을까요?" 
                                 같은 막연한 고민도 괜찮습니다. 완벽한 질문이 아니어도 됩니다.
                             </p>
@@ -101,7 +112,7 @@
                             <span class="inline-block w-10 h-10 bg-rqtdw-read text-white rounded-full flex items-center justify-center font-bold mb-2">R</span>
                             <h5 class="font-semibold text-gray-900 text-sm">Read</h5>
                         </div>
-                        <p class="text-xs text-gray-600">정보 읽기가 아닌 의미 해체</p>
+                        <p class="text-xs text-gray-600" data-i18n="home.step.read">정보 읽기가 아닌 의미 해체</p>
                     </div>
 
                     <div class="bg-orange-50 rounded-lg p-4 border-2 border-orange-200">
@@ -109,7 +120,7 @@
                             <span class="inline-block w-10 h-10 bg-rqtdw-question text-white rounded-full flex items-center justify-center font-bold mb-2">Q</span>
                             <h5 class="font-semibold text-gray-900 text-sm">Question</h5>
                         </div>
-                        <p class="text-xs text-gray-600">AI가 질문을 재구성하여 사고 촉발</p>
+                        <p class="text-xs text-gray-600" data-i18n="home.step.question">AI가 질문을 재구성하여 사고 촉발</p>
                     </div>
 
                     <div class="bg-green-50 rounded-lg p-4 border-2 border-green-200">
@@ -117,7 +128,7 @@
                             <span class="inline-block w-10 h-10 bg-rqtdw-think text-white rounded-full flex items-center justify-center font-bold mb-2">T</span>
                             <h5 class="font-semibold text-gray-900 text-sm">Think</h5>
                         </div>
-                        <p class="text-xs text-gray-600">비주얼 프레임으로 생각 구조화</p>
+                        <p class="text-xs text-gray-600" data-i18n="home.step.think">비주얼 프레임으로 생각 구조화</p>
                     </div>
 
                     <div class="bg-purple-50 rounded-lg p-4 border-2 border-purple-200">
@@ -125,7 +136,7 @@
                             <span class="inline-block w-10 h-10 bg-rqtdw-discuss text-white rounded-full flex items-center justify-center font-bold mb-2">D</span>
                             <h5 class="font-semibold text-gray-900 text-sm">Discussion</h5>
                         </div>
-                        <p class="text-xs text-gray-600">집단지성으로 사고 확장</p>
+                        <p class="text-xs text-gray-600" data-i18n="home.step.discussion">집단지성으로 사고 확장</p>
                     </div>
 
                     <div class="bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
@@ -133,7 +144,7 @@
                             <span class="inline-block w-10 h-10 bg-rqtdw-write text-white rounded-full flex items-center justify-center font-bold mb-2">W</span>
                             <h5 class="font-semibold text-gray-900 text-sm">Write</h5>
                         </div>
-                        <p class="text-xs text-gray-600">통찰을 기록하고 성장 측정</p>
+                        <p class="text-xs text-gray-600" data-i18n="home.step.write">통찰을 기록하고 성장 측정</p>
                     </div>
                 </div>
 
@@ -144,28 +155,28 @@
                             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
                             <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
                         </svg>
-                        이 과정을 통해 얻는 것
+                        <span data-i18n="home.benefits.title">이 과정을 통해 얻는 것</span>
                     </h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="flex items-start">
                             <span class="text-2xl mr-2">🧠</span>
                             <div>
-                                <h5 class="font-semibold text-sm text-gray-900">사고의 깊이</h5>
-                                <p class="text-xs text-gray-600">표면적 답이 아닌 근본적 질문을 찾는 능력</p>
+                                <h5 class="font-semibold text-sm text-gray-900" data-i18n="home.benefits.depth">사고의 깊이</h5>
+                                <p class="text-xs text-gray-600" data-i18n="home.benefits.depth.desc">표면적 답이 아닌 근본적 질문을 찾는 능력</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <span class="text-2xl mr-2">🎯</span>
                             <div>
-                                <h5 class="font-semibold text-sm text-gray-900">구조화된 사고</h5>
-                                <p class="text-xs text-gray-600">Head·Heart·Body로 생각을 정리하는 프레임워크</p>
+                                <h5 class="font-semibold text-sm text-gray-900" data-i18n="home.benefits.structure">구조화된 사고</h5>
+                                <p class="text-xs text-gray-600" data-i18n="home.benefits.structure.desc">Head·Heart·Body로 생각을 정리하는 프레임워크</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <span class="text-2xl mr-2">📈</span>
                             <div>
-                                <h5 class="font-semibold text-sm text-gray-900">성장 기록</h5>
-                                <p class="text-xs text-gray-600">질문 히스토리와 사고 레벨 측정 리포트</p>
+                                <h5 class="font-semibold text-sm text-gray-900" data-i18n="home.benefits.growth">성장 기록</h5>
+                                <p class="text-xs text-gray-600" data-i18n="home.benefits.growth.desc">질문 히스토리와 사고 레벨 측정 리포트</p>
                             </div>
                         </div>
                     </div>
@@ -177,7 +188,7 @@
                 <div class="text-center mb-6">
                     <div class="flex items-center justify-center gap-3 mb-3">
                         <div class="inline-block bg-rqtdw-question text-white px-4 py-2 rounded-full font-semibold text-sm">
-                            STEP 1 : 질문 입력
+                            <span data-i18n="home.step1.badge">STEP 1 : 질문 입력</span>
                         </div>
                         <button 
                             onclick="showSamples()"
@@ -187,13 +198,13 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
-                            샘플 보기
+                            <span data-i18n="home.step1.samples">샘플 보기</span>
                         </button>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="home.step1.question">
                         지금 가장 생각이 필요한 질문은 무엇입니까?
                     </h3>
-                    <p class="text-sm text-gray-600">
+                    <p class="text-sm text-gray-600" data-i18n="home.step1.help">
                         완벽한 질문이 아니어도 괜찮습니다. AI가 함께 질문을 재구성합니다.
                     </p>
                 </div>
@@ -207,13 +218,13 @@
                 <div class="flex justify-between items-center mt-6">
                     <p class="text-sm text-gray-500" id="char-count">
                         <span class="inline-block w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></span>
-                        질문을 입력하세요
+                        <span data-i18n="home.input_guide">질문을 입력하세요</span>
                     </p>
                     <button
                         id="start-btn"
                         class="px-8 py-3 rounded-xl font-semibold text-lg transition-all bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg cursor-pointer"
                     >
-                        사고 시작하기 →
+                        <span data-i18n="home.start_button">사고 시작하기 →</span>
                     </button>
                 </div>
             </div>
@@ -222,25 +233,25 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <div class="bg-white rounded-lg p-6 shadow-sm text-center">
                     <div class="text-3xl mb-2">❌</div>
-                    <p class="text-sm font-semibold text-gray-900 mb-1">정답을 주지 않습니다</p>
-                    <p class="text-xs text-gray-600">대신 질문을 촉발합니다</p>
+                    <p class="text-sm font-semibold text-gray-900 mb-1" data-i18n="home.diff1">정답을 주지 않습니다</p>
+                    <p class="text-xs text-gray-600" data-i18n="home.diff1.sub">대신 질문을 촉발합니다</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm text-center">
                     <div class="text-3xl mb-2">🎨</div>
-                    <p class="text-sm font-semibold text-gray-900 mb-1">정보를 소비하지 않습니다</p>
-                    <p class="text-xs text-gray-600">대신 사고를 구조화합니다</p>
+                    <p class="text-sm font-semibold text-gray-900 mb-1" data-i18n="home.diff2">정보를 소비하지 않습니다</p>
+                    <p class="text-xs text-gray-600" data-i18n="home.diff2.sub">대신 사고를 구조화합니다</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-sm text-center">
                     <div class="text-3xl mb-2">🌱</div>
-                    <p class="text-sm font-semibold text-gray-900 mb-1">지식을 검색하지 않습니다</p>
-                    <p class="text-xs text-gray-600">대신 생각을 성장시킵니다</p>
+                    <p class="text-sm font-semibold text-gray-900 mb-1" data-i18n="home.diff3">지식을 검색하지 않습니다</p>
+                    <p class="text-xs text-gray-600" data-i18n="home.diff3.sub">대신 생각을 성장시킵니다</p>
                 </div>
             </div>
 
             <!-- 하단 안내 -->
             <div class="text-center text-sm text-gray-500">
-                <p>이 플랫폼은 정보를 소비하는 도구가 아니라</p>
-                <p class="font-semibold text-gray-700 mt-1">인간 사고를 성장시키는 운영체제입니다</p>
+                <p data-i18n="home.footer1">이 플랫폼은 정보를 소비하는 도구가 아니라</p>
+                <p class="font-semibold text-gray-700 mt-1" data-i18n="home.footer2">인간 사고를 성장시키는 운영체제입니다</p>
             </div>
         </div>
     </div>
@@ -261,7 +272,7 @@
                         <span class="px-3 py-1 bg-gray-200 rounded text-sm">W</span>
                     </div>
                 </div>
-                <div class="text-sm text-gray-600">질문 생성 단계</div>
+                <div class="text-sm text-gray-600" data-i18n="question.stage">질문 생성 단계</div>
             </div>
         </div>
 
@@ -1136,7 +1147,7 @@
                         <span class="px-3 py-1 bg-gray-200 rounded text-sm">W</span>
                     </div>
                 </div>
-                <div class="text-sm text-gray-600">사고 구조화 단계</div>
+                <div class="text-sm text-gray-600" data-i18n="think.stage">사고 구조화 단계</div>
             </div>
         </div>
 
@@ -1511,7 +1522,7 @@
                         <span class="px-3 py-1 bg-rqtdw-write text-white rounded text-sm font-semibold">W</span>
                     </div>
                 </div>
-                <div class="text-sm text-gray-600">통찰 기록 단계</div>
+                <div class="text-sm text-gray-600" data-i18n="write.stage">통찰 기록 단계</div>
             </div>
         </div>
 
@@ -1608,8 +1619,8 @@
                     <!-- 통찰 기록 -->
                     <div class="bg-white rounded-xl shadow-lg p-8">
                         <div class="mb-6">
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">통찰 기록</h2>
-                            <p class="text-gray-600">이번 사고 훈련에서 얻은 통찰을 기록하세요</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="write.title">통찰 기록</h2>
+                            <p class="text-gray-600" data-i18n="write.subtitle">이번 사고 훈련에서 얻은 통찰을 기록하세요</p>
                         </div>
 
                         <div class="space-y-6">
@@ -1618,11 +1629,12 @@
                                 <label class="block mb-2">
                                     <span class="text-lg font-semibold text-gray-800 flex items-center">
                                         <span class="text-2xl mr-2">💡</span>
-                                        핵심 통찰
+                                        <span data-i18n="write.insight">핵심 통찰</span>
                                     </span>
-                                    <span class="text-sm text-gray-600">가장 중요한 깨달음은 무엇인가요?</span>
+                                    <span class="text-sm text-gray-600" data-i18n="write.insight.label">가장 중요한 깨달음은 무엇인가요?</span>
                                 </label>
                                 <textarea 
+                                    id="insight-textarea"
                                     placeholder="예: '확신'이 필요한 게 아니라 '검증 가능한 작은 시작'이 필요하다는 걸 깨달았습니다..."
                                     class="w-full h-32 p-4 border-2 border-gray-300 focus:border-gray-500 rounded-xl focus:outline-none resize-none"
                                 ></textarea>
@@ -1633,7 +1645,7 @@
                                 <label class="block mb-4">
                                     <span class="text-xl font-bold text-gray-900 flex items-center">
                                         <span class="text-3xl mr-2">🚀</span>
-                                        사고의 이동 (Before → After)
+                                        <span data-i18n="write.movement">사고의 이동 (Before → After)</span>
                                     </span>
                                     <span class="text-sm text-gray-600">초기 질문에서 최종 질문까지의 성장을 확인하세요</span>
                                 </label>
@@ -1744,7 +1756,7 @@
                             <!-- 수치 카드 -->
                             <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4">
                                 <div class="bg-white p-4 rounded-lg">
-                                    <div class="text-xs text-gray-600 mb-1">질문 깊이</div>
+                                    <div class="text-xs text-gray-600 mb-1" data-i18n="criteria.depth">질문 깊이</div>
                                     <div class="text-2xl font-bold text-blue-600" id="depth-score">8.5/10</div>
                                     <div class="text-xs text-gray-500 mt-1">본질 탐색</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
@@ -1752,7 +1764,7 @@
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg">
-                                    <div class="text-xs text-gray-600 mb-1">관점 다양성</div>
+                                    <div class="text-xs text-gray-600 mb-1" data-i18n="criteria.perspective">관점 다양성</div>
                                     <div class="text-2xl font-bold text-green-600" id="perspective-score">8.2/10</div>
                                     <div class="text-xs text-gray-500 mt-1">다면적 시각</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
@@ -1760,7 +1772,7 @@
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg">
-                                    <div class="text-xs text-gray-600 mb-1">구조화 능력</div>
+                                    <div class="text-xs text-gray-600 mb-1" data-i18n="criteria.structure">구조화 능력</div>
                                     <div class="text-2xl font-bold text-purple-600" id="structure-score">8.0/10</div>
                                     <div class="text-xs text-gray-500 mt-1">프레임워크</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
@@ -1768,7 +1780,7 @@
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg">
-                                    <div class="text-xs text-gray-600 mb-1">토론 확장력</div>
+                                    <div class="text-xs text-gray-600 mb-1" data-i18n="criteria.discussion">토론 확장력</div>
                                     <div class="text-2xl font-bold text-indigo-600" id="discussion-score">7.8/10</div>
                                     <div class="text-xs text-gray-500 mt-1">집단지성</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
@@ -1776,7 +1788,7 @@
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg">
-                                    <div class="text-xs text-gray-600 mb-1">실행·전환</div>
+                                    <div class="text-xs text-gray-600 mb-1" data-i18n="criteria.application">실행·전환</div>
                                     <div class="text-2xl font-bold text-orange-600" id="application-score">7.5/10</div>
                                     <div class="text-xs text-gray-500 mt-1">행동 전환</div>
                                     <div class="mt-2 bg-gray-200 rounded-full h-2">
@@ -1872,6 +1884,486 @@
     <script>
         let currentQuestion = '';
         let currentSample = null; // 현재 선택된 샘플 데이터
+        let currentLang = 'ko'; // 기본 언어: 한국어
+        
+        // 다국어 번역 데이터 (전체 페이지)
+        const translations = {
+            ko: {
+                // 네비게이션
+                'nav.guide': '사고법 안내',
+                'nav.samples': '샘플 보기',
+                
+                // 홈 화면
+                'home.title': 'RQTDW©',
+                'home.subtitle': 'Human Thinking OS',
+                'home.process': 'Read · Question · Think · Discussion · Write',
+                'home.training': '💡 RQTDW© 사고법 훈련 과정',
+                'home.step1.title': '지금 고민되는 질문을 입력하세요',
+                'home.step1.desc': '"창업 아이디어가 확신이 안 서요", "팀 협업이 안 돼요", "어떻게 더 깊게 생각할 수 있을까요?" 같은 막연한 고민도 괜찮습니다. 완벽한 질문이 아니어도 됩니다.',
+                'home.step.read': '정보 읽기가 아닌 의미 해체',
+                'home.step.question': 'AI가 질문을 재구성하여 사고 촉발',
+                'home.step.think': '비주얼 프레임으로 생각 구조화',
+                'home.step.discussion': '집단지성으로 사고 확장',
+                'home.step.write': '통찰을 기록하고 성장 측정',
+                'home.benefits.title': '이 과정을 통해 얻는 것',
+                'home.benefits.depth': '사고의 깊이',
+                'home.benefits.depth.desc': '표면적 답이 아닌 근본적 질문을 찾는 능력',
+                'home.benefits.structure': '구조화된 사고',
+                'home.benefits.structure.desc': 'Head·Heart·Body로 생각을 정리하는 프레임워크',
+                'home.benefits.growth': '성장 기록',
+                'home.benefits.growth.desc': '질문 히스토리와 사고 레벨 측정 리포트',
+                'home.step1.badge': 'STEP 1 : 질문 입력',
+                'home.step1.samples': '샘플 보기',
+                'home.step1.question': '지금 가장 생각이 필요한 질문은 무엇입니까?',
+                'home.step1.help': '완벽한 질문이 아니어도 괜찮습니다. AI가 함께 질문을 재구성합니다.',
+                
+                // Question 화면
+                'question.stage': '질문 생성 단계',
+                'question.categories': '15창의질문 카테고리',
+                'question.why': 'Why 질문',
+                'question.why.desc': '근본 원인 탐색',
+                'question.assumption': '가정 질문',
+                'question.assumption.desc': '전제 의심하기',
+                'question.perspective': '관점 질문',
+                'question.perspective.desc': '다른 시각에서 보기',
+                'question.connection': '연결 질문',
+                'question.connection.desc': '다른 것과 연결',
+                'question.conflict': '충돌 질문',
+                'question.conflict.desc': '모순 발견하기',
+                'question.principle': '💡 핵심 원칙',
+                'question.principle.desc': 'AI는 질문을 만들어 주지 않습니다.\n질문의 방향만 흔들어 줍니다.',
+                'question.original': '원래 질문',
+                'question.ai_generated': 'AI가 재구성한 질문들',
+                'question.reframing': '질문을 다각도로 재구성하는 중...',
+                'question.reason': '이유',
+                'question.next_button': '다음: 사고 구조화 (Think) →',
+                
+                // Think 화면
+                'think.stage': '사고 구조화 단계',
+                'think.title': '사고 구조화',
+                'think.subtitle': '프레임워크로 생각을 정리하세요',
+                'think.frameworks': '사고 프레임워크',
+                'think.hhb': 'Head-Heart-Body',
+                'think.hhb.desc': '논리-감정-행동으로 분리',
+                'think.problem_map': '문제 재정의 맵',
+                'think.problem_map.desc': '진짜 문제 찾기',
+                'think.demand': '수요 vs 욕구',
+                'think.demand.desc': '진짜 필요와 단순 원함 구분',
+                'think.head': 'Head (논리적 분석)',
+                'think.head.placeholder': '이성적으로 분석하면...',
+                'think.heart': 'Heart (감정적 반응)',
+                'think.heart.placeholder': '감정적으로는...',
+                'think.body': 'Body (실행 계획)',
+                'think.body.placeholder': '구체적으로 실행할 것은...',
+                'think.tip': '💡 팁',
+                'think.tip.desc': '세 영역을 분리하면 생각이 명확해집니다.',
+                'think.next_button': '다음: 토론 시뮬레이션 (Discussion) →',
+                
+                // Discussion 화면
+                'discussion.stage': '토론 시뮬레이션 단계',
+                'discussion.title': '토론 시뮬레이션',
+                'discussion.subtitle': '다양한 관점에서 질문을 검토하세요',
+                'discussion.perspectives': '토론 관점',
+                'discussion.challenger': '도전자',
+                'discussion.challenger.desc': '전제에 의문을 제기',
+                'discussion.optimizer': '최적화자',
+                'discussion.optimizer.desc': '효율성 관점',
+                'discussion.visionary': '비전가',
+                'discussion.visionary.desc': '장기적 관점',
+                'discussion.questions_title': '토론 질문들',
+                'discussion.challenge': '전제 의심',
+                'discussion.reverse': '역발상 질문',
+                'discussion.practical': '실행 관점',
+                'discussion.longterm': '장기적 관점',
+                'discussion.add_thoughts': '내 생각 추가하기',
+                'discussion.add_placeholder': '이 토론에 대한 당신의 생각을 추가하세요...',
+                'discussion.tip': '💡 팁',
+                'discussion.tip.desc': '반대 관점을 경청하면 통찰이 깊어집니다.',
+                'discussion.next_button': '다음: 통찰 기록 (Write) →',
+                
+                // Write 화면
+                'write.stage': '통찰 기록 단계',
+                'write.final_question_label': '💎 최종 질문',
+                'write.final_question_desc': 'RQTDW 과정을 거쳐 발전한 최종 질문',
+                'write.grade_summary': '등급 변화 요약',
+                'write.change_depth': '✓ 질문 깊이: 판단 요청 → 전제 의심',
+                'write.change_perspective': '✓ 관점 확장: 개인 → 고객 관점',
+                'write.change_execution': '✓ 실행 설계: 고민 → 검증 실험',
+                'write.action_label': '🎯 실행 계획',
+                'write.action_desc': '다음 액션 아이템',
+                'write.action_placeholder': '예: 1) 고객 10명과 대화하기 2) 프로토타입 만들어 검증하기 3) ...',
+                'home.step2.title': '질문 재구성',
+                'home.step2.desc': 'AI가 다양한 관점으로 질문을 재구성합니다',
+                'home.step3.title': '사고 구조화',
+                'home.step3.desc': '프레임워크로 생각을 체계화합니다',
+                'home.step4.title': '토론 시뮬레이션',
+                'home.step4.desc': '다른 관점들과 대화하며 통찰을 얻습니다',
+                'home.step5.title': '통찰 기록',
+                'home.step5.desc': '생각의 성장을 기록하고 분석합니다',
+                'home.placeholder': '예시를 참고해서 자유롭게 입력하세요:\n\n• 창업 아이디어가 확신이 안 서요\n• 우리 팀은 왜 협업이 안 될까요?\n• 어떻게 하면 더 깊게 생각할 수 있을까요?\n• 지금 하는 일이 진짜 내가 원하는 건지 모르겠어요',
+                'home.input_guide': '질문을 입력하세요',
+                'home.start_button': '사고 시작하기 →',
+                'home.diff1': '정답을 주지 않습니다',
+                'home.diff1.sub': '대신 질문을 촉발합니다',
+                'home.diff2': '정보를 소비하지 않습니다',
+                'home.diff2.sub': '대신 사고를 구조화합니다',
+                'home.diff3': '지식을 검색하지 않습니다',
+                'home.diff3.sub': '대신 생각을 성장시킵니다',
+                'home.footer1': '이 플랫폼은 정보를 소비하는 도구가 아니라',
+                'home.footer2': '인간 사고를 성장시키는 운영체제입니다',
+                
+                // Question 화면
+                'question.title': '질문 재구성',
+                'question.original': '원래 질문',
+                'question.reframing': '질문을 다각도로 재구성하는 중...',
+                'question.ai_questions': 'AI가 재구성한 질문들',
+                'question.why': 'Why 질문',
+                'question.assumption': '가정 질문',
+                'question.perspective': '관점 질문',
+                'question.connection': '연결 질문',
+                'question.next': '다음: 사고 구조화 →',
+                
+                // Think 화면
+                'think.title': '사고 구조화',
+                'think.subtitle': '프레임워크로 생각을 정리하세요',
+                'think.hhb': 'Head-Heart-Body',
+                'think.head': 'Head (논리적 분석)',
+                'think.head.placeholder': '이성적으로 분석하면...',
+                'think.heart': 'Heart (감정적 반응)',
+                'think.heart.placeholder': '감정적으로는...',
+                'think.body': 'Body (실행 계획)',
+                'think.body.placeholder': '구체적으로 실행할 것은...',
+                'think.redefine': '문제 재정의 맵',
+                'think.demand': '수요 vs 욕구',
+                'think.demand.desc': '진짜 필요와 단순 원함을 구분',
+                'think.next': '다음: 토론 시뮬레이션 →',
+                
+                // Discussion 화면
+                'discussion.title': '토론 시뮬레이션',
+                'discussion.subtitle': '다양한 관점에서 질문을 검토하세요',
+                'discussion.questions': '토론 질문들',
+                'discussion.challenge': '전제 의심',
+                'discussion.reverse': '역발상 질문',
+                'discussion.practical': '실행 관점',
+                'discussion.long_term': '장기적 관점',
+                'discussion.add': '내 생각 추가하기',
+                'discussion.add.placeholder': '이 토론에 대한 당신의 생각을 추가하세요...',
+                'discussion.next': '다음: 통찰 기록 →',
+                
+                // Write 화면
+                'write.title': '통찰 기록',
+                'write.subtitle': '이번 사고 훈련에서 얻은 통찰을 기록하세요',
+                'write.movement': '사고의 이동 (Before → After)',
+                'write.initial': '📚 초기 질문',
+                'write.final': '💎 최종 질문',
+                'write.final.placeholder': 'RQTDW 과정을 거쳐 발전한 최종 질문을 작성하세요...',
+                'write.grade_change': '등급 변화 요약',
+                'write.change1': '질문 깊이: 판단 요청 → 전제 의심',
+                'write.change2': '관점 확장: 개인 → 고객 관점',
+                'write.change3': '실행 설계: 고민 → 검증 실험',
+                'write.insight': '💡 핵심 통찰',
+                'write.insight.label': '가장 중요한 깨달음은 무엇인가요?',
+                'write.insight.placeholder': '예: \'확신\'이 필요한 게 아니라 \'검증 가능한 작은 시작\'이 필요하다는 걸 깨달았습니다...',
+                'write.action': '🎯 실행 계획',
+                'write.action.label': '다음 액션 아이템은 무엇인가요?',
+                'write.action.placeholder': '예: 1) 고객 10명과 대화하기 2) 프로토타입 만들어 검증하기 3) ...',
+                'write.report': '📈 사고 레벨 리포트',
+                'write.report.subtitle': '이번 훈련에서 측정된 사고 성장 지표',
+                'write.pdf_button': '분석리포트 PDF 생성',
+                'write.home_button': '← 처음으로',
+                
+                // 평가 기준
+                'criteria.depth': '질문 깊이',
+                'criteria.perspective': '관점 다양성',
+                'criteria.structure': '구조화 능력',
+                'criteria.discussion': '토론 확장력',
+                'criteria.application': '실행·전환',
+                
+                // 등급
+                'grade.S': '마스터',
+                'grade.A': '전문가',
+                'grade.B': '숙련자',
+                'grade.C': '중급자',
+                'grade.D': '초보자',
+                
+                // 차트
+                'chart.currentLevel': '현재 레벨',
+                'chart.avgLevel': '평균 레벨',
+                
+                // 샘플
+                'samples.title': '샘플 체험하기',
+                'samples.subtitle': '실제 사례를 통해 RQTDW© 사고법을 경험해보세요',
+                'samples.sample1.title': '창업 확신 부족',
+                'samples.sample1.desc': 'Why 질문으로 전제를 의심하는 샘플',
+                'samples.sample2.title': '커리어 방향 고민',
+                'samples.sample2.desc': '문제 재정의 맵으로 본질을 찾는 샘플',
+                'samples.expected_level': '예상 사고 레벨 (5가지 기준)',
+                'samples.try_button': '이 샘플로 체험하기 →'
+            },
+            en: {
+                // Navigation
+                'nav.guide': 'Guide',
+                'nav.samples': 'Samples',
+                
+                // Home Screen
+                'home.title': 'RQTDW©',
+                'home.subtitle': 'Human Thinking OS',
+                'home.process': 'Read · Question · Think · Discussion · Write',
+                'home.training': '💡 RQTDW© Thinking Training Process',
+                'home.step1.title': 'Enter your current question or concern',
+                'home.step1.desc': 'Questions like "I\'m not sure about my startup idea," "Why can\'t our team collaborate?", or "How can I think more deeply?" are all welcome. Your question doesn\'t need to be perfect.',
+                'home.step.read': 'Deconstruct meaning, not just read info',
+                'home.step.question': 'AI reframes questions to trigger thinking',
+                'home.step.think': 'Structure thoughts with visual frameworks',
+                'home.step.discussion': 'Expand thinking through collective intelligence',
+                'home.step.write': 'Record insights and measure growth',
+                'home.benefits.title': 'What You Will Gain',
+                'home.benefits.depth': 'Depth of Thinking',
+                'home.benefits.depth.desc': 'Ability to find fundamental questions, not superficial answers',
+                'home.benefits.structure': 'Structured Thinking',
+                'home.benefits.structure.desc': 'Framework to organize thoughts with Head·Heart·Body',
+                'home.benefits.growth': 'Growth Record',
+                'home.benefits.growth.desc': 'Question history and thinking level measurement reports',
+                'home.step1.badge': 'STEP 1 : Enter Question',
+                'home.step1.samples': 'View Samples',
+                'home.step1.question': 'What question needs your thinking most right now?',
+                'home.step1.help': 'Your question doesn\'t need to be perfect. AI will help reframe it with you.',
+                
+                // Question Screen
+                'question.stage': 'Question Generation Stage',
+                'question.categories': '15 Creative Question Categories',
+                'question.why': 'Why Questions',
+                'question.why.desc': 'Explore root causes',
+                'question.assumption': 'Assumption Questions',
+                'question.assumption.desc': 'Challenge premises',
+                'question.perspective': 'Perspective Questions',
+                'question.perspective.desc': 'View from different angles',
+                'question.connection': 'Connection Questions',
+                'question.connection.desc': 'Link with other things',
+                'question.conflict': 'Conflict Questions',
+                'question.conflict.desc': 'Discover contradictions',
+                'question.principle': '💡 Core Principle',
+                'question.principle.desc': 'AI doesn\'t create questions for you.\nIt only shakes up the direction of questioning.',
+                'question.original': 'Original Question',
+                'question.ai_generated': 'AI-Reframed Questions',
+                'question.reframing': 'Reframing question from multiple angles...',
+                'question.reason': 'Reason',
+                'question.next_button': 'Next: Thought Structuring (Think) →',
+                
+                // Think Screen
+                'think.stage': 'Thought Structuring Stage',
+                'think.title': 'Thought Structuring',
+                'think.subtitle': 'Organize your thoughts with frameworks',
+                'think.frameworks': 'Thinking Frameworks',
+                'think.hhb': 'Head-Heart-Body',
+                'think.hhb.desc': 'Separate logic-emotion-action',
+                'think.problem_map': 'Problem Redefinition Map',
+                'think.problem_map.desc': 'Find the real problem',
+                'think.demand': 'Demand vs Desire',
+                'think.demand.desc': 'Distinguish real needs from wants',
+                'think.head': 'Head (Logical Analysis)',
+                'think.head.placeholder': 'Rational analysis suggests...',
+                'think.heart': 'Heart (Emotional Response)',
+                'think.heart.placeholder': 'Emotionally, I feel...',
+                'think.body': 'Body (Action Plan)',
+                'think.body.placeholder': 'Specific actions to take...',
+                'think.tip': '💡 Tip',
+                'think.tip.desc': 'Separating these three areas clarifies thinking.',
+                'think.next_button': 'Next: Discussion Simulation (Discussion) →',
+                
+                // Discussion Screen
+                'discussion.stage': 'Discussion Simulation Stage',
+                'discussion.title': 'Discussion Simulation',
+                'discussion.subtitle': 'Review questions from various perspectives',
+                'discussion.perspectives': 'Discussion Perspectives',
+                'discussion.challenger': 'Challenger',
+                'discussion.challenger.desc': 'Questions assumptions',
+                'discussion.optimizer': 'Optimizer',
+                'discussion.optimizer.desc': 'Efficiency perspective',
+                'discussion.visionary': 'Visionary',
+                'discussion.visionary.desc': 'Long-term perspective',
+                'discussion.questions_title': 'Discussion Questions',
+                'discussion.challenge': 'Challenge Assumptions',
+                'discussion.reverse': 'Reverse Thinking',
+                'discussion.practical': 'Practical Perspective',
+                'discussion.longterm': 'Long-term Perspective',
+                'discussion.add_thoughts': 'Add Your Thoughts',
+                'discussion.add_placeholder': 'Add your thoughts to this discussion...',
+                'discussion.tip': '💡 Tip',
+                'discussion.tip.desc': 'Listening to opposing views deepens insight.',
+                'discussion.next_button': 'Next: Record Insights (Write) →',
+                
+                // Write Screen
+                'write.stage': 'Insight Recording Stage',
+                'write.final_question_label': '💎 Final Question',
+                'write.final_question_desc': 'Your evolved question after RQTDW process',
+                'write.grade_summary': 'Grade Change Summary',
+                'write.change_depth': '✓ Question Depth: Seeking judgment → Questioning premise',
+                'write.change_perspective': '✓ Perspective: Individual → Customer viewpoint',
+                'write.change_execution': '✓ Execution: Worrying → Validation experiment',
+                'write.action_label': '🎯 Action Plan',
+                'write.action_desc': 'Next action items',
+                'write.action_placeholder': 'e.g., 1) Talk with 10 customers 2) Build prototype for validation 3) ...',
+                'home.step2.title': 'Question Reframing',
+                'home.step2.desc': 'AI restructures questions from various perspectives',
+                'home.step3.title': 'Thought Structuring',
+                'home.step3.desc': 'Systematize thinking with frameworks',
+                'home.step4.title': 'Discussion Simulation',
+                'home.step4.desc': 'Gain insights through dialogue with different viewpoints',
+                'home.step5.title': 'Record Insights',
+                'home.step5.desc': 'Document and analyze your thinking growth',
+                'home.placeholder': 'Enter your question freely:\n\n• I\'m not sure about my startup idea\n• Why can\'t our team collaborate?\n• How can I think more deeply?\n• I don\'t know if this is what I really want to do',
+                'home.input_guide': 'Enter your question',
+                'home.start_button': 'Start Thinking →',
+                'home.diff1': 'Does NOT provide answers',
+                'home.diff1.sub': 'Instead, triggers questions',
+                'home.diff2': 'Does NOT consume information',
+                'home.diff2.sub': 'Instead, structures thinking',
+                'home.diff3': 'Does NOT search knowledge',
+                'home.diff3.sub': 'Instead, grows your thoughts',
+                'home.footer1': 'This platform is not a tool for consuming information',
+                'home.footer2': 'It is an operating system for growing human thinking',
+                
+                // Question Screen
+                'question.title': 'Question Reframing',
+                'question.original': 'Original Question',
+                'question.reframing': 'Reframing question from multiple angles...',
+                'question.ai_questions': 'AI-Reframed Questions',
+                'question.why': 'Why Question',
+                'question.assumption': 'Assumption Question',
+                'question.perspective': 'Perspective Question',
+                'question.connection': 'Connection Question',
+                'question.next': 'Next: Thought Structuring →',
+                
+                // Think Screen
+                'think.title': 'Thought Structuring',
+                'think.subtitle': 'Organize your thoughts with frameworks',
+                'think.hhb': 'Head-Heart-Body',
+                'think.head': 'Head (Logical Analysis)',
+                'think.head.placeholder': 'Rational analysis suggests...',
+                'think.heart': 'Heart (Emotional Response)',
+                'think.heart.placeholder': 'Emotionally, I feel...',
+                'think.body': 'Body (Action Plan)',
+                'think.body.placeholder': 'Specific actions to take...',
+                'think.redefine': 'Problem Redefinition Map',
+                'think.demand': 'Demand vs Desire',
+                'think.demand.desc': 'Distinguish real needs from mere wants',
+                'think.next': 'Next: Discussion Simulation →',
+                
+                // Discussion Screen
+                'discussion.title': 'Discussion Simulation',
+                'discussion.subtitle': 'Review questions from various perspectives',
+                'discussion.questions': 'Discussion Questions',
+                'discussion.challenge': 'Challenge Assumptions',
+                'discussion.reverse': 'Reverse Thinking',
+                'discussion.practical': 'Practical Perspective',
+                'discussion.long_term': 'Long-term Perspective',
+                'discussion.add': 'Add Your Thoughts',
+                'discussion.add.placeholder': 'Add your thoughts to this discussion...',
+                'discussion.next': 'Next: Record Insights →',
+                
+                // Write Screen
+                'write.title': 'Record Insights',
+                'write.subtitle': 'Document insights gained from this thinking session',
+                'write.movement': 'Thinking Movement (Before → After)',
+                'write.initial': '📚 Initial Question',
+                'write.final': '💎 Final Question',
+                'write.final.placeholder': 'Write your evolved final question after RQTDW process...',
+                'write.grade_change': 'Grade Change Summary',
+                'write.change1': 'Question Depth: Seeking judgment → Questioning premise',
+                'write.change2': 'Perspective: Individual → Customer viewpoint',
+                'write.change3': 'Execution: Worrying → Validation experiment',
+                'write.insight': '💡 Key Insight',
+                'write.insight.label': 'What is your most important realization?',
+                'write.insight.placeholder': 'e.g., I realized I don\'t need \'certainty\' but \'small, testable starts\'...',
+                'write.action': '🎯 Action Plan',
+                'write.action.label': 'What are your next action items?',
+                'write.action.placeholder': 'e.g., 1) Talk with 10 customers 2) Build prototype for validation 3) ...',
+                'write.report': '📈 Thinking Level Report',
+                'write.report.subtitle': 'Thinking growth metrics measured in this session',
+                'write.pdf_button': 'Generate Analysis Report PDF',
+                'write.home_button': '← Back to Home',
+                
+                // Criteria
+                'criteria.depth': 'Question Depth',
+                'criteria.perspective': 'Perspective Diversity',
+                'criteria.structure': 'Structural Thinking',
+                'criteria.discussion': 'Discussion & CI',
+                'criteria.application': 'Application',
+                
+                // Grades
+                'grade.S': 'Master',
+                'grade.A': 'Expert',
+                'grade.B': 'Advanced',
+                'grade.C': 'Intermediate',
+                'grade.D': 'Beginner',
+                
+                // Chart
+                'chart.currentLevel': 'Current Level',
+                'chart.avgLevel': 'Average Level',
+                
+                // Samples
+                'samples.title': 'Try Samples',
+                'samples.subtitle': 'Experience RQTDW© thinking method through real cases',
+                'samples.sample1.title': 'Startup Uncertainty',
+                'samples.sample1.desc': 'Sample questioning premises with Why questions',
+                'samples.sample2.title': 'Career Direction',
+                'samples.sample2.desc': 'Sample finding essence with Problem Redefinition Map',
+                'samples.expected_level': 'Expected Thinking Level (5 Criteria)',
+                'samples.try_button': 'Try This Sample →'
+            }
+        };
+        
+        // 번역 함수
+        function t(key) {
+            return translations[currentLang][key] || key;
+        }
+        
+        // 언어 전환 함수
+        function toggleLanguage() {
+            currentLang = currentLang === 'ko' ? 'en' : 'ko';
+            updateLanguage();
+        }
+        
+        // 언어 업데이트 함수
+        function updateLanguage() {
+            // 버튼 텍스트 변경
+            document.getElementById('lang-toggle-text').textContent = currentLang === 'ko' ? 'English' : '한국어';
+            
+            // data-i18n 속성이 있는 모든 요소 업데이트
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            
+            // placeholder 업데이트 - 메인 질문 입력
+            const questionInput = document.getElementById('main-question');
+            if (questionInput && translations[currentLang]['home.placeholder']) {
+                questionInput.placeholder = translations[currentLang]['home.placeholder'];
+            }
+            
+            // placeholder 업데이트 - 통찰 입력
+            const insightTextarea = document.getElementById('insight-textarea');
+            if (insightTextarea && translations[currentLang]['write.insight.placeholder']) {
+                insightTextarea.placeholder = translations[currentLang]['write.insight.placeholder'];
+            }
+            
+            // placeholder 업데이트 - 최종 질문 입력
+            const finalQuestionInput = document.getElementById('final-question-input');
+            if (finalQuestionInput && translations[currentLang]['write.final.placeholder']) {
+                finalQuestionInput.placeholder = translations[currentLang]['write.final.placeholder'];
+            }
+            
+            // Write 화면에 있으면 차트 다시 그리기
+            const writeScreen = document.getElementById('write-screen');
+            if (writeScreen && !writeScreen.classList.contains('hidden')) {
+                initializeCharts();
+            }
+            
+            console.log('✅ 언어 전환:', currentLang);
+        }
         
         // 샘플 데이터
         const samples = {
@@ -2886,14 +3378,14 @@
                     type: 'radar',
                     data: {
                         labels: [
-                            '질문 깊이',
-                            '관점 다양성',
-                            '구조화 능력',
-                            '토론 확장력',
-                            '실행·전환'
+                            t('criteria.depth'),
+                            t('criteria.perspective'),
+                            t('criteria.structure'),
+                            t('criteria.discussion'),
+                            t('criteria.application')
                         ],
                         datasets: [{
-                            label: '현재 레벨',
+                            label: t('chart.currentLevel'),
                             data: [
                                 metrics.depth,
                                 metrics.perspective,
@@ -2909,7 +3401,7 @@
                             pointHoverBackgroundColor: '#fff',
                             pointHoverBorderColor: 'rgb(59, 130, 246)'
                         }, {
-                            label: '평균 레벨',
+                            label: t('chart.avgLevel'),
                             data: [6.5, 6.5, 6.5, 6.5, 6.5],
                             backgroundColor: 'rgba(156, 163, 175, 0.1)',
                             borderColor: 'rgb(156, 163, 175)',
