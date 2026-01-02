@@ -64,6 +64,17 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
                             </svg>
                         </button>
+                        <!-- 대시보드 버튼 -->
+                        <button 
+                            onclick="showDashboard()"
+                            class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold text-sm hover:from-blue-600 hover:to-purple-600 transition-all shadow-md"
+                            title="성장 대시보드"
+                        >
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <span data-i18n="nav.dashboard">대시보드</span>
+                        </button>
                         <!-- 언어 전환 버튼 -->
                         <button 
                             id="lang-toggle"
@@ -455,6 +466,268 @@
                     총 <span id="total-logs" class="font-semibold text-gray-900">0</span>개의 로그
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- 성장 대시보드 화면 -->
+    <div id="growth-dashboard" class="hidden min-h-screen bg-gray-50 py-8">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- 헤더 -->
+            <div class="mb-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">📊 성장 대시보드</h2>
+                    <p class="text-gray-600">5등급 체계와 5가지 평가 기준으로 측정된 당신의 사고 역량</p>
+                </div>
+                <button 
+                    onclick="backToHome()"
+                    class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-all"
+                >
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    홈으로
+                </button>
+            </div>
+
+            <!-- 등급 시스템 안내 -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">🏆 RQTDW 5등급 체계</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="border-2 border-yellow-300 rounded-lg p-4 bg-gradient-to-br from-yellow-50 to-orange-50">
+                        <div class="text-center">
+                            <span class="text-3xl">🏆</span>
+                            <h4 class="font-bold text-gray-900 mt-2">S등급</h4>
+                            <p class="text-xs text-gray-600 mb-1">9.0 - 10.0</p>
+                            <p class="text-xs text-gray-700 font-semibold">마스터 (Master)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-red-300 rounded-lg p-4 bg-gradient-to-br from-red-50 to-pink-50">
+                        <div class="text-center">
+                            <span class="text-3xl">💎</span>
+                            <h4 class="font-bold text-gray-900 mt-2">A등급</h4>
+                            <p class="text-xs text-gray-600 mb-1">8.0 - 8.9</p>
+                            <p class="text-xs text-gray-700 font-semibold">전문가 (Expert)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-blue-300 rounded-lg p-4 bg-gradient-to-br from-blue-50 to-cyan-50">
+                        <div class="text-center">
+                            <span class="text-3xl">⭐</span>
+                            <h4 class="font-bold text-gray-900 mt-2">B등급</h4>
+                            <p class="text-xs text-gray-600 mb-1">6.5 - 7.9</p>
+                            <p class="text-xs text-gray-700 font-semibold">숙련자 (Advanced)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-green-300 rounded-lg p-4 bg-gradient-to-br from-green-50 to-emerald-50">
+                        <div class="text-center">
+                            <span class="text-3xl">📚</span>
+                            <h4 class="font-bold text-gray-900 mt-2">C등급</h4>
+                            <p class="text-xs text-gray-600 mb-1">5.0 - 6.4</p>
+                            <p class="text-xs text-gray-700 font-semibold">중급자 (Intermediate)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-gray-300 rounded-lg p-4 bg-gradient-to-br from-gray-50 to-slate-50">
+                        <div class="text-center">
+                            <span class="text-3xl">🌱</span>
+                            <h4 class="font-bold text-gray-900 mt-2">D등급</h4>
+                            <p class="text-xs text-gray-600 mb-1">0.0 - 4.9</p>
+                            <p class="text-xs text-gray-700 font-semibold">초보자 (Beginner)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 현재 등급 카드 -->
+            <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <p class="text-blue-100 mb-2">당신의 현재 사고 등급</p>
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl" id="current-grade-icon">⭐</span>
+                            <div>
+                                <h2 class="text-5xl font-bold" id="current-grade-text">B등급</h2>
+                                <p class="text-xl text-blue-100 mt-1" id="current-grade-name">숙련자 (Advanced)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-blue-100 mb-2">종합 점수</p>
+                        <p class="text-6xl font-bold" id="dashboard-total-score">7.4</p>
+                        <p class="text-sm text-blue-100 mt-2" id="percentile-rank">상위 25% 수준</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                    <p class="text-sm text-white mb-2">💡 AI 코치의 평가</p>
+                    <p class="text-white" id="ai-coach-comment">
+                        지속적인 훈련으로 사고의 구조화 능력이 향상되고 있습니다. 
+                        특히 <strong>질문 깊이</strong>가 눈에 띄게 발전했습니다. 
+                        다음 단계로 도약하려면 <strong>관점 다양성</strong>을 강화해보세요.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 5가지 평가 기준 요약 -->
+            <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">📈 5가지 평가 기준</h3>
+                
+                <div class="space-y-6">
+                    <!-- 1. 질문 깊이 -->
+                    <div class="border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">Q</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">질문 깊이 (Depth)</h4>
+                                    <p class="text-sm text-gray-600">표면을 넘어 본질까지 파고드는 능력</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-blue-600" id="depth-score-display">7.5</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="depth-grade">⭐ B등급</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all" id="depth-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 관점 다양성 -->
+                    <div class="border-2 border-purple-200 rounded-lg p-6 bg-purple-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">P</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">관점 다양성 (Perspective)</h4>
+                                    <p class="text-sm text-gray-600">다양한 렌즈로 문제를 바라보는 능력</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-purple-600" id="perspective-score-display">8.0</p>
+                                <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-bold mt-1" id="perspective-grade">💎 A등급</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full transition-all" id="perspective-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. 구조화 능력 -->
+                    <div class="border-2 border-green-200 rounded-lg p-6 bg-green-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">S</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">구조화 능력 (Structure)</h4>
+                                    <p class="text-sm text-gray-600">복잡한 생각을 체계적으로 정리</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-green-600" id="structure-score-display">7.0</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="structure-grade">⭐ B등급</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full transition-all" id="structure-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 4. 토론 확장력 -->
+                    <div class="border-2 border-orange-200 rounded-lg p-6 bg-orange-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">D</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">토론 확장력 (Discussion)</h4>
+                                    <p class="text-sm text-gray-600">집단지성을 활용해 사고 확장</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-orange-600" id="discussion-score-display">7.5</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="discussion-grade">⭐ B등급</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full transition-all" id="discussion-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 실행·전환 능력 -->
+                    <div class="border-2 border-indigo-200 rounded-lg p-6 bg-indigo-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">A</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg">실행·전환 능력 (Application)</h4>
+                                    <p class="text-sm text-gray-600">통찰을 구체적 행동으로 전환</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-indigo-600" id="application-score-display">6.5</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="application-grade">⭐ B등급</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-3 rounded-full transition-all" id="application-bar" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 성장 추이 (간소화) -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">📊 학습 현황</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <p class="text-2xl font-bold text-blue-600" id="total-sessions">0</p>
+                        <p class="text-sm text-gray-600">총 세션 수</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <p class="text-2xl font-bold text-green-600" id="completed-steps">0</p>
+                        <p class="text-sm text-gray-600">완료한 단계</p>
+                    </div>
+                    <div class="text-center p-4 bg-orange-50 rounded-lg">
+                        <p class="text-2xl font-bold text-orange-600" id="questions-asked">0</p>
+                        <p class="text-sm text-gray-600">작성한 질문</p>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <p class="text-2xl font-bold text-purple-600">+<span id="score-improvement">0.8</span></p>
+                        <p class="text-sm text-gray-600">점수 향상</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 다음 목표 -->
+            <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-green-300">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">🎯 다음 목표</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">✓</div>
+                        <div>
+                            <p class="font-semibold text-gray-900">A등급 도달하기</p>
+                            <p class="text-sm text-gray-600">평균 8.0 이상 달성 (현재 7.4)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">!</div>
+                        <div>
+                            <p class="font-semibold text-gray-900">약점 보완: 실행·전환 능력</p>
+                            <p class="text-sm text-gray-600">통찰을 구체적 행동으로 전환하는 연습 필요</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">→</div>
+                        <div>
+                            <p class="font-semibold text-gray-900">추천 액션: 72시간 규칙</p>
+                            <p class="text-sm text-gray-600">중요한 결정이나 아이디어는 3일 안에 1개 행동으로 시작하기</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -2177,6 +2450,7 @@
                 // 네비게이션
                 'nav.guide': '사고법 안내',
                 'nav.samples': '샘플 보기',
+                'nav.dashboard': '대시보드',
                 
                 // 홈 화면
                 'home.title': 'RQTDW©',
@@ -2358,6 +2632,7 @@
                 // Navigation
                 'nav.guide': 'Guide',
                 'nav.samples': 'Samples',
+                'nav.dashboard': 'Dashboard',
                 
                 // Home Screen
                 'home.title': 'RQTDW©',
@@ -2685,6 +2960,124 @@
             
             refreshAdminStats();
         };
+        
+        // ============================================
+        // 성장 대시보드 함수
+        // ============================================
+        
+        // 성장 대시보드 표시
+        window.showDashboard = function() {
+            document.getElementById('home-screen').classList.add('hidden');
+            document.getElementById('guide-screen').classList.add('hidden');
+            document.getElementById('samples-screen').classList.add('hidden');
+            document.getElementById('question-screen').classList.add('hidden');
+            document.getElementById('think-screen').classList.add('hidden');
+            document.getElementById('discussion-screen').classList.add('hidden');
+            document.getElementById('write-screen').classList.add('hidden');
+            document.getElementById('admin-dashboard').classList.add('hidden');
+            document.getElementById('growth-dashboard').classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            // 대시보드 데이터 업데이트
+            updateDashboardData();
+            
+            // 로그 기록
+            logActivity('dashboard_viewed', {
+                timestamp: new Date().toISOString()
+            });
+        };
+        
+        // 대시보드 데이터 업데이트
+        function updateDashboardData() {
+            // 로그에서 통계 계산
+            const logs = getAllLogs();
+            const questionLogs = logs.filter(log => log.activityType === 'step_completed');
+            const screenViews = logs.filter(log => log.activityType === 'screen_view');
+            
+            // 기본 메트릭 (로그 기반 또는 샘플 데이터)
+            const metrics = currentSample?.insights?.growthMetrics || {
+                depth: 7.5,
+                perspective: 8.0,
+                structure: 7.0,
+                discussion: 7.5,
+                application: 6.5
+            };
+            
+            // 종합 점수 계산
+            const avgScore = ((metrics.depth + metrics.perspective + metrics.structure + metrics.discussion + metrics.application) / 5).toFixed(1);
+            
+            // 등급 결정
+            let gradeIcon = '🌱', gradeText = 'D등급', gradeName = '초보자 (Beginner)';
+            let percentile = '하위 50%';
+            if (avgScore >= 9.0) {
+                gradeIcon = '🏆'; gradeText = 'S등급'; gradeName = '마스터 (Master)'; percentile = '상위 1%';
+            } else if (avgScore >= 8.0) {
+                gradeIcon = '💎'; gradeText = 'A등급'; gradeName = '전문가 (Expert)'; percentile = '상위 15%';
+            } else if (avgScore >= 6.5) {
+                gradeIcon = '⭐'; gradeText = 'B등급'; gradeName = '숙련자 (Advanced)'; percentile = '상위 35%';
+            } else if (avgScore >= 5.0) {
+                gradeIcon = '📚'; gradeText = 'C등급'; gradeName = '중급자 (Intermediate)'; percentile = '중위 50%';
+            }
+            
+            // 현재 등급 카드 업데이트
+            document.getElementById('current-grade-icon').textContent = gradeIcon;
+            document.getElementById('current-grade-text').textContent = gradeText;
+            document.getElementById('current-grade-name').textContent = gradeName;
+            document.getElementById('dashboard-total-score').textContent = avgScore;
+            document.getElementById('percentile-rank').textContent = percentile + ' 수준';
+            
+            // AI 코치 코멘트
+            const topSkill = Object.entries(metrics).sort((a, b) => b[1] - a[1])[0][0];
+            const weakSkill = Object.entries(metrics).sort((a, b) => a[1] - b[1])[0][0];
+            const skillNames = {
+                depth: '질문 깊이',
+                perspective: '관점 다양성',
+                structure: '사고 구조화',
+                discussion: '토론 확장력',
+                application: '실행·전환 능력'
+            };
+            
+            const comment = `지속적인 훈련으로 사고 능력이 향상되고 있습니다. 
+                특히 <strong>${skillNames[topSkill]}</strong>가 눈에 띄게 발전했습니다. 
+                다음 단계로 도약하려면 <strong>${skillNames[weakSkill]}</strong>을(를) 강화해보세요.`;
+            document.getElementById('ai-coach-comment').innerHTML = comment;
+            
+            // 개별 점수 및 등급 업데이트
+            updateSkillDisplay('depth', metrics.depth);
+            updateSkillDisplay('perspective', metrics.perspective);
+            updateSkillDisplay('structure', metrics.structure);
+            updateSkillDisplay('discussion', metrics.discussion);
+            updateSkillDisplay('application', metrics.application);
+            
+            // 학습 현황 업데이트
+            document.getElementById('total-sessions').textContent = logs.filter(log => log.activityType === 'page_load').length || '0';
+            document.getElementById('completed-steps').textContent = questionLogs.length || '0';
+            document.getElementById('questions-asked').textContent = logs.filter(log => log.activityType === 'questions_generated').length || '0';
+            document.getElementById('score-improvement').textContent = '0.8';
+        }
+        
+        // 개별 스킬 디스플레이 업데이트
+        function updateSkillDisplay(skillName, score) {
+            // 점수 표시
+            const scoreEl = document.getElementById(`${skillName}-score-display`);
+            if (scoreEl) scoreEl.textContent = score.toFixed(1);
+            
+            // 진행바
+            const barEl = document.getElementById(`${skillName}-bar`);
+            if (barEl) barEl.style.width = (score * 10) + '%';
+            
+            // 등급 배지
+            const gradeEl = document.getElementById(`${skillName}-grade`);
+            if (gradeEl) {
+                let badge = '';
+                if (score >= 9.0) badge = '🏆 S등급';
+                else if (score >= 8.0) badge = '💎 A등급';
+                else if (score >= 6.5) badge = '⭐ B등급';
+                else if (score >= 5.0) badge = '📚 C등급';
+                else badge = '🌱 D등급';
+                gradeEl.textContent = badge;
+            }
+        }
         
         // 관리자 통계 새로고침
         window.refreshAdminStats = function() {
