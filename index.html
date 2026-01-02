@@ -301,17 +301,6 @@
                 <p data-i18n="home.footer1">이 플랫폼은 정보를 소비하는 도구가 아니라</p>
                 <p class="font-semibold text-gray-700 mt-1" data-i18n="home.footer2">인간 사고를 성장시키는 운영체제입니다</p>
             </div>
-            
-            <!-- 관리자 버튼 (숨김) -->
-            <div class="mt-8 text-center">
-                <button 
-                    onclick="showAdminDashboard()"
-                    class="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-                    title="관리자 대시보드 (개발자 도구)"
-                >
-                    Admin
-                </button>
-            </div>
         </div>
     </div>
 
@@ -4687,9 +4676,20 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-6 pt-6 text-center">
-                <p class="text-xs text-gray-500">
+                <p class="text-xs text-gray-500 mb-3">
                     © 2024 RQTDW. All rights reserved.
                 </p>
+                <!-- 관리자 버튼 -->
+                <button 
+                    onclick="showAdminDashboard()"
+                    class="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white rounded-lg text-xs transition-all border border-gray-700 hover:border-gray-600"
+                    title="관리자 대시보드 (비밀번호 필요)"
+                >
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Admin Dashboard
+                </button>
             </div>
         </div>
     </footer>
