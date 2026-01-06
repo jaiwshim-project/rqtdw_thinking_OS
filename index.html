@@ -273,8 +273,8 @@
             </div>
         </div>
 
-        <!-- Small Navigation Buttons -->
-        <div class="pb-4">
+        <!-- Small Navigation Buttons (English only) -->
+        <div id="age-nav-buttons" class="pb-4">
             <div class="max-w-7xl mx-auto px-6 flex justify-center space-x-3">
                 <button onclick="window.showGrowthDashboard();" class="inline-flex items-center px-3 py-1.5 bg-white border border-green-300 text-green-700 rounded-md text-xs hover:bg-green-50 transition-all shadow-sm">
                     <span>📊 Dashboard</span>
@@ -7679,6 +7679,8 @@
                 document.getElementById('back-btn-en').classList.add('hidden');
                 document.getElementById('footer-age-ko').classList.remove('hidden');
                 document.getElementById('footer-age-en').classList.add('hidden');
+                // 한글 버전에서는 상단 네비게이션 버튼 숨기기
+                document.getElementById('age-nav-buttons').classList.add('hidden');
             } else {
                 document.getElementById('age-title-ko').classList.add('hidden');
                 document.getElementById('age-title-en').classList.remove('hidden');
@@ -7690,6 +7692,8 @@
                 document.getElementById('back-btn-en').classList.remove('hidden');
                 document.getElementById('footer-age-ko').classList.add('hidden');
                 document.getElementById('footer-age-en').classList.remove('hidden');
+                // 영어 버전에서는 상단 네비게이션 버튼 보이기
+                document.getElementById('age-nav-buttons').classList.remove('hidden');
             }
         }
 
