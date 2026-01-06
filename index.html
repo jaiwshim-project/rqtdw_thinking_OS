@@ -301,10 +301,12 @@
         <div class="max-w-7xl mx-auto px-6 pb-12">
             <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-12 backdrop-blur-sm bg-opacity-95">
                 <h2 class="text-xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-6">
-                    Select Your Age Group
+                    <span id="age-title-ko" class="hidden">연령대를 선택하세요</span>
+                    <span id="age-title-en">Select Your Age Group</span>
                 </h2>
                 <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
-                    Tell us your age group for personalized questions and thinking training
+                    <span id="age-subtitle-ko" class="hidden">연령대에 맞는 맞춤형 질문과 사고 훈련을 제공합니다</span>
+                    <span id="age-subtitle-en">Tell us your age group for personalized questions and thinking training</span>
                 </p>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
@@ -401,10 +403,21 @@
                 </div>
 
                 <p class="mt-6 sm:mt-8 text-gray-500 text-xs sm:text-sm text-center">
-                    We provide age-optimized question examples and thinking guides
+                    <span id="age-info-ko" class="hidden">연령대에 최적화된 질문 예시와 사고 가이드를 제공합니다</span>
+                    <span id="age-info-en">We provide age-optimized question examples and thinking guides</span>
                 </p>
             </div>
         </div>
+
+        <!-- Footer -->
+        <div class="mt-8 text-gray-600 text-xs sm:text-sm text-center">
+            <p id="footer-age-ko" class="hidden">선택한 연령대는 언제든지 변경할 수 있습니다</p>
+            <p id="footer-age-en">You can change your selected age group anytime</p>
+        </div>
+
+        <!-- Hidden elements for language switching -->
+        <span id="back-btn-ko" class="hidden"></span>
+        <span id="back-btn-en" class="hidden"></span>
     </div>
 
     <!-- Category Selection Page -->
