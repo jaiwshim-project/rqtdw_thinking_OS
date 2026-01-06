@@ -172,7 +172,7 @@
                 <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 sm:mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                 </svg>
-                <span class="hidden sm:inline" data-i18n="nav.dashboard">Dashboard</span>
+                <span class="hidden sm:inline" data-i18n="nav.dashboard">대시보드</span>
             </button>
             <button
                 onclick="window.showGuide();"
@@ -181,7 +181,7 @@
                 <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 sm:mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                <span class="hidden sm:inline" data-i18n="nav.guide">Guide</span>
+                <span class="hidden sm:inline" data-i18n="nav.guide">가이드</span>
             </button>
             <button
                 onclick="window.showSamplesKo();"
@@ -191,7 +191,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                 </svg>
-                <span class="hidden sm:inline" data-i18n="nav.samples">Samples</span>
+                <span class="hidden sm:inline" data-i18n="nav.samples">샘플</span>
             </button>
         </div>
 
@@ -248,7 +248,7 @@
             <!-- Footer Info -->
             <div class="mt-8 text-gray-600 text-sm">
                 <p>세계 최초로 특허, 저작권, 마르퀴즈 후즈후 세계인명사전에 등록된</p>
-                <p>AI를 넘어서는 인간 사고의 운영체제</p>
+                <p>AI를 넘어서는 인간 질문 & 사고의 운영체제</p>
                 <p class="mt-2">World's First Patented, Copyrighted, and Marquis Who's Who Registered</p>
                 <p>Operating System for Human Questioning & Thinking Beyond AI</p>
             </div>
@@ -276,6 +276,9 @@
         <!-- Small Navigation Buttons -->
         <div class="pb-4">
             <div class="max-w-7xl mx-auto px-6 flex justify-center space-x-3">
+                <button onclick="window.showGrowthDashboard();" class="inline-flex items-center px-3 py-1.5 bg-white border border-green-300 text-green-700 rounded-md text-xs hover:bg-green-50 transition-all shadow-sm">
+                    <span>📊 Dashboard</span>
+                </button>
                 <button onclick="window.showGuideEn();" class="inline-flex items-center px-3 py-1.5 bg-white border border-blue-300 text-blue-700 rounded-md text-xs hover:bg-blue-50 transition-all shadow-sm">
                     <span>Complete Guide</span>
                 </button>
@@ -844,8 +847,8 @@
             <!-- Header -->
             <div class="mb-8 flex justify-between items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-2" data-i18n="growth.title">📊 Growth Dashboard</h2>
-                    <p class="text-gray-600" data-i18n="growth.subtitle">Your thinking competency measured by 5-grade system and 5 evaluation criteria</p>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2" data-i18n="growth.title">📊 성장 대시보드</h2>
+                    <p class="text-gray-600" data-i18n="growth.subtitle">5등급 체계와 5가지 평가 기준으로 측정된 당신의 사고 역량</p>
                 </div>
                 <button
                     onclick="backToLanding()"
@@ -854,94 +857,94 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                     </svg>
-                    <span data-i18n="growth.home">Home</span>
+                    <span data-i18n="growth.home">홈으로</span>
                 </button>
             </div>
 
             <!-- Grade System Guide -->
             <div class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
-                <h3 class="text-xl font-bold text-gray-900 mb-4" data-i18n="growth.gradeSystem">🏆 RQTDW 5-Grade System</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-4" data-i18n="growth.gradeSystem">🏆 RQTDW 5등급 체계</h3>
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                     <div class="border-2 border-yellow-300 rounded-lg p-4 bg-gradient-to-br from-yellow-50 to-orange-50">
                         <div class="text-center">
                             <span class="text-3xl">🏆</span>
-                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.S">Grade S</h4>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.S">S등급</h4>
                             <p class="text-xs text-gray-600 mb-1">9.0 - 10.0</p>
-                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.S.name">Master</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.S.name">달인</p>
                         </div>
                     </div>
 
                     <div class="border-2 border-red-300 rounded-lg p-4 bg-gradient-to-br from-red-50 to-pink-50">
                         <div class="text-center">
                             <span class="text-3xl">💎</span>
-                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.A">Grade A</h4>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.A">A등급</h4>
                             <p class="text-xs text-gray-600 mb-1">8.0 - 8.9</p>
-                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.A.name">Expert</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.A.name">전문가</p>
                         </div>
                     </div>
 
                     <div class="border-2 border-blue-300 rounded-lg p-4 bg-gradient-to-br from-blue-50 to-cyan-50">
                         <div class="text-center">
                             <span class="text-3xl">⭐</span>
-                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.B">Grade B</h4>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.B">B등급</h4>
                             <p class="text-xs text-gray-600 mb-1">6.5 - 7.9</p>
-                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.B.name">Advanced</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.B.name">숙련자</p>
                         </div>
                     </div>
 
                     <div class="border-2 border-green-300 rounded-lg p-4 bg-gradient-to-br from-green-50 to-emerald-50">
                         <div class="text-center">
                             <span class="text-3xl">📚</span>
-                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.C">Grade C</h4>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.C">C등급</h4>
                             <p class="text-xs text-gray-600 mb-1">5.0 - 6.4</p>
-                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.C.name">Intermediate</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.C.name">중급자</p>
                         </div>
                     </div>
 
                     <div class="border-2 border-gray-300 rounded-lg p-4 bg-gradient-to-br from-gray-50 to-slate-50">
                         <div class="text-center">
                             <span class="text-3xl">🌱</span>
-                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.D">Grade D</h4>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.D">D등급</h4>
                             <p class="text-xs text-gray-600 mb-1">0.0 - 4.9</p>
-                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.D.name">Beginner</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.D.name">초급자</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 현재 등급 카드 -->
+            <!-- Current Grade Card -->
             <div class="hidden bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white">
                 <div class="flex items-center justify-between mb-6">
                     <div>
-                        <p class="text-blue-100 mb-2" data-i18n="growth.currentGrade">Your Current Thinking Grade</p>
+                        <p class="text-blue-100 mb-2" data-i18n="growth.currentGrade">당신의 현재 사고 등급</p>
                         <div class="flex items-center gap-4">
                             <span class="text-6xl" id="current-grade-icon">⭐</span>
                             <div>
                                 <h2 class="text-5xl font-bold" id="current-grade-text">Grade B</h2>
-                                <p class="text-xl text-blue-100 mt-1" id="current-grade-name">Advanced</p>
+                                <p class="text-xl text-blue-100 mt-1" id="current-grade-name">숙련자</p>
                             </div>
                         </div>
                     </div>
                     <div class="text-right">
-                        <p class="text-blue-100 mb-2" data-i18n="growth.totalScore">Total Score</p>
+                        <p class="text-blue-100 mb-2" data-i18n="growth.totalScore">총점</p>
                         <p class="text-6xl font-bold" id="dashboard-total-score">7.4</p>
-                        <p class="text-sm text-blue-100 mt-2" id="percentile-rank" data-i18n="growth.percentile">Top 25% Level</p>
+                        <p class="text-sm text-blue-100 mt-2" id="percentile-rank" data-i18n="growth.percentile">상위 25% 수준</p>
                     </div>
                 </div>
 
                 <div class="bg-white bg-opacity-20 rounded-lg p-4">
-                    <p class="text-sm text-white mb-2" data-i18n="growth.aiCoach">💡 AI Coach Evaluation</p>
+                    <p class="text-sm text-white mb-2" data-i18n="growth.aiCoach">💡 AI 코치 평가</p>
                     <p class="text-white" id="ai-coach-comment" data-i18n="growth.aiCoachComment">
-                        Your thought structuring ability is improving with continuous training.
-                        Notably, <strong>Question Depth</strong> has developed significantly.
-                        To advance to the next level, try strengthening <strong>Perspective Diversity</strong>.
+                        지속적인 훈련으로 사고 구조화 능력이 향상되고 있습니다.
+                        특히 <strong>질문 깊이</strong>가 눈에 띄게 발전했습니다.
+                        다음 단계로 나아가려면 <strong>관점 다양성</strong>을 강화해보세요.
                     </p>
                 </div>
             </div>
 
-            <!-- 초기 vs 최종 vs 성장도 비교 (대시보드용) -->
+            <!-- Initial vs Final vs Growth Comparison (Dashboard) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <!-- 초기 점수 -->
+                <!-- Initial Score -->
                 <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border-2 border-gray-200">
                     <div class="flex items-center justify-between mb-3">
                         <h4 class="font-bold text-gray-700 flex items-center">
@@ -975,7 +978,7 @@
                     </div>
                 </div>
 
-                <!-- 최종 점수 -->
+                <!-- Final Score -->
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-5 border-2 border-blue-300">
                     <div class="flex items-center justify-between mb-3">
                         <h4 class="font-bold text-blue-700 flex items-center">
@@ -1009,7 +1012,7 @@
                     </div>
                 </div>
 
-                <!-- 성장도 -->
+                <!-- Growth -->
                 <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-5 border-2 border-green-300">
                     <div class="flex items-center justify-between mb-3">
                         <h4 class="font-bold text-green-700 flex items-center">
@@ -1044,19 +1047,19 @@
                 </div>
             </div>
 
-            <!-- 5가지 평가 기준 요약 -->
+            <!-- 5 Evaluation Criteria Summary -->
             <div class="hidden bg-white rounded-xl shadow-md p-8 mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6" data-i18n="growth.criteria">📈 5 Evaluation Criteria</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6" data-i18n="growth.criteria">📈 5가지 평가 기준</h3>
 
                 <div class="space-y-6">
-                    <!-- 1. 질문 깊이 -->
+                    <!-- 1. Question Depth -->
                     <div class="border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">Q</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.depth.title">Question Depth</h4>
-                                    <p class="text-sm text-gray-600" data-i18n="growth.depth.desc">Ability to dig beyond surface to essence</p>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.depth.title">질문 깊이</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.depth.desc">표면을 넘어 본질까지 파고드는 능력</p>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -1069,7 +1072,398 @@
                         </div>
                     </div>
 
-                    <!-- 2. 관점 다양성 -->
+                    <!-- 2. Perspective Diversity -->
+                    <div class="border-2 border-purple-200 rounded-lg p-6 bg-purple-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">P</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.perspective.title">관점 다양성</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.perspective.desc">문제를 다양한 렌즈로 바라보는 능력</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-purple-600" id="perspective-score-display">8.0</p>
+                                <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-bold mt-1" id="perspective-grade">💎 Grade A</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full transition-all" id="perspective-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Structural Thinking -->
+                    <div class="border-2 border-green-200 rounded-lg p-6 bg-green-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">S</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.structure.title">구조화 능력</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.structure.desc">복잡한 사고를 체계적으로 정리하는 능력</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-green-600" id="structure-score-display">7.0</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="structure-grade">⭐ Grade B</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full transition-all" id="structure-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Discussion & CI -->
+                    <div class="border-2 border-orange-200 rounded-lg p-6 bg-orange-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">D</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.discussion.title">토론 & 집단지성</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.discussion.desc">집단지성을 통해 사고를 확장하는 능력</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-orange-600" id="discussion-score-display">7.5</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="discussion-grade">⭐ Grade B</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-3 rounded-full transition-all" id="discussion-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Application -->
+                    <div class="border-2 border-indigo-200 rounded-lg p-6 bg-indigo-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">A</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.application.title">실행 가능성</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.application.desc">통찰을 구체적 행동으로 전환하는 능력</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-indigo-600" id="application-score-display">6.5</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="application-grade">⭐ Grade B</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 h-3 rounded-full transition-all" id="application-bar" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Growth Trend (Simplified) -->
+            <div class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-lg font-bold text-gray-900 mb-4" data-i18n="growth.stats">📊 학습 현황</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <p class="text-2xl font-bold text-blue-600" id="total-sessions">0</p>
+                        <p class="text-sm text-gray-600" data-i18n="growth.stats.sessions">총 세션 수</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <p class="text-2xl font-bold text-green-600" id="completed-steps">0</p>
+                        <p class="text-sm text-gray-600" data-i18n="growth.stats.steps">완료한 단계</p>
+                    </div>
+                    <div class="text-center p-4 bg-orange-50 rounded-lg">
+                        <p class="text-2xl font-bold text-orange-600" id="questions-asked">0</p>
+                        <p class="text-sm text-gray-600" data-i18n="growth.stats.questions">작성한 질문</p>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <p class="text-2xl font-bold text-purple-600">+<span id="score-improvement">0.8</span></p>
+                        <p class="text-sm text-gray-600" data-i18n="growth.stats.improvement">점수 향상</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Goals -->
+            <div class="hidden bg-gradient-to-br from-green-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-green-300">
+                <h3 class="text-lg font-bold text-gray-900 mb-4" data-i18n="growth.nextGoals">🎯 다음 목표</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">✓</div>
+                        <div>
+                            <p class="font-semibold text-gray-900" data-i18n="growth.goal1.title">A등급 도달하기</p>
+                            <p class="text-sm text-gray-600" data-i18n="growth.goal1.desc">평균 8.0 이상 달성 (현재 7.4)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">!</div>
+                        <div>
+                            <p class="font-semibold text-gray-900" data-i18n="growth.goal2.title">약점 보완: 실행·전환 능력</p>
+                            <p class="text-sm text-gray-600" data-i18n="growth.goal2.desc">통찰을 구체적 행동으로 전환하는 연습 필요</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">→</div>
+                        <div>
+                            <p class="font-semibold text-gray-900" data-i18n="growth.goal3.title">추천 액션: 72시간 규칙</p>
+                            <p class="text-sm text-gray-600" data-i18n="growth.goal3.desc">중요한 결정이나 아이디어는 3일 안에 1개 행동으로 시작하기</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session History -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-gray-900" data-i18n="growth.history.title">📚 세션 히스토리</h3>
+                    <button onclick="clearAllSessions()" class="text-sm text-red-600 hover:text-red-700 font-semibold" data-i18n="growth.history.clearAll">전체 삭제</button>
+                </div>
+
+                <!-- Session List Container -->
+                <div id="session-history-container">
+                    <!-- No Sessions -->
+                    <div id="no-sessions-message" class="text-center py-12">
+                        <div class="text-6xl mb-4">📝</div>
+                        <p class="text-gray-600 mb-2" data-i18n="growth.history.noSessions">아직 훈련 세션이 없습니다</p>
+                        <p class="text-sm text-gray-500" data-i18n="growth.history.startTraining">첫 번째 RQTDW 사고 훈련을 시작하세요!</p>
+                    </div>
+
+                    <!-- Session List (Dynamic) -->
+                    <div id="session-list" class="space-y-4">
+                        <!-- Dynamically generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Growth Dashboard (English) -->
+    <div id="growth-dashboard-en" class="hidden min-h-screen bg-gray-50 py-8">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Header -->
+            <div class="mb-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2" data-i18n="growth.title">📊 Growth Dashboard</h2>
+                    <p class="text-gray-600" data-i18n="growth.subtitle">Your thinking capacity measured by 5-grade system and 5 evaluation criteria</p>
+                </div>
+                <button
+                    onclick="backToLanding()"
+                    class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-all"
+                >
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    <span data-i18n="growth.home">Home</span>
+                </button>
+            </div>
+
+            <!-- Grade System Guide -->
+            <div class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4" data-i18n="growth.gradeSystem">🏆 RQTDW 5-Grade System</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="border-2 border-yellow-300 rounded-lg p-4 bg-gradient-to-br from-yellow-50 to-orange-50">
+                        <div class="text-center">
+                            <span class="text-3xl">🏆</span>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.S">S Grade</h4>
+                            <p class="text-xs text-gray-600 mb-1">9.0 - 10.0</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.S.name">Master</p>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-red-300 rounded-lg p-4 bg-gradient-to-br from-red-50 to-pink-50">
+                        <div class="text-center">
+                            <span class="text-3xl">💎</span>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.A">A Grade</h4>
+                            <p class="text-xs text-gray-600 mb-1">8.0 - 8.9</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.A.name">Expert</p>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-blue-300 rounded-lg p-4 bg-gradient-to-br from-blue-50 to-cyan-50">
+                        <div class="text-center">
+                            <span class="text-3xl">⭐</span>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.B">B Grade</h4>
+                            <p class="text-xs text-gray-600 mb-1">6.5 - 7.9</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.B.name">Advanced</p>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-green-300 rounded-lg p-4 bg-gradient-to-br from-green-50 to-emerald-50">
+                        <div class="text-center">
+                            <span class="text-3xl">📚</span>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.C">C Grade</h4>
+                            <p class="text-xs text-gray-600 mb-1">5.0 - 6.4</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.C.name">Intermediate</p>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-gray-300 rounded-lg p-4 bg-gradient-to-br from-gray-50 to-slate-50">
+                        <div class="text-center">
+                            <span class="text-3xl">🌱</span>
+                            <h4 class="font-bold text-gray-900 mt-2" data-i18n="growth.grade.D">D Grade</h4>
+                            <p class="text-xs text-gray-600 mb-1">0.0 - 4.9</p>
+                            <p class="text-xs text-gray-700 font-semibold" data-i18n="growth.grade.D.name">Beginner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Grade Card -->
+            <div class="hidden bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-2xl p-8 mb-8 text-white">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <p class="text-blue-100 mb-2" data-i18n="growth.currentGrade">Your Current Thinking Grade</p>
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl" id="current-grade-icon">⭐</span>
+                            <div>
+                                <h2 class="text-5xl font-bold" id="current-grade-text">Grade B</h2>
+                                <p class="text-xl text-blue-100 mt-1" id="current-grade-name">Advanced</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-blue-100 mb-2" data-i18n="growth.totalScore">Total Score</p>
+                        <p class="text-6xl font-bold" id="dashboard-total-score">7.4</p>
+                        <p class="text-sm text-blue-100 mt-2" id="percentile-rank" data-i18n="growth.percentile">Top 25%</p>
+                    </div>
+                </div>
+
+                <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                    <p class="text-sm text-white mb-2" data-i18n="growth.aiCoach">💡 AI Coach Assessment</p>
+                    <p class="text-white" id="ai-coach-comment" data-i18n="growth.aiCoachComment">
+                        Your thought structuring ability is improving with continuous training.
+                        Especially <strong>Question Depth</strong> has noticeably developed.
+                        To move to the next level, try strengthening your <strong>Perspective Diversity</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Initial vs Final vs Growth Comparison (Dashboard) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <!-- Initial Score -->
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border-2 border-gray-200">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-gray-700 flex items-center">
+                            <span class="text-lg mr-2">📝</span>
+                            <span data-i18n="results.initial">Initial Question</span>
+                        </h4>
+                        <span class="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-bold" id="dash-initial-grade-badge">D 🌱</span>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-600 mb-2" id="dash-initial-total-score">2.3</div>
+                    <div class="text-xs text-gray-500 space-y-1">
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.depth">Question Depth</span>
+                            <span class="font-semibold" id="dash-initial-depth">2.8</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.perspective">Perspective Diversity</span>
+                            <span class="font-semibold" id="dash-initial-perspective">2.0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.structure">Structural Thinking</span>
+                            <span class="font-semibold" id="dash-initial-structure">2.0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.discussion">Discussion Ability</span>
+                            <span class="font-semibold" id="dash-initial-discussion">2.8</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.application">Application</span>
+                            <span class="font-semibold" id="dash-initial-application">2.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Score -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-5 border-2 border-blue-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-blue-700 flex items-center">
+                            <span class="text-lg mr-2">🎯</span>
+                            <span data-i18n="results.final">Final Result</span>
+                        </h4>
+                        <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-bold" id="dash-final-grade-badge">C 📚</span>
+                    </div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2" id="dash-final-total-score">4.6</div>
+                    <div class="text-xs text-blue-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.depth">Question Depth</span>
+                            <span class="font-semibold" id="dash-final-depth">7.2</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.perspective">Perspective Diversity</span>
+                            <span class="font-semibold" id="dash-final-perspective">5.6</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.structure">Structural Thinking</span>
+                            <span class="font-semibold" id="dash-final-structure">2.0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.discussion">Discussion Ability</span>
+                            <span class="font-semibold" id="dash-final-discussion">4.8</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.application">Application</span>
+                            <span class="font-semibold" id="dash-final-application">3.6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-5 border-2 border-green-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-bold text-green-700 flex items-center">
+                            <span class="text-lg mr-2">🚀</span>
+                            <span data-i18n="results.growth">Growth</span>
+                        </h4>
+                        <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm font-bold" id="dash-growth-percentage">+100%</span>
+                    </div>
+                    <div class="text-4xl font-bold text-green-600 mb-2" id="dash-growth-total">+2.3</div>
+                    <div class="text-xs text-green-700 space-y-1">
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.depth">Question Depth</span>
+                            <span class="font-semibold" id="dash-growth-depth">+4.4</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.perspective">Perspective Diversity</span>
+                            <span class="font-semibold" id="dash-growth-perspective">+3.6</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.structure">Structural Thinking</span>
+                            <span class="font-semibold" id="dash-growth-structure">+0.0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.discussion">Discussion Ability</span>
+                            <span class="font-semibold" id="dash-growth-discussion">+2.0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span data-i18n="criteria.application">Application</span>
+                            <span class="font-semibold" id="dash-growth-application">+1.6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Evaluation Criteria Summary -->
+            <div class="hidden bg-white rounded-xl shadow-md p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6" data-i18n="growth.criteria">📈 5 Evaluation Criteria</h3>
+
+                <div class="space-y-6">
+                    <!-- 1. Question Depth -->
+                    <div class="border-2 border-blue-200 rounded-lg p-6 bg-blue-50">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">Q</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.depth.title">Question Depth</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.depth.desc">Ability to dig beyond the surface to the essence</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-blue-600" id="depth-score-display">7.5</p>
+                                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mt-1" id="depth-grade">⭐ Grade B</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all" id="depth-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Perspective Diversity -->
                     <div class="border-2 border-purple-200 rounded-lg p-6 bg-purple-50">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
@@ -1089,14 +1483,14 @@
                         </div>
                     </div>
 
-                    <!-- 3. 구조화 능력 -->
+                    <!-- 3. Structural Thinking -->
                     <div class="border-2 border-green-200 rounded-lg p-6 bg-green-50">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">S</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.structure.title">Structural Thinking</h4>
-                                    <p class="text-sm text-gray-600" data-i18n="growth.structure.desc">Systematically organizing complex thoughts</p>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.structure.desc">Ability to systematically organize complex thoughts</p>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -1109,14 +1503,14 @@
                         </div>
                     </div>
 
-                    <!-- 4. 토론 확장력 -->
+                    <!-- 4. Discussion & CI -->
                     <div class="border-2 border-orange-200 rounded-lg p-6 bg-orange-50">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">D</div>
                                 <div>
-                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.discussion.title">Discussion & CI</h4>
-                                    <p class="text-sm text-gray-600" data-i18n="growth.discussion.desc">Expanding thinking through collective intelligence</p>
+                                    <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.discussion.title">Discussion & Collective Intelligence</h4>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.discussion.desc">Ability to expand thinking through collective intelligence</p>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -1129,14 +1523,14 @@
                         </div>
                     </div>
 
-                    <!-- 5. 실행·전환 능력 -->
+                    <!-- 5. Application -->
                     <div class="border-2 border-indigo-200 rounded-lg p-6 bg-indigo-50">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">A</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 text-lg" data-i18n="growth.application.title">Application</h4>
-                                    <p class="text-sm text-gray-600" data-i18n="growth.application.desc">Converting insights into concrete actions</p>
+                                    <p class="text-sm text-gray-600" data-i18n="growth.application.desc">Ability to transform insights into concrete actions</p>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -1151,7 +1545,7 @@
                 </div>
             </div>
 
-            <!-- 성장 추이 (간소화) -->
+            <!-- Growth Trend (Simplified) -->
             <div class="hidden bg-white rounded-xl shadow-md p-6 mb-8">
                 <h3 class="text-lg font-bold text-gray-900 mb-4" data-i18n="growth.stats">📊 Learning Status</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -1161,7 +1555,7 @@
                     </div>
                     <div class="text-center p-4 bg-green-50 rounded-lg">
                         <p class="text-2xl font-bold text-green-600" id="completed-steps">0</p>
-                        <p class="text-sm text-gray-600" data-i18n="growth.stats.steps">Steps Completed</p>
+                        <p class="text-sm text-gray-600" data-i18n="growth.stats.steps">Completed Steps</p>
                     </div>
                     <div class="text-center p-4 bg-orange-50 rounded-lg">
                         <p class="text-2xl font-bold text-orange-600" id="questions-asked">0</p>
@@ -1174,53 +1568,53 @@
                 </div>
             </div>
 
-            <!-- 다음 목표 -->
+            <!-- Next Goals -->
             <div class="hidden bg-gradient-to-br from-green-50 to-blue-50 rounded-xl shadow-md p-6 border-2 border-green-300">
                 <h3 class="text-lg font-bold text-gray-900 mb-4" data-i18n="growth.nextGoals">🎯 Next Goals</h3>
                 <div class="space-y-3">
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">✓</div>
                         <div>
-                            <p class="font-semibold text-gray-900" data-i18n="growth.goal1.title">Reach Grade A</p>
-                            <p class="text-sm text-gray-600" data-i18n="growth.goal1.desc">Achieve average 8.0 or higher (current: 7.4)</p>
+                            <p class="font-semibold text-gray-900" data-i18n="growth.goal1.title">Reach A Grade</p>
+                            <p class="text-sm text-gray-600" data-i18n="growth.goal1.desc">Achieve average of 8.0 or higher (current 7.4)</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">!</div>
                         <div>
-                            <p class="font-semibold text-gray-900" data-i18n="growth.goal2.title">Weakness: Application Ability</p>
-                            <p class="text-sm text-gray-600" data-i18n="growth.goal2.desc">Need practice converting insights into concrete actions</p>
+                            <p class="font-semibold text-gray-900" data-i18n="growth.goal2.title">Improve Weakness: Application Ability</p>
+                            <p class="text-sm text-gray-600" data-i18n="growth.goal2.desc">Need practice in transforming insights into concrete actions</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">→</div>
                         <div>
                             <p class="font-semibold text-gray-900" data-i18n="growth.goal3.title">Recommended Action: 72-Hour Rule</p>
-                            <p class="text-sm text-gray-600" data-i18n="growth.goal3.desc">Start important decisions or ideas with 1 action within 3 days</p>
+                            <p class="text-sm text-gray-600" data-i18n="growth.goal3.desc">Start with one action within 3 days for important decisions or ideas</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 세션 히스토리 -->
+            <!-- Session History -->
             <div class="bg-white rounded-xl shadow-md p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-lg font-bold text-gray-900" data-i18n="growth.history.title">📚 Session History</h3>
                     <button onclick="clearAllSessions()" class="text-sm text-red-600 hover:text-red-700 font-semibold" data-i18n="growth.history.clearAll">Clear All</button>
                 </div>
 
-                <!-- 세션 목록 컨테이너 -->
+                <!-- Session List Container -->
                 <div id="session-history-container">
-                    <!-- 세션이 없을 때 -->
+                    <!-- No Sessions -->
                     <div id="no-sessions-message" class="text-center py-12">
                         <div class="text-6xl mb-4">📝</div>
                         <p class="text-gray-600 mb-2" data-i18n="growth.history.noSessions">No training sessions yet</p>
                         <p class="text-sm text-gray-500" data-i18n="growth.history.startTraining">Start your first RQTDW thinking training!</p>
                     </div>
 
-                    <!-- 세션 목록 (동적 생성) -->
+                    <!-- Session List (Dynamic) -->
                     <div id="session-list" class="space-y-4">
-                        <!-- JavaScript로 동적 생성됨 -->
+                        <!-- Dynamically generated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -1248,11 +1642,11 @@
 
             <!-- Modal Body -->
             <div class="p-6 space-y-6">
-                <!-- 사고 레벨 분석 -->
+                <!-- Thinking Level Analysis -->
                 <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-6 text-white">
                     <h3 class="font-bold text-white mb-4 flex items-center text-xl">
                         <span class="text-2xl mr-2">📊</span>
-                        <span data-i18n="growth.detail.analysis">Thinking Level Analysis</span>
+                        <span data-i18n="growth.detail.analysis">사고 레벨 분석</span>
                     </h3>
                     <div class="flex items-center justify-between">
                         <div>
@@ -1260,56 +1654,56 @@
                                 <span class="text-6xl" id="modal-grade-icon">⭐</span>
                                 <div>
                                     <h2 class="text-4xl font-bold" id="modal-grade-text">Grade B</h2>
-                                    <p class="text-lg text-blue-100" id="modal-grade-name">Advanced</p>
+                                    <p class="text-lg text-blue-100" id="modal-grade-name">숙련자</p>
                                 </div>
                             </div>
                         </div>
                         <div class="text-right">
-                            <p class="text-blue-100 mb-1">Total Score</p>
+                            <p class="text-blue-100 mb-1">총점</p>
                             <p class="text-5xl font-bold" id="modal-total-score">7.4</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 5가지 평가 기준 -->
+                <!-- 5 Evaluation Criteria -->
                 <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center">
                         <span class="text-xl mr-2">📈</span>
-                        <span data-i18n="growth.detail.criteria">5 Evaluation Criteria</span>
+                        <span data-i18n="growth.detail.criteria">5가지 평가 기준</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.depth.title">Question Depth</span>
+                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.depth.title">질문 깊이</span>
                             <span class="text-lg font-bold text-blue-600" id="modal-depth-score">7.5</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.perspective.title">Perspective Diversity</span>
+                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.perspective.title">관점 다양성</span>
                             <span class="text-lg font-bold text-purple-600" id="modal-perspective-score">8.0</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.structure.title">Structural Thinking</span>
+                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.structure.title">구조화 능력</span>
                             <span class="text-lg font-bold text-green-600" id="modal-structure-score">7.0</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.discussion.title">Discussion & CI</span>
+                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.discussion.title">토론 & 집단지성</span>
                             <span class="text-lg font-bold text-orange-600" id="modal-discussion-score">7.5</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.application.title">Application</span>
+                            <span class="text-sm font-semibold text-gray-700" data-i18n="growth.application.title">실행 가능성</span>
                             <span class="text-lg font-bold text-indigo-600" id="modal-application-score">6.5</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 질문 진화 -->
+                <!-- Question Evolution -->
                 <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-6 border-2 border-orange-200">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center">
                         <span class="text-xl mr-2">❓</span>
-                        <span data-i18n="growth.detail.questionEvolution">Question Evolution</span>
+                        <span data-i18n="growth.detail.questionEvolution">질문 진화</span>
                     </h3>
                     <div class="space-y-3">
                         <div>
-                            <p class="text-sm text-gray-600 mb-1" data-i18n="growth.detail.initial">Initial Question</p>
+                            <p class="text-sm text-gray-600 mb-1" data-i18n="growth.detail.initial">초기 질문</p>
                             <p class="text-gray-900 font-semibold" id="modal-initial-question">-</p>
                         </div>
                         <div class="flex items-center justify-center">
@@ -1318,44 +1712,44 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-600 mb-1" data-i18n="growth.detail.rewritten">Rewritten Question</p>
+                            <p class="text-sm text-gray-600 mb-1" data-i18n="growth.detail.rewritten">재작성된 질문</p>
                             <p class="text-gray-900 font-semibold" id="modal-rewritten-question">-</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 사고 프레임워크 -->
+                <!-- Thinking Framework -->
                 <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-6 border-2 border-green-200">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center">
                         <span class="text-xl mr-2">🧠</span>
-                        <span data-i18n="growth.detail.framework">Thinking Framework</span>
+                        <span data-i18n="growth.detail.framework">사고 프레임워크</span>
                     </h3>
                     <p class="text-gray-700" id="modal-framework">-</p>
                 </div>
 
-                <!-- 토론 내용 -->
+                <!-- Discussion Notes -->
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-200">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center">
                         <span class="text-xl mr-2">💬</span>
-                        <span data-i18n="growth.detail.discussion">Discussion Notes</span>
+                        <span data-i18n="growth.detail.discussion">토론 내용</span>
                     </h3>
                     <p class="text-gray-700 whitespace-pre-wrap" id="modal-discussion">-</p>
                 </div>
 
-                <!-- 핵심 통찰 -->
+                <!-- Key Insight -->
                 <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center">
                         <span class="text-xl mr-2">💡</span>
-                        <span data-i18n="growth.detail.insight">Key Insight</span>
+                        <span data-i18n="growth.detail.insight">핵심 통찰</span>
                     </h3>
                     <p class="text-gray-700 whitespace-pre-wrap" id="modal-insight">-</p>
                 </div>
 
-                <!-- 실행 계획 -->
+                <!-- Action Plan -->
                 <div class="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-6 border-2 border-emerald-200">
                     <h3 class="font-bold text-gray-900 mb-4 flex items-center">
                         <span class="text-xl mr-2">🎯</span>
-                        <span data-i18n="growth.detail.action">Action Plan</span>
+                        <span data-i18n="growth.detail.action">실행 계획</span>
                     </h3>
                     <p class="text-gray-700 whitespace-pre-wrap" id="modal-action">-</p>
                 </div>
@@ -1364,10 +1758,10 @@
             <!-- Modal Footer -->
             <div class="sticky bottom-0 bg-gray-50 p-6 rounded-b-2xl border-t flex justify-between">
                 <button onclick="deleteSession()" class="px-6 py-3 bg-red-100 text-red-700 rounded-lg font-semibold hover:bg-red-200 transition-all" data-i18n="growth.detail.delete">
-                    Delete Session
+                    세션 삭제
                 </button>
                 <button onclick="closeSessionDetail()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-all" data-i18n="growth.detail.close">
-                    Close
+                    닫기
                 </button>
             </div>
         </div>
@@ -2701,105 +3095,796 @@
 
         <!-- Main Content -->
         <div class="max-w-5xl mx-auto px-6 py-12">
+
+            <!-- Title Section -->
             <div class="text-center mb-12">
                 <div class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full font-bold text-lg mb-4 shadow-lg">
-                    What is RQTDW© Thinking OS?
+                    <span data-i18n="guide.header">What is RQTDW© Thinking OS?</span>
                 </div>
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">
-                    A Thinking Training System<br/>
-                    That Grows Your Mind, Not Just Provides Answers
+                    <span data-i18n="guide.tagline1">A Thinking Training System That</span><br/>
+                    <span data-i18n="guide.tagline2">Grows Your Mind, Not Just Provides Answers</span>
                 </h2>
                 <p class="text-xl text-gray-700">
                     Read · Question · Think · Discussion · Write
                 </p>
             </div>
 
+            <!-- Core Philosophy -->
             <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border-2 border-blue-200">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Why RQTDW©?</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">?</span>
+                    <span data-i18n="guide.why.title">Why RQTDW©?</span>
+                </h3>
+
                 <div class="space-y-6">
                     <div class="flex items-start">
-                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-2xl mr-4">❌</div>
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-2xl mr-4 flex-shrink-0">❌</div>
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">The Problem with Existing AI</h4>
-                            <p class="text-gray-700">
-                                ChatGPT and search engines provide <strong>instant answers</strong>. While convenient, they cause <strong>thinking skills to atrophy</strong>. People forget how to ask questions and lose the ability to think deeply.
+                            <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.why.problem">The Problem with Existing AI</h4>
+                            <p class="text-gray-700" data-i18n="guide.why.problem.desc">
+                                ChatGPT and search engines <strong>provide instant answers</strong>.
+                                While convenient, <strong>thinking skills atrophy</strong>.
+                                People forget how to ask questions and lose the ability to think deeply.
                             </p>
                         </div>
                     </div>
+
                     <div class="flex items-start">
-                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl mr-4">✅</div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl mr-4 flex-shrink-0">✅</div>
                         <div>
-                            <h4 class="font-bold text-gray-900 mb-2">RQTDW©'s Approach</h4>
-                            <p class="text-gray-700">
-                                RQTDW© <strong>doesn't give you answers</strong>. Instead, it <strong>asks questions, triggers thinking, and provides structure</strong>. Users think for themselves, deepen their understanding, and grow.
+                            <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.why.solution">RQTDW©'s Approach</h4>
+                            <p class="text-gray-700" data-i18n="guide.why.solution.desc">
+                                RQTDW© <strong>doesn't give you answers</strong>.
+                                Instead, it <strong>asks questions, triggers thinking, and provides structure</strong>.
+                                Users think for themselves, deepen their understanding, and grow.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Training Purpose -->
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl shadow-xl p-8 mb-8 border-2 border-purple-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-3">🎯</span>
+                    <span data-i18n="guide.purpose.title">Training Objectives</span>
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-3">🧠</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.purpose.upgrade">Upgrade Your Thinking OS</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.purpose.upgrade.desc">
+                            Build a <strong>thinking operating system</strong> that evolves you from Copier (imitator) → Editor (editor) → Creator (creator).
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-3">❓</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.purpose.question">Restore Questioning Ability</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.purpose.question.desc">
+                            Train <strong>the ability to create the right questions</strong>, not just find answers. Good questions create good thinking.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-3">🎨</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.purpose.structure">Thinking Structuring Ability</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.purpose.structure.desc">
+                            Organize complex thoughts with <strong>visual frameworks</strong> like Head·Heart·Body and Demand vs Desire.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="text-3xl mb-3">📈</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.purpose.measure">Measure Thinking Growth</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.purpose.measure.desc">
+                            Measure the depth of questions and diversity of perspectives to grow your <strong>thinking level</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Stage Process Detailed -->
             <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">RQTDW© 5-Stage Thinking Training Process</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center" data-i18n="guide.process.title">
+                    RQTDW© 5-Stage Thinking Training Process
+                </h3>
+
                 <div class="space-y-6">
+                    <!-- R -->
                     <div class="flex items-start border-l-4 border-blue-500 pl-6 py-4 bg-blue-50 rounded-r-xl">
                         <div class="mr-6">
                             <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">R</div>
                         </div>
                         <div class="flex-1">
                             <h4 class="text-xl font-bold text-gray-900 mb-2">Read - Meaningful Reading</h4>
-                            <p class="text-gray-700">Don't just consume information - <strong>deconstruct meaning</strong>. Separate facts from interpretation and find hidden assumptions.</p>
+                            <p class="text-gray-700 mb-3">
+                                Don't just consume information - <strong>deconstruct meaning</strong>.
+                                Separate facts from interpretation and find hidden assumptions.
+                            </p>
+
+                            <div class="bg-blue-100 rounded-lg p-4 mb-3">
+                                <p class="text-sm text-gray-800 mb-2"><strong>📌 Practice Methods:</strong></p>
+                                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                                    <li>• <strong>Separate facts from opinions</strong>: "Is this a verifiable fact, or someone's interpretation?"</li>
+                                    <li>• <strong>Find hidden assumptions</strong>: "What must be assumed for this argument to hold?"</li>
+                                    <li>• <strong>Understand context</strong>: "In what context does this information arise?"</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-3 text-sm border border-blue-300">
+                                <strong>💡 Example:</strong> "AI will take away jobs" →
+                                <span class="text-blue-700">Separate fact (AI technology advancement) from interpretation (job loss forecast), and question the assumption "Are all jobs equally affected?"</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Q -->
                     <div class="flex items-start border-l-4 border-orange-500 pl-6 py-4 bg-orange-50 rounded-r-xl">
                         <div class="mr-6">
                             <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">Q</div>
                         </div>
                         <div class="flex-1">
-                            <h4 class="text-xl font-bold text-gray-900 mb-2">Question - Question Generation</h4>
-                            <p class="text-gray-700"><strong>The key stage that distinguishes humans from AI</strong>. Create better questions, not find answers. Uses 15 creative questioning techniques.</p>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="guide.process.question.title">Question - Question Generation</h4>
+                            <p class="text-gray-700 mb-3" data-i18n="guide.process.question.desc">
+                                <strong>The key stage that distinguishes humans from AI</strong>.
+                                Create better questions, not just find answers.
+                                Use 15 creative questioning techniques including Why questions, assumption questions, perspective questions, connection questions, and conflict questions.
+                            </p>
+
+                            <div class="bg-orange-100 rounded-lg p-4 mb-3">
+                                <p class="text-sm text-gray-800 mb-2"><strong>📌 Examples of 15 Creative Questioning Techniques:</strong></p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                                        <li>• <strong>Why questions</strong>: "Why do you think so?"</li>
+                                        <li>• <strong>Assumption questions</strong>: "What if...?"</li>
+                                        <li>• <strong>Perspective questions</strong>: "From the opposite side?"</li>
+                                        <li>• <strong>Connection questions</strong>: "What's the relationship between this and that?"</li>
+                                    </ul>
+                                    <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                                        <li>• <strong>Conflict questions</strong>: "Don't these two contradict?"</li>
+                                        <li>• <strong>Essence questions</strong>: "What's the real problem?"</li>
+                                        <li>• <strong>Expansion questions</strong>: "Looking more broadly?"</li>
+                                        <li>• <strong>Reduction questions</strong>: "Keeping only the essentials?"</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-3 text-sm border border-orange-300">
+                                <strong>💡 Example:</strong> "How to increase sales?" →
+                                <span class="text-orange-700">"Is increasing sales the real goal? What do customers really want? What if we focus on customer satisfaction instead of sales?"</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- T -->
                     <div class="flex items-start border-l-4 border-green-500 pl-6 py-4 bg-green-50 rounded-r-xl">
                         <div class="mr-6">
                             <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">T</div>
                         </div>
                         <div class="flex-1">
-                            <h4 class="text-xl font-bold text-gray-900 mb-2">Think - Structured Thinking</h4>
-                            <p class="text-gray-700">Capture scattered thoughts with <strong>visual frameworks</strong>. Organize thinking with structures like Head·Heart·Body and Demand vs Desire.</p>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="guide.process.think.title">Think - Structured Thinking</h4>
+                            <p class="text-gray-700 mb-3" data-i18n="guide.process.think.desc">
+                                Capture scattered thoughts with <strong>visual frameworks</strong>.
+                                Organize thinking with structures like Head·Heart·Body, Demand vs Desire, and Copier→Editor→Creator.
+                            </p>
+
+                            <div class="bg-green-100 rounded-lg p-4 mb-3">
+                                <p class="text-sm text-gray-800 mb-2"><strong>📌 Key Frameworks:</strong></p>
+                                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                                    <li>• <strong>Head·Heart·Body</strong>: Separate rationality (thinking) · emotion (feeling) · action (practice)</li>
+                                    <li>• <strong>Demand vs Desire</strong>: What you outwardly request vs what you really want</li>
+                                    <li>• <strong>Copier→Editor→Creator</strong>: Copying stage → Editing stage → Creating stage</li>
+                                    <li>• <strong>Problem Solving</strong>: Phenomenon → Cause → Alternative → Execution → Verification</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-3 text-sm border border-green-300">
+                                <strong>💡 Example:</strong> Starting a business dilemma →
+                                <span class="text-green-700"><strong>Head</strong>: Need market analysis, <strong>Heart</strong>: Fear and excitement, <strong>Body</strong>: Interview 10 people this week</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- D -->
                     <div class="flex items-start border-l-4 border-purple-500 pl-6 py-4 bg-purple-50 rounded-r-xl">
                         <div class="mr-6">
                             <div class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg">D</div>
                         </div>
                         <div class="flex-1">
-                            <h4 class="text-xl font-bold text-gray-900 mb-2">Discussion - Collective Thinking</h4>
-                            <p class="text-gray-700">Expand individual thinking into <strong>collective intelligence</strong>. Discuss through questions, not opinions, triggering each other's thinking.</p>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="guide.process.discussion.title">Discussion - Collective Thinking</h4>
+                            <p class="text-gray-700 mb-3" data-i18n="guide.process.discussion.desc">
+                                Expand individual thinking into <strong>collective intelligence</strong>.
+                                Discuss through questions, not opinions, triggering each other's thinking.
+                            </p>
+
+                            <div class="bg-purple-100 rounded-lg p-4 mb-3">
+                                <p class="text-sm text-gray-800 mb-2"><strong>📌 Question-Based Discussion Method:</strong></p>
+                                <div class="space-y-2">
+                                    <div class="text-sm text-gray-700">
+                                        <strong>❌ Opinion-based:</strong> "I think A is correct"
+                                    </div>
+                                    <div class="text-sm text-gray-700">
+                                        <strong>✅ Question-based:</strong> "Why did you think A? Did you consider B?"
+                                    </div>
+                                    <hr class="my-2 border-purple-200">
+                                    <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                                        <li>• Ask questions that <strong>expand others' thinking</strong></li>
+                                        <li>• Instead of judging right/wrong, ask <strong>"Why do you think that?"</strong></li>
+                                        <li>• Present different perspectives also in <strong>question form</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-3 text-sm border border-purple-300">
+                                <strong>💡 Example:</strong> In meetings →
+                                <span class="text-purple-700">"Plan A is good" (X) → "What are the pros and cons of Plan A? How does it compare to Plan B?" (O)</span>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- W -->
                     <div class="flex items-start border-l-4 border-teal-500 pl-6 py-4 bg-teal-50 rounded-r-xl">
                         <div class="mr-6">
-                            <div class="w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg" style="background-color: #0d9488;">W</div>
+                            <div class="w-16 h-16 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-lg" style="background-color: #0d9488 !important; color: #ffffff !important;">W</div>
                         </div>
                         <div class="flex-1">
-                            <h4 class="text-xl font-bold text-gray-900 mb-2">Write - Recording & Accumulation</h4>
-                            <p class="text-gray-700">Don't let thinking slip away - <strong>record it</strong>. Archive question history, thinking structures, and insights to measure growth.</p>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="guide.process.write.title">Write - Recording & Accumulation</h4>
+                            <p class="text-gray-700 mb-3" data-i18n="guide.process.write.desc">
+                                Don't let thinking slip away - <strong>record it</strong>.
+                                Archive question history, thinking structures, and insights to measure growth.
+                            </p>
+
+                            <div class="bg-teal-100 rounded-lg p-4 mb-3">
+                                <p class="text-sm text-gray-800 mb-2"><strong>📌 What to Record:</strong></p>
+                                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+                                    <li>• <strong>Question history</strong>: Initial question → Reconstructed question → Discovered essence</li>
+                                    <li>• <strong>Thinking structure</strong>: Which framework was used and how it was organized</li>
+                                    <li>• <strong>Key insights</strong>: "Aha!" moments, realizations, actions to take</li>
+                                    <li>• <strong>Growth measurement</strong>: Track changes in question depth, perspective diversity, and structuring ability</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-3 text-sm border border-teal-300">
+                                <strong>💡 Example:</strong> After 3 months of recording →
+                                <span class="text-teal-700">"At first I only asked 'how' questions, now I ask 'why' questions first. Thinking depth grew from Level 3 to Level 7"</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Benefits -->
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl shadow-xl p-8 mb-8 border-2 border-green-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">🎁</span>
+                    <span data-i18n="guide.benefits.title">What You Gain from RQTDW© Training</span>
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="text-center">
+                        <div class="text-5xl mb-3">🧠</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.benefits.depth">Depth of Thinking</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.benefits.depth.desc">
+                            The ability to find fundamental questions, not superficial answers
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-3">🎯</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.benefits.structure">Structured Thinking</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.benefits.structure.desc">
+                            Organize complex problems with clear frameworks
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-3">🔄</div>
+                        <h4 class="font-bold text-gray-900 mb-2" data-i18n="guide.benefits.flexibility">Flexibility of Perspective</h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.benefits.flexibility.desc">
+                            Multi-faceted thinking, not trapped in a single viewpoint
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6">
+                    <h4 class="font-bold text-gray-900 mb-3 text-center" data-i18n="guide.benefits.changes">Specific Changes</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span data-i18n="guide.benefits.change1">Vague worries transform into <strong>structured questions</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span data-i18n="guide.benefits.change2">Gain <strong>deep insights</strong> instead of quick answers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span data-i18n="guide.benefits.change3">Thinking (Head), emotion (Heart), and action (Body) become <strong>aligned</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span data-i18n="guide.benefits.change4">Develop the ability to <strong>redefine problems</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span data-i18n="guide.benefits.change5">Thinking level grows in a <strong>measurable way</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Target Audience -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center" data-i18n="guide.audience.title">
+                    Who Is This Training For?
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border-2 border-blue-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-blue-700 mb-2"><span>🚀</span> <span data-i18n="guide.audience.entrepreneur">Entrepreneurs · Planners</span></h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.audience.entrepreneur.desc">
+                            The ability to structure ideas, question assumptions, and redefine problems
+                        </p>
+                    </div>
+                    <div class="border-2 border-green-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-green-700 mb-2"><span>👥</span> <span data-i18n="guide.audience.leader">Leaders · Managers</span></h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.audience.leader.desc">
+                            Leadership that aligns team's Why and triggers thinking through questions
+                        </p>
+                    </div>
+                    <div class="border-2 border-orange-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-orange-700 mb-2"><span>🎓</span> <span data-i18n="guide.audience.educator">Educators · Coaches</span></h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.audience.educator.desc">
+                            Educational methods that awaken students' thinking and make them question themselves
+                        </p>
+                    </div>
+                    <div class="border-2 border-purple-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-purple-700 mb-2"><span>💭</span> <span data-i18n="guide.audience.individual">Self-Reflective Individuals</span></h4>
+                        <p class="text-sm text-gray-700" data-i18n="guide.audience.individual.desc">
+                            Life transitions, important decisions, any moment requiring deep thinking
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Author & Books -->
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-xl p-8 mb-8 border-2 border-indigo-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                    <span class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold mr-3">📚</span>
+                    <span data-i18n="guide.author.title">Developer & Author of RQTDW© Human Questioning & Thinking OS</span>
+                </h3>
+
+                <div class="bg-white rounded-xl p-6 mb-6">
+                    <div class="flex flex-col md:flex-row items-start gap-6">
+                        <!-- Profile Photo -->
+                        <div class="w-full md:w-48 flex-shrink-0">
+                            <img
+                                src="profile-jaiwoo-shim.png"
+                                alt="Jaiwoo Shim"
+                                class="w-full rounded-lg shadow-lg"
+                            />
+                        </div>
+
+                        <!-- Profile Text -->
+                        <div class="flex-1">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2" data-i18n="guide.author.name">Jaiwoo Shim</h4>
+                            <p class="text-sm text-indigo-600 font-semibold mb-3">
+                                • Listed in WHO'S WHO IN THE WORLD 2016<br>
+                                • Recognized by The Marquis Who's Who Publications Board
+                            </p>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                A thinking methodology expert who has researched problem-solving and creative thinking methodologies for over 20 years.
+                                Active as a facilitation specialist who innovates problem-solving processes in companies and organizations, and awakens individual thinking power.
+                                Analyzed the questioning methods of Nobel Prize winners and systematized 15 creative questioning techniques,
+                                and developed RQTDW© Human Questioning & Creative Thinking OS and AI Nobel Literacy 5© reconstructed for the AI era.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="font-bold text-gray-900 mb-4 text-lg"><span>📖</span> <span data-i18n="guide.author.books">Major Publications</span></h4>
+
+                <div class="mb-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-5 border-2 border-blue-200">
+                    <p class="text-sm text-gray-800 leading-relaxed mb-3">
+                        <strong class="text-blue-700">RQTDW© Human Questioning & Thinking OS</strong> is developed by integrating the content and methodologies of the 11 books below published by Jaiwoo Shim,
+                        <strong>the world's first platform for learning and training creative questioning and creative thinking methods</strong>.
+                    </p>
+                    <p class="text-xs text-gray-700 bg-white bg-opacity-70 rounded-lg p-3 border-l-4 border-amber-500">
+                        ⚠️ All methodologies and content are protected by patents and copyrights, so illegal reproduction, copying, plagiarism, or modification will result in legal consequences.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <!-- Simple Question -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-blue-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="심플퀘스천.png" alt="Simple Question" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">Simple Question</h5>
+                                <p class="text-xs text-gray-600">6-Step Problem-Solving Process</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A systematic problem-solving methodology that starts with 2 sheets of A4 paper.
+                            A practical guide to solving any problem through 6 steps:
+                            Goal Setting → Problem Definition → Cause Analysis → Solution Development → Solution Execution → Result Review.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">Problem Solving</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">6 Steps</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">Practical</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/97047994" target="_blank" class="block text-center py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold hover:bg-blue-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 15 Creative Questions - Full Width -->
+                <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-green-100">
+                    <div class="flex items-start mb-3">
+                        <div class="w-20 h-28 mr-3 flex-shrink-0">
+                            <img src="15창의질문.png" alt="15 Creative Questions" class="w-full h-full object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="flex-1">
+                            <h5 class="font-bold text-gray-900 mb-1">Nobel Prize Winners' Questioning Methods: 15 Creative Questions</h5>
+                            <p class="text-xs text-gray-600">Core Questioning Technique of RQTDW© Q Stage</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                        Systematizes <strong>15 creative questioning techniques</strong> used by Nobel Prize winners and global innovators.
+                        Presents Why questions, assumption questions, perspective questions, connection questions, conflict questions, etc.
+                        <strong>Methods to create better questions</strong>, not find answers.
+                        The theoretical foundation of the core algorithm used by AI in RQTDW©'s Q (Question) stage.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">15 Creative Questions</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">Nobel-level Thinking</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">Question Reconstruction</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">RQTDW© Core</span>
+                    </div>
+                    <a href="https://www.yes24.com/product/goods/142703126" target="_blank" class="block text-center py-2 bg-green-500 text-white rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors">
+                        View on Yes24 →
+                    </a>
+                </div>
+
+                <!-- Additional Books -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <!-- 3-Color Line Reading -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-orange-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="3색줄독서.png" alt="3-Color Line Reading" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">3-Color Line Reading</h5>
+                                <p class="text-xs text-gray-600">Reading Method with Thinking</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            An innovative reading method of drawing lines with three colors: red, blue, and green.
+                            A method of active reading by distinguishing important content, questions, and action items,
+                            enabling thoughtful reading rather than simple information consumption.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs font-semibold">Reading Method</span>
+                            <span class="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs font-semibold">Active Learning</span>
+                            <span class="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs font-semibold">Thinking Training</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/119951847" target="_blank" class="block text-center py-2 bg-orange-500 text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- Town Meeting -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-teal-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="타운미팅.jpg" alt="Town Meeting" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">Town Meeting</h5>
+                                <p class="text-xs text-gray-600">Large-Scale Collective Decision-Making Technique</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            An innovative meeting methodology where large groups from dozens to hundreds discuss and make decisions together.
+                            A practical guide to implementing democratic decision-making with participation from all organizational members
+                            and drawing out collective intelligence using facilitation techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-semibold">Meeting Technique</span>
+                            <span class="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-semibold">Facilitation</span>
+                            <span class="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-semibold">Collective Intelligence</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/3041373" target="_blank" class="block text-center py-2 bg-teal-500 text-white rounded-lg text-sm font-semibold hover:bg-teal-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- Han River Writing -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-pink-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="한강 글쓰기.png" alt="Han River Writing" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">Han River Writing</h5>
+                                <p class="text-xs text-gray-600">Creative Writing Methodology</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A systematic methodology to complete natural writing that flows like the Han River.
+                            Presents principles of writing that clearly structures thoughts and communicates with readers,
+                            a practical guide applicable to all writing from business documents to creative works.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 rounded text-xs font-semibold">Writing</span>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 rounded text-xs font-semibold">Thought Structuring</span>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-700 rounded text-xs font-semibold">Creation</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/143623738" target="_blank" class="block text-center py-2 bg-pink-500 text-white rounded-lg text-sm font-semibold hover:bg-pink-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- GE Core Talent -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-blue-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="GE 핵심인재.jpg" alt="GE Core Talent" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">GE Core Talent</h5>
+                                <p class="text-xs text-gray-600">Talent Development at World-Class Companies</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A practical guide analyzing GE's talent development system.
+                            Introduces systematic methodologies for selecting and developing core talent and leadership development processes,
+                            presenting talent management strategies that drive organizational performance.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">Talent Development</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">Leadership</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">Organization Management</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/2138040" target="_blank" class="block text-center py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold hover:bg-blue-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- GE Meeting Skills -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-purple-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="GE 미팅기술.jpg" alt="GE Meeting Skills" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">GE Meeting Skills</h5>
+                                <p class="text-xs text-gray-600">Everything About Effective Meeting Management</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A practical guide systematizing GE's efficient meeting management know-how.
+                            Contains core skills for the entire process from meeting preparation to execution and result summary,
+                            presenting methods to create a productive meeting culture that reaches clear conclusions without wasting time.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-semibold">Meeting Management</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-semibold">Productivity</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-semibold">Decision Making</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/2106327" target="_blank" class="block text-center py-2 bg-purple-500 text-white rounded-lg text-sm font-semibold hover:bg-purple-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- GE Communication -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-indigo-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="GE 커뮤니케이션.jpg" alt="GE Communication" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">GE Communication</h5>
+                                <p class="text-xs text-gray-600">Core Principles of Organizational Communication</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A practical book containing GE's organizational communication culture and practice methods.
+                            Presents specific techniques for smooth communication in all directions and methods to build trust within organizations,
+                            introducing communication systems that promote collaboration and innovation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs font-semibold">Organizational Communication</span>
+                            <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs font-semibold">Collaboration</span>
+                            <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs font-semibold">Trust Building</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/1430662" target="_blank" class="block text-center py-2 bg-indigo-500 text-white rounded-lg text-sm font-semibold hover:bg-indigo-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- 1% Great Companies -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-amber-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="1% 위대한 기업은.jpg" alt="1% Great Companies" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">1% Great Companies</h5>
+                                <p class="text-xs text-gray-600">Success Secrets of Top-Tier Companies</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A business strategy book analyzing the common success principles of top 1% great companies.
+                            Contains the core DNA and practice methods of sustainably growing companies,
+                            presenting specific methodologies for becoming an excellent company including organizational culture, talent development, and innovation systems.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-semibold">Business Strategy</span>
+                            <span class="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-semibold">Organizational Innovation</span>
+                            <span class="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-semibold">Performance Management</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/14861266" target="_blank" class="block text-center py-2 bg-amber-500 text-white rounded-lg text-sm font-semibold hover:bg-amber-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- You & I Speaking Method -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-rose-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="유앤아이 화법.jpg" alt="You & I Speaking Method" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">You & I Speaking Method</h5>
+                                <p class="text-xs text-gray-600">Empathetic and Persuasive Communication</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            Empathetic communication techniques connecting You (the other) and I (myself).
+                            Presents conversation methods to effectively convey my opinion while understanding the other's position,
+                            containing practical speaking methods to solve problems while maintaining relationships even in conflict situations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-rose-100 text-rose-700 rounded text-xs font-semibold">Empathetic Conversation</span>
+                            <span class="px-2 py-1 bg-rose-100 text-rose-700 rounded text-xs font-semibold">Persuasion Skills</span>
+                            <span class="px-2 py-1 bg-rose-100 text-rose-700 rounded text-xs font-semibold">Relationship Building</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/5535241" target="_blank" class="block text-center py-2 bg-rose-500 text-white rounded-lg text-sm font-semibold hover:bg-rose-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+
+                    <!-- Nobel Gifted Education -->
+                    <div class="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow border-2 border-emerald-100">
+                        <div class="flex items-start mb-3">
+                            <div class="w-20 h-28 mr-3 flex-shrink-0">
+                                <img src="노벨 영재 교육.jpg" alt="Nobel Gifted Education" class="w-full h-full object-cover rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 mb-1">Nobel Gifted Education</h5>
+                                <p class="text-xs text-gray-600">Nobel Prize Winners' Thinking Methods</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3 leading-relaxed">
+                            A gifted education guide analyzing the questioning methods and thinking styles of Nobel Prize winners.
+                            Contains research that became the foundation for 15 creative questioning techniques to develop creative problem-solving abilities,
+                            presenting practical educational methods to guide children's innate curiosity into scientific inquiry.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-semibold">Gifted Education</span>
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-semibold">Creative Questions</span>
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-semibold">Thinking Development</span>
+                        </div>
+                        <a href="https://www.yes24.com/product/goods/149681821" target="_blank" class="block text-center py-2 bg-emerald-500 text-white rounded-lg text-sm font-semibold hover:bg-emerald-600 transition-colors">
+                            View on Yes24 →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-white rounded-xl p-4 border-2 border-indigo-100">
+                    <p class="text-sm text-gray-700 text-center">
+                        💡 <strong>RQTDW©</strong> is <strong>a thinking training system reconstructed for the AI era</strong> by integrating the core methodologies of these books.
+                        <br><span class="text-xs text-gray-600 mt-2 block">
+                        Simple Question's structuring + Facilitation's thinking trigger + 15 Creative Questions' question reconstruction = RQTDW©
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
             <div class="text-center">
-                <button onclick="backToHome()" class="inline-flex items-center px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold text-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-xl">
+                <button
+                    onclick="backToHome()"
+                    class="inline-flex items-center px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-bold text-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-xl"
+                >
                     Start Thinking Training Now →
                 </button>
                 <p class="text-sm text-gray-600 mt-4">
                     The moment you enter your first question, your thinking OS upgrades
                 </p>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                    ❓ Frequently Asked Questions (FAQ)
+                </h3>
+
+                <div class="space-y-4">
+                    <details class="group border-2 border-gray-200 rounded-lg p-4 hover:border-orange-300 transition-all">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>How is RQTDW© different from existing AI?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+                            Existing AI like ChatGPT <strong>provides instant answers</strong>. RQTDW© doesn't give answers but <strong>asks questions and triggers thinking</strong>.
+                            Users think for themselves, deepen their understanding, and grow. It's a system to train the most important ability in the AI era - 'the ability to ask questions'.
+                        </p>
+                    </details>
+
+                    <details class="group border-2 border-gray-200 rounded-lg p-4 hover:border-orange-300 transition-all">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>How much time should I invest daily?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+                            One RQTDW© cycle takes about <strong>15-30 minutes</strong>.
+                            If you train consistently 2-3 times a week, you can experience changes in your thinking approach within 2-3 months.
+                        </p>
+                    </details>
+
+                    <details class="group border-2 border-gray-200 rounded-lg p-4 hover:border-orange-300 transition-all">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>What questions should I start with?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+                            Start with <strong>what you're most concerned about right now</strong>.
+                            Startup ideas, career concerns, relationships, decisions... any topic is fine.
+                            Vague concerns are okay too. RQTDW© will transform them into structured questions.
+                        </p>
+                    </details>
+
+                    <details class="group border-2 border-gray-200 rounded-lg p-4 hover:border-orange-300 transition-all">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>Can I get sufficient results alone?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+                            Yes, <strong>individual training is sufficient</strong>.
+                            RQTDW© is designed so you can explore diverse perspectives and deepen thinking on your own.
+                            However, working with teams or groups can provide richer insights in the Discussion stage.
+                        </p>
+                    </details>
+
+                    <details class="group border-2 border-gray-200 rounded-lg p-4 hover:border-orange-300 transition-all">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>How is thinking level measured?</span>
+                            <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+                            Measured by 5 criteria: <strong>question depth, perspective diversity, thinking structure, insight originality, actionability</strong>.
+                            Each criterion is evaluated on 5 levels (S/A/B/C/D), and AI provides specific improvement directions through 75 feedback patterns.
+                        </p>
+                    </details>
+                </div>
             </div>
         </div>
     </div>
@@ -3903,7 +4988,7 @@
 
                             <!-- 초기 vs 최종 vs 성장도 비교 -->
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                                <!-- 초기 점수 -->
+                                <!-- Initial Score -->
                                 <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border-2 border-gray-200">
                                     <div class="flex items-center justify-between mb-3">
                                         <h4 class="font-bold text-gray-700 flex items-center">
@@ -3937,7 +5022,7 @@
                                     </div>
                                 </div>
 
-                                <!-- 최종 점수 -->
+                                <!-- Final Score -->
                                 <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-5 border-2 border-blue-300">
                                     <div class="flex items-center justify-between mb-3">
                                         <h4 class="font-bold text-blue-700 flex items-center">
@@ -3971,7 +5056,7 @@
                                     </div>
                                 </div>
 
-                                <!-- 성장도 -->
+                                <!-- Growth -->
                                 <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-5 border-2 border-green-300">
                                     <div class="flex items-center justify-between mb-3">
                                         <h4 class="font-bold text-green-700 flex items-center">
@@ -4241,7 +5326,7 @@
 
                 <!-- 초기 vs 최종 vs 성장도 비교 -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <!-- 초기 점수 -->
+                    <!-- Initial Score -->
                     <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-5 border-2 border-gray-200">
                         <div class="flex items-center justify-between mb-3">
                             <h4 class="font-bold text-gray-700 flex items-center">
@@ -4275,7 +5360,7 @@
                         </div>
                     </div>
 
-                    <!-- 최종 점수 -->
+                    <!-- Final Score -->
                     <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-5 border-2 border-blue-300">
                         <div class="flex items-center justify-between mb-3">
                             <h4 class="font-bold text-blue-700 flex items-center">
@@ -4309,7 +5394,7 @@
                         </div>
                     </div>
 
-                    <!-- 성장도 -->
+                    <!-- Growth -->
                     <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-5 border-2 border-green-300">
                         <div class="flex items-center justify-between mb-3">
                             <h4 class="font-bold text-green-700 flex items-center">
@@ -7553,6 +8638,38 @@
             logActivity('screen_view', { screen: 'samples-ko' });
         }
 
+        // 대시보드 화면 표시
+        window.showGrowthDashboard = function() {
+            // 모든 화면 숨기기
+            document.getElementById('landing-screen').classList.add('hidden');
+            document.getElementById('age-selection-screen').classList.add('hidden');
+            document.getElementById('category-selection-screen').classList.add('hidden');
+            document.getElementById('home-screen').classList.add('hidden');
+            document.getElementById('guide-screen').classList.add('hidden');
+            document.getElementById('guide-screen-en').classList.add('hidden');
+            document.getElementById('samples-screen').classList.add('hidden');
+            document.getElementById('samples-screen-ko').classList.add('hidden');
+            document.getElementById('question-screen').classList.add('hidden');
+            document.getElementById('think-screen').classList.add('hidden');
+            document.getElementById('discussion-screen').classList.add('hidden');
+            document.getElementById('write-screen').classList.add('hidden');
+            document.getElementById('admin-dashboard').classList.add('hidden');
+            document.getElementById('growth-dashboard').classList.add('hidden');
+            document.getElementById('growth-dashboard-en').classList.add('hidden');
+
+            // 언어에 따라 적절한 대시보드 화면 보이기
+            const selectedLanguage = localStorage.getItem('selectedLanguage') || 'ko';
+            if (selectedLanguage === 'en') {
+                document.getElementById('growth-dashboard-en').classList.remove('hidden');
+            } else {
+                document.getElementById('growth-dashboard').classList.remove('hidden');
+            }
+            window.scrollTo(0, 0);
+
+            // 로그 기록
+            logActivity('screen_view', { screen: 'growth-dashboard' });
+        }
+
         // 홈으로 돌아가기
         function backToHome() {
             document.getElementById('guide-screen').classList.add('hidden');
@@ -7565,6 +8682,7 @@
             document.getElementById('write-screen').classList.add('hidden');
             document.getElementById('admin-dashboard').classList.add('hidden');
             document.getElementById('growth-dashboard').classList.add('hidden');
+            document.getElementById('growth-dashboard-en').classList.add('hidden');
             document.getElementById('home-screen').classList.remove('hidden');
             window.scrollTo(0, 0);
 
@@ -7589,6 +8707,7 @@
             document.getElementById('write-screen').classList.add('hidden');
             document.getElementById('admin-dashboard').classList.add('hidden');
             document.getElementById('growth-dashboard').classList.add('hidden');
+            document.getElementById('growth-dashboard-en').classList.add('hidden');
             window.scrollTo(0, 0);
 
             // 로그 기록
