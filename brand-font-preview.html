@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RQTDW - Famous Brand Logo Style Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Bebas+Neue&family=Roboto:wght@400;500;700;900&family=Montserrat:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@400;600;700;900&family=Crimson+Pro:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&family=Cinzel:wght@400;600;700;900&family=Didact+Gothic&family=Libre+Baskerville:wght@400;700&family=Merriweather:wght@400;700;900&family=Lora:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            background: #0f0f0f;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        .category-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            margin: 50px 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .brand-ref {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        .brand-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .brand-name {
+            font-size: 14px;
+            color: #ccc;
+            font-weight: 600;
+        }
+
+        .logo-preview {
+            padding: 20px 0;
+        }
+        .logo-main {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .logo-main .r { color: #2563eb; }
+        .logo-main .q { color: #ea580c; }
+        .logo-main .t { color: #16a34a; }
+        .logo-main .d { color: #9333ea; }
+        .logo-main .w { color: #ffffff; }
+        .logo-main .copy { color: #888; font-size: 0.6em; }
+
+        .logo-sub {
+            font-size: 18px;
+            color: #888;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .style-tag {
+            display: inline-block;
+            background: #333;
+            color: #aaa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+
+        .option-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Tech Giants Style */
+        .style-apple .logo-main, .style-apple .logo-sub { font-family: 'Inter', -apple-system, sans-serif; font-weight: 600; letter-spacing: -1px; }
+        .style-google .logo-main, .style-google .logo-sub { font-family: 'Poppins', sans-serif; font-weight: 600; letter-spacing: 0; }
+        .style-microsoft .logo-main, .style-microsoft .logo-sub { font-family: 'DM Sans', sans-serif; font-weight: 600; }
+        .style-ibm .logo-main, .style-ibm .logo-sub { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; }
+        .style-tesla .logo-main, .style-tesla .logo-sub { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+
+        /* Media & Entertainment */
+        .style-netflix .logo-main, .style-netflix .logo-sub { font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; }
+        .style-spotify .logo-main, .style-spotify .logo-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 800; letter-spacing: -1px; }
+        .style-nyt .logo-main, .style-nyt .logo-sub { font-family: 'Libre Baskerville', serif; font-weight: 700; font-style: italic; }
+
+        /* Luxury & Fashion */
+        .style-vogue .logo-main, .style-vogue .logo-sub { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: 8px; text-transform: uppercase; }
+        .style-chanel .logo-main, .style-chanel .logo-sub { font-family: 'Cinzel', serif; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
+        .style-dior .logo-main, .style-dior .logo-sub { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; }
+        .style-hermes .logo-main, .style-hermes .logo-sub { font-family: 'Didact Gothic', sans-serif; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; }
+
+        /* Academic & Professional */
+        .style-harvard .logo-main, .style-harvard .logo-sub { font-family: 'Merriweather', serif; font-weight: 900; }
+        .style-oxford .logo-main, .style-oxford .logo-sub { font-family: 'Lora', serif; font-weight: 600; font-style: italic; }
+        .style-mckinsey .logo-main, .style-mckinsey .logo-sub { font-family: 'Source Serif 4', serif; font-weight: 700; }
+        .style-economist .logo-main, .style-economist .logo-sub { font-family: 'Crimson Pro', serif; font-weight: 600; }
+
+        /* Modern Startup */
+        .style-airbnb .logo-main, .style-airbnb .logo-sub { font-family: 'Nunito Sans', sans-serif; font-weight: 700; letter-spacing: -1px; }
+        .style-uber .logo-main, .style-uber .logo-sub { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        .recommend-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .card.recommend {
+            position: relative;
+            border-color: #f59e0b;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: #1a1a1a;
+            border-radius: 16px;
+            border: 1px solid #333;
+        }
+        .footer p {
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .footer .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>유명 브랜드 로고 스타일로 보는 RQTDW©</h1>
+        <p class="subtitle">마음에 드는 스타일의 번호를 알려주세요</p>
+
+        <!-- Tech Giants -->
+        <div class="category-title">🖥️ Tech Giants - 테크 기업 스타일</div>
+        <div class="grid">
+            <div class="card style-apple">
+                <div class="brand-ref">
+                    <span class="option-num">1</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Apple</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">미니멀 · 세련됨 · 프리미엄</span>
+            </div>
+
+            <div class="card style-google">
+                <div class="brand-ref">
+                    <span class="option-num">2</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Google</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">친근함 · 모던 · 접근성</span>
+            </div>
+
+            <div class="card style-microsoft">
+                <div class="brand-ref">
+                    <span class="option-num">3</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Microsoft</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">전문성 · 신뢰 · 기업적</span>
+            </div>
+
+            <div class="card style-ibm">
+                <div class="brand-ref">
+                    <span class="option-num">4</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">IBM</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">기술 · 혁신 · 엔터프라이즈</span>
+            </div>
+
+            <div class="card style-tesla">
+                <div class="brand-ref">
+                    <span class="option-num">5</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Tesla</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main" style="font-size: 36px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub" style="letter-spacing: 4px; font-size: 14px;">HUMAN THINKING OS</div>
+                </div>
+                <span class="style-tag">미래지향 · 혁신 · 대담함</span>
+            </div>
+        </div>
+
+        <!-- Luxury & Fashion -->
+        <div class="category-title">👜 Luxury & Fashion - 럭셔리 브랜드 스타일</div>
+        <div class="grid">
+            <div class="card style-vogue recommend">
+                <span class="recommend-badge">추천</span>
+                <div class="brand-ref">
+                    <span class="option-num">6</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">VOGUE</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main" style="font-size: 38px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub" style="letter-spacing: 6px; font-size: 14px;">HUMAN THINKING OS</div>
+                </div>
+                <span class="style-tag">우아함 · 권위 · 클래식</span>
+            </div>
+
+            <div class="card style-chanel recommend">
+                <span class="recommend-badge">추천</span>
+                <div class="brand-ref">
+                    <span class="option-num">7</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">CHANEL</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main" style="font-size: 38px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub" style="letter-spacing: 5px; font-size: 14px;">HUMAN THINKING OS</div>
+                </div>
+                <span class="style-tag">품격 · 전통 · 럭셔리</span>
+            </div>
+
+            <div class="card style-dior">
+                <div class="brand-ref">
+                    <span class="option-num">8</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Dior</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main" style="font-size: 40px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub" style="letter-spacing: 4px; font-size: 15px;">HUMAN THINKING OS</div>
+                </div>
+                <span class="style-tag">세련됨 · 우아함 · 현대적</span>
+            </div>
+
+            <div class="card style-hermes">
+                <div class="brand-ref">
+                    <span class="option-num">9</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">HERMÈS</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main" style="font-size: 40px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub" style="letter-spacing: 3px; font-size: 15px;">HUMAN THINKING OS</div>
+                </div>
+                <span class="style-tag">심플 · 고급 · 절제된</span>
+            </div>
+        </div>
+
+        <!-- Media & Entertainment -->
+        <div class="category-title">🎬 Media & Entertainment - 미디어 스타일</div>
+        <div class="grid">
+            <div class="card style-netflix">
+                <div class="brand-ref">
+                    <span class="option-num">10</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">NETFLIX</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main" style="font-size: 50px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub" style="letter-spacing: 5px;">HUMAN THINKING OS</div>
+                </div>
+                <span class="style-tag">임팩트 · 대담함 · 엔터테인먼트</span>
+            </div>
+
+            <div class="card style-spotify">
+                <div class="brand-ref">
+                    <span class="option-num">11</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Spotify</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">활기참 · 친근함 · 현대적</span>
+            </div>
+
+            <div class="card style-nyt">
+                <div class="brand-ref">
+                    <span class="option-num">12</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">The New York Times</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">신뢰 · 전통 · 저널리즘</span>
+            </div>
+        </div>
+
+        <!-- Academic & Professional -->
+        <div class="category-title">🎓 Academic & Professional - 학술/전문 스타일</div>
+        <div class="grid">
+            <div class="card style-harvard recommend">
+                <span class="recommend-badge">추천</span>
+                <div class="brand-ref">
+                    <span class="option-num">13</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Harvard University</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">학술적 · 권위 · 전통</span>
+            </div>
+
+            <div class="card style-oxford">
+                <div class="brand-ref">
+                    <span class="option-num">14</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Oxford University</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">우아함 · 학문적 · 클래식</span>
+            </div>
+
+            <div class="card style-mckinsey recommend">
+                <span class="recommend-badge">추천</span>
+                <div class="brand-ref">
+                    <span class="option-num">15</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">McKinsey & Company</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">전문성 · 컨설팅 · 신뢰</span>
+            </div>
+
+            <div class="card style-economist">
+                <div class="brand-ref">
+                    <span class="option-num">16</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">The Economist</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">지성 · 분석적 · 글로벌</span>
+            </div>
+        </div>
+
+        <!-- Modern Startup -->
+        <div class="category-title">🚀 Modern Startup - 스타트업 스타일</div>
+        <div class="grid">
+            <div class="card style-airbnb">
+                <div class="brand-ref">
+                    <span class="option-num">17</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Airbnb</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">친근함 · 모던 · 글로벌</span>
+            </div>
+
+            <div class="card style-uber">
+                <div class="brand-ref">
+                    <span class="option-num">18</span>
+                    <div>
+                        <div class="brand-label">Style Reference</div>
+                        <div class="brand-name">Uber</div>
+                    </div>
+                </div>
+                <div class="logo-preview">
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <span class="style-tag">심플 · 직관적 · 현대적</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>마음에 드는 스타일의 <span class="highlight">번호(1~18)</span>를 알려주세요!</p>
+            <p style="font-size: 14px; margin-top: 15px;">
+                <strong>추천:</strong> 사고법/철학적 브랜드 특성 고려 시<br>
+                6번(VOGUE), 7번(CHANEL), 13번(Harvard), 15번(McKinsey) 스타일 추천
+            </p>
+        </div>
+    </div>
+</body>
+</html>
