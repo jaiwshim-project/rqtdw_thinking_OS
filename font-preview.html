@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RQTDW Logo Font Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@400;600;700;900&family=Oswald:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Bebas+Neue&family=Libre+Baskerville:wght@400;700&family=Raleway:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .font-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .font-card:hover {
+            transform: translateY(-5px);
+        }
+        .option-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .font-name {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        .logo-preview {
+            margin-bottom: 20px;
+        }
+        .logo-main {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .logo-main .r { color: #2563eb; }
+        .logo-main .q { color: #ea580c; }
+        .logo-main .t { color: #16a34a; }
+        .logo-main .d { color: #9333ea; }
+        .logo-main .w { color: #1f2937; }
+        .logo-main .copy { color: #1f2937; font-size: 0.7em; }
+
+        .logo-sub {
+            font-size: 28px;
+            color: #4b5563;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .small-version {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ddd;
+        }
+        .small-version .logo-main {
+            font-size: 24px;
+        }
+        .small-version .logo-sub {
+            font-size: 14px;
+        }
+
+        .description {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .description strong {
+            color: #333;
+        }
+
+        /* Font Families */
+        .font-cinzel .logo-main, .font-cinzel .logo-sub { font-family: 'Cinzel', serif; }
+        .font-playfair .logo-main, .font-playfair .logo-sub { font-family: 'Playfair Display', serif; }
+        .font-montserrat .logo-main, .font-montserrat .logo-sub { font-family: 'Montserrat', sans-serif; }
+        .font-oswald .logo-main, .font-oswald .logo-sub { font-family: 'Oswald', sans-serif; }
+        .font-cormorant .logo-main, .font-cormorant .logo-sub { font-family: 'Cormorant Garamond', serif; }
+        .font-bebas .logo-main, .font-bebas .logo-sub { font-family: 'Bebas Neue', sans-serif; }
+        .font-libre .logo-main, .font-libre .logo-sub { font-family: 'Libre Baskerville', serif; }
+        .font-raleway .logo-main, .font-raleway .logo-sub { font-family: 'Raleway', sans-serif; }
+
+        .recommend {
+            position: relative;
+        }
+        .recommend::before {
+            content: '추천';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .vote-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+        }
+        .vote-section p {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .vote-section small {
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RQTDW© 로고 폰트 미리보기</h1>
+
+        <!-- Option A: Cinzel -->
+        <div class="font-card font-cinzel recommend">
+            <span class="option-label">Option A</span>
+            <div class="font-name">Cinzel - 클래식 권위</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 로마 비문에서 영감받은 클래식 세리프체<br>
+                <strong>느낌:</strong> 권위, 전통, 학술적, 철학적, 특허/저작권 브랜드에 최적<br>
+                <strong>추천 이유:</strong> RQTDW의 지적 권위와 사고법의 체계적 느낌을 가장 잘 표현
+            </div>
+        </div>
+
+        <!-- Option B: Playfair Display -->
+        <div class="font-card font-playfair recommend">
+            <span class="option-label">Option B</span>
+            <div class="font-name">Playfair Display - 우아한 품격</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 18세기 유럽 인쇄 스타일의 우아한 세리프체<br>
+                <strong>느낌:</strong> 세련됨, 우아함, 럭셔리, 지적 신뢰감<br>
+                <strong>추천 이유:</strong> 품격과 세련미를 동시에 표현, 프리미엄 브랜드 이미지
+            </div>
+        </div>
+
+        <!-- Option C: Montserrat -->
+        <div class="font-card font-montserrat">
+            <span class="option-label">Option C</span>
+            <div class="font-name">Montserrat - 현대적 강렬함</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 기하학적 산세리프체, 부에노스아이레스 도시 표지판에서 영감<br>
+                <strong>느낌:</strong> 모던, 깔끔, 테크, 혁신적<br>
+                <strong>적합:</strong> IT/스타트업 이미지를 원할 때
+            </div>
+        </div>
+
+        <!-- Option D: Oswald -->
+        <div class="font-card font-oswald">
+            <span class="option-label">Option D</span>
+            <div class="font-name">Oswald - 대담한 임팩트</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 좁고 강렬한 산세리프체<br>
+                <strong>느낌:</strong> 임팩트, 역동적, 진취적, 스포티<br>
+                <strong>적합:</strong> 강렬한 첫인상을 원할 때
+            </div>
+        </div>
+
+        <!-- Option E: Cormorant Garamond -->
+        <div class="font-card font-cormorant">
+            <span class="option-label">Option E</span>
+            <div class="font-name">Cormorant Garamond - 지적 품위</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 클래식 가라몬드의 현대적 재해석<br>
+                <strong>느낌:</strong> 문학적, 철학적, 우아하면서 가벼움<br>
+                <strong>적합:</strong> 부드러운 지적 이미지를 원할 때
+            </div>
+        </div>
+
+        <!-- Option F: Bebas Neue -->
+        <div class="font-card font-bebas">
+            <span class="option-label">Option F</span>
+            <div class="font-name">Bebas Neue - 힘찬 헤드라인</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 대문자 전용, 높고 좁은 산세리프체<br>
+                <strong>느낌:</strong> 대담, 강렬, 영화 포스터 스타일<br>
+                <strong>적합:</strong> 매우 강한 임팩트를 원할 때
+            </div>
+        </div>
+
+        <!-- Option G: Libre Baskerville -->
+        <div class="font-card font-libre">
+            <span class="option-label">Option G</span>
+            <div class="font-name">Libre Baskerville - 전통적 신뢰</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 존 바스커빌 서체의 웹 최적화 버전<br>
+                <strong>느낌:</strong> 전통, 신뢰, 안정감, 학술적<br>
+                <strong>적합:</strong> 클래식한 신뢰감을 원할 때
+            </div>
+        </div>
+
+        <!-- Option H: Raleway -->
+        <div class="font-card font-raleway">
+            <span class="option-label">Option H</span>
+            <div class="font-name">Raleway - 세련된 미니멀</div>
+            <div class="logo-preview">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-version">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    <span class="logo-sub">Human Thinking OS</span>
+                </div>
+            </div>
+            <div class="description">
+                <strong>특징:</strong> 가늘고 우아한 산세리프체<br>
+                <strong>느낌:</strong> 미니멀, 세련됨, 패션, 현대적<br>
+                <strong>적합:</strong> 깔끔한 현대적 이미지를 원할 때
+            </div>
+        </div>
+
+        <div class="vote-section">
+            <p>마음에 드는 옵션을 알려주세요!</p>
+            <small>A, B, C, D, E, F, G, H 중 선택</small>
+        </div>
+    </div>
+</body>
+</html>

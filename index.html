@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RQTDW - 학생과 교사를 위한 질문과 사고력 훈련 플랫폼">
+    <title>RQTDW© - Human Questioning & Thinking OS</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rqtdw-read': '#2563eb',
+                        'rqtdw-question': '#ea580c',
+                        'rqtdw-think': '#16a34a',
+                        'rqtdw-discuss': '#9333ea',
+                        'rqtdw-write': '#0d9488',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+        }
+
+        .rqtdw-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .rqtdw-logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        .rqtdw-logo-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-size: 0.4em;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="absolute top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="home.html" class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-3 py-1 text-xs font-bold text-white">
+                    <span>📚</span>
+                    <span>AI노벨문해력5©</span>
+                </span>
+                <span class="rqtdw-logo text-white text-xl">RQTDW©</span>
+            </a>
+            <div class="flex gap-4">
+                <a href="home.html" class="text-white font-semibold hover:text-white/80 transition-colors">홈</a>
+                <a href="landing.html" class="text-white/80 hover:text-white transition-colors">소개</a>
+                <a href="rqtdw.html" class="px-4 py-2 bg-white text-purple-600 rounded-full hover:bg-gray-100 transition-all">시작하기</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <div class="text-center fade-in">
+                <!-- Logo -->
+                <div class="mb-8">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl mb-4">
+                        <span class="rqtdw-logo-main text-white">
+                            <span>R</span><span>Q</span><span>T</span><span>D</span><span>W</span><span>©</span>
+                        </span>
+                    </h1>
+                    <p class="text-white/90 text-base sm:text-xl lg:text-2xl font-semibold tracking-wide">
+                        Human Questioning & Thinking OS
+                    </p>
+                </div>
+
+                <!-- User Type Badge -->
+                <div class="inline-flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
+                    <span class="text-2xl sm:text-3xl lg:text-4xl">🎓</span>
+                    <span class="text-white text-sm sm:text-base lg:text-lg font-semibold">For Students & Teachers</span>
+                    <span class="text-2xl sm:text-3xl lg:text-4xl">👨‍🏫</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight px-4">
+                    AI와 함께 질문하고 생각하는 법을 배우고<br/>
+                    생각하는 힘을 키우세요!
+                </h2>
+
+                <p class="text-base sm:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
+                    학생과 교사를 위한 체계적인 질문 & 사고 훈련 플랫폼
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 px-4">
+                    <a href="rqtdw.html" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-purple-600 rounded-full text-base sm:text-lg font-bold hover:bg-gray-100 transition-all shadow-2xl transform hover:scale-105">
+                        시작하기
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="landing.html" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-md text-white rounded-full text-base sm:text-lg font-bold hover:bg-white/30 transition-all border-2 border-white/50">
+                        더 알아보기
+                    </a>
+                </div>
+
+                <!-- RQTDW Process -->
+                <div class="grid grid-cols-5 gap-2 sm:gap-4 max-w-4xl mx-auto px-4">
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-2xl p-2 sm:p-4 border border-white/20">
+                        <div class="text-xl sm:text-2xl lg:text-3xl mb-1 sm:mb-2">📖</div>
+                        <div class="text-white font-bold text-xs sm:text-sm lg:text-base">Read</div>
+                        <div class="text-white/70 text-[10px] sm:text-xs lg:text-sm">읽기</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-2xl p-2 sm:p-4 border border-white/20">
+                        <div class="text-xl sm:text-2xl lg:text-3xl mb-1 sm:mb-2">❓</div>
+                        <div class="text-white font-bold text-xs sm:text-sm lg:text-base">Question</div>
+                        <div class="text-white/70 text-[10px] sm:text-xs lg:text-sm">질문</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-2xl p-2 sm:p-4 border border-white/20">
+                        <div class="text-xl sm:text-2xl lg:text-3xl mb-1 sm:mb-2">💡</div>
+                        <div class="text-white font-bold text-xs sm:text-sm lg:text-base">Think</div>
+                        <div class="text-white/70 text-[10px] sm:text-xs lg:text-sm">사고</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-2xl p-2 sm:p-4 border border-white/20">
+                        <div class="text-xl sm:text-2xl lg:text-3xl mb-1 sm:mb-2">💬</div>
+                        <div class="text-white font-bold text-xs sm:text-sm lg:text-base">Discuss</div>
+                        <div class="text-white/70 text-[10px] sm:text-xs lg:text-sm">토론</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-2xl p-2 sm:p-4 border border-white/20">
+                        <div class="text-xl sm:text-2xl lg:text-3xl mb-1 sm:mb-2">✍️</div>
+                        <div class="text-white font-bold text-xs sm:text-sm lg:text-base">Write</div>
+                        <div class="text-white/70 text-[10px] sm:text-xs lg:text-sm">기록</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12 sm:mb-16 px-4">
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+                    왜 RQTDW인가?
+                </h2>
+                <p class="text-base sm:text-lg lg:text-xl text-gray-600">
+                    체계적인 질문과 사고 훈련으로 학습 효과를 극대화하세요
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
+                <!-- For Students -->
+                <div class="bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border-2 border-blue-100">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                        <span class="text-3xl sm:text-4xl lg:text-5xl">🎓</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900">학생을 위한</h3>
+                    </div>
+                    <ul class="space-y-3 sm:space-y-4">
+                        <li class="flex items-start gap-2 sm:gap-3">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-gray-900 text-sm sm:text-base">학습 효과 향상</div>
+                                <div class="text-gray-600 text-xs sm:text-sm">스스로 질문하고 생각하며 깊이 있게 학습</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-gray-900">사고력 발달</div>
+                                <div class="text-gray-600 text-sm">체계적인 사고 프레임워크로 논리적 사고력 향상</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-gray-900">맞춤형 주제</div>
+                                <div class="text-gray-600 text-sm">학업, 진로, 관계 등 학생에게 필요한 주제별 가이드</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- For Teachers -->
+                <div class="bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border-2 border-purple-100">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                        <span class="text-3xl sm:text-4xl lg:text-5xl">👨‍🏫</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900">교사를 위한</h3>
+                    </div>
+                    <ul class="space-y-3 sm:space-y-4">
+                        <li class="flex items-start gap-2 sm:gap-3">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-gray-900 text-sm sm:text-base">효과적인 수업 설계</div>
+                                <div class="text-gray-600 text-xs sm:text-sm">질문 중심 수업으로 학생 참여도 향상</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-gray-900">전문성 개발</div>
+                                <div class="text-gray-600 text-sm">교육과정, 학생관리, 평가 등 실무 역량 강화</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-gray-900">교육 자료</div>
+                                <div class="text-gray-600 text-sm">다양한 질문 유형과 사고 프레임워크 제공</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RQTDW Process Detailed -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                    RQTDW 학습 프로세스
+                </h2>
+                <p class="text-xl text-gray-600">
+                    5단계 체계적 학습으로 효과적인 성장을 경험하세요
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Read -->
+                <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-4xl">📖</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-2">1. Read (읽기)</h3>
+                        <p class="text-gray-600">주제를 읽고 이해하며 핵심 내용을 파악합니다. 문제 상황을 명확히 인식하는 것이 시작입니다.</p>
+                    </div>
+                </div>
+
+                <!-- Question -->
+                <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-4xl">❓</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-orange-600 mb-2">2. Question (질문)</h3>
+                        <p class="text-gray-600">좋은 질문을 만들어 보세요. 15가지 질문 유형을 활용하여 다양한 관점에서 탐구합니다.</p>
+                    </div>
+                </div>
+
+                <!-- Think -->
+                <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-4xl">💡</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-green-600 mb-2">3. Think (사고)</h3>
+                        <p class="text-gray-600">체계적인 사고 프레임워크를 활용하여 깊이 있게 생각하고 분석합니다.</p>
+                    </div>
+                </div>
+
+                <!-- Discuss -->
+                <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-4xl">💬</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-purple-600 mb-2">4. Discuss (토론)</h3>
+                        <p class="text-gray-600">다양한 관점을 고려하고 토론 가이드를 통해 생각을 확장합니다.</p>
+                    </div>
+                </div>
+
+                <!-- Write -->
+                <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-20 h-20 bg-teal-100 rounded-2xl flex items-center justify-center">
+                        <span class="text-4xl">✍️</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-teal-600 mb-2">5. Write (기록)</h3>
+                        <p class="text-gray-600">배운 내용을 정리하고 기록하여 성장을 추적합니다. 대시보드로 진행 상황을 확인하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-indigo-600 to-purple-600">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+                지금 바로 시작하세요
+            </h2>
+            <p class="text-base sm:text-lg lg:text-xl text-white/90 mb-8 sm:mb-10">
+                질문하는 법을 배우고, 생각하는 힘을 키우는 여정을 시작하세요
+            </p>
+            <a href="rqtdw.html" class="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-white text-purple-600 rounded-full text-base sm:text-lg lg:text-xl font-bold hover:bg-gray-100 transition-all shadow-2xl transform hover:scale-105">
+                무료로 시작하기
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-slate-900 text-white py-12 overflow-hidden">
+        <!-- Diagonal Pattern Background -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 70px);"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <!-- Main Footer Content -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
+                <!-- Left Side - Logo & Description -->
+                <div class="text-left">
+                    <!-- AI Novel Literacy 5 Badge -->
+                    <div class="mb-3">
+                        <span class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-4 py-1 text-xs font-bold text-white">
+                            <span>📚</span>
+                            <span>AI노벨문해력5©</span>
+                            <span>✨</span>
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">
+                        <span class="rqtdw-logo">RQTDW©</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm">Human Questioning & Thinking OS</p>
+                </div>
+
+                <!-- Right Side - Contact Info -->
+                <div class="text-left md:text-right">
+                    <p class="text-white font-semibold mb-1">Jaiwoo Jay Shim</p>
+                    <p class="text-gray-400 text-sm mb-2">010-2397-5734 | jaiwshim@gmail.com</p>
+                    <a href="mailto:jaiwshim@gmail.com" class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors text-sm">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        Contact / Feedback
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-gray-500 text-sm">
+                    © 2024 RQTDW. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

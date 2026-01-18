@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카테고리 선택 페이지 미리보기 - RQTDW</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .rqtdw-logo-main { font-weight: 800; letter-spacing: -0.05em; }
+        .rqtdw-logo-sub { font-weight: 600; letter-spacing: 0.1em; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Category Selection Page Preview -->
+    <div class="flex-1 min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-orange-100 flex items-center justify-center py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <!-- Logo and Title -->
+            <div class="mb-6">
+                <h1 class="text-2xl sm:text-4xl mb-3">
+                    <span class="rqtdw-logo-main">
+                        <span class="text-blue-600">R</span>
+                        <span class="text-orange-600">Q</span>
+                        <span class="text-green-600">T</span>
+                        <span class="text-purple-600">D</span>
+                        <span class="text-teal-600">W</span>
+                        <span class="text-gray-900">©</span>
+                    </span>
+                    <span class="rqtdw-logo-sub text-gray-600 text-base sm:text-xl block mt-2">Human Thinking OS</span>
+                </h1>
+            </div>
+
+            <!-- Category Selection -->
+            <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-12 backdrop-blur-sm bg-opacity-95">
+                <!-- Age Badge -->
+                <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm sm:text-base mb-4">
+                    <span class="text-xl mr-2">🚀</span>
+                    <span class="font-semibold">20대 선택됨</span>
+                </div>
+
+                <h2 class="text-xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-6">
+                    관심 주제를 선택하세요
+                </h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
+                    가장 고민하고 있는 주제를 선택하면 맞춤형 질문과 사고 가이드를 제공합니다
+                </p>
+
+                <!-- 20대 카테고리 예시 -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
+                    <!-- 취업/이직 -->
+                    <button
+                        onclick="alert('취업/이직 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">💼</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">취업/이직</div>
+                            <div class="text-xs sm:text-sm opacity-90">Job & Career</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 직장생활 -->
+                    <button
+                        onclick="alert('직장생활 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">🏢</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">직장생활</div>
+                            <div class="text-xs sm:text-sm opacity-90">Work Life</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 연애/결혼 -->
+                    <button
+                        onclick="alert('연애/결혼 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">💕</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">연애/결혼</div>
+                            <div class="text-xs sm:text-sm opacity-90">Love & Marriage</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 자기계발 -->
+                    <button
+                        onclick="alert('자기계발 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">📚</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">자기계발</div>
+                            <div class="text-xs sm:text-sm opacity-90">Self Development</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 경제/재정 -->
+                    <button
+                        onclick="alert('경제/재정 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">💰</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">경제/재정</div>
+                            <div class="text-xs sm:text-sm opacity-90">Finance</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 인간관계 -->
+                    <button
+                        onclick="alert('인간관계 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">👥</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">인간관계</div>
+                            <div class="text-xs sm:text-sm opacity-90">Relationships</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 기타 -->
+                    <button
+                        onclick="alert('기타 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white rounded-lg sm:rounded-xl p-5 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-left"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">✨</div>
+                            <div class="text-base sm:text-lg font-bold mb-1">기타</div>
+                            <div class="text-xs sm:text-sm opacity-90">Other Topics</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+                </div>
+
+                <p class="mt-6 sm:mt-8 text-gray-500 text-xs sm:text-sm">
+                    선택한 주제를 기반으로 질문 예시, 사고 프레임워크, 토론 가이드를 제공합니다
+                </p>
+
+                <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+                    <!-- Back Button -->
+                    <button
+                        onclick="alert('이전 버튼 - 연령 선택으로')"
+                        class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm sm:text-base transition-all"
+                    >
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        </svg>
+                        이전 (연령 선택으로)
+                    </button>
+
+                    <!-- Skip Button -->
+                    <button
+                        onclick="alert('건너뛰기 버튼 - 홈 화면으로')"
+                        class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-lg text-sm sm:text-base transition-all shadow-md"
+                    >
+                        건너뛰기 (바로 시작)
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="mt-8 text-gray-600 text-xs sm:text-sm">
+                <p>선택한 주제는 언제든지 변경할 수 있습니다</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Note -->
+    <div class="fixed bottom-4 right-4 bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 shadow-lg max-w-xs">
+        <p class="text-sm font-semibold text-yellow-800 mb-1">📋 미리보기 모드</p>
+        <p class="text-xs text-yellow-700">이것은 20대 카테고리 선택 페이지의 미리보기입니다. 각 연령대마다 다른 카테고리가 표시됩니다.</p>
+    </div>
+
+    <!-- Category Examples for Other Ages -->
+    <div class="fixed bottom-4 left-4 bg-blue-100 border-2 border-blue-400 rounded-lg p-4 shadow-lg max-w-md">
+        <p class="text-sm font-semibold text-blue-800 mb-2">📌 다른 연령대 카테고리 예시 (각 7개)</p>
+        <div class="text-xs text-blue-700 space-y-1">
+            <p><strong>10대:</strong> 학업/성적, 진로/대학, 친구관계, 가족관계, 자아정체성, 취미/특기, 기타</p>
+            <p><strong>30대:</strong> 커리어성장, 이직/창업, 결혼/육아, 재정관리, 워라밸, 자기계발, 기타</p>
+            <p><strong>40대:</strong> 리더십/관리, 커리어전환, 자녀교육, 부모봉양, 건강관리, 인생재설계, 기타</p>
+            <p><strong>50대:</strong> 은퇴준비, 재정계획, 멘토링, 건강관리, 제2의인생, 취미/여가, 기타</p>
+            <p><strong>모든 연령대에 "기타" 카테고리 포함</strong></p>
+        </div>
+    </div>
+
+</body>
+</html>

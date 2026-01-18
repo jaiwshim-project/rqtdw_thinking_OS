@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연령대 선택 페이지 미리보기 - RQTDW</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .rqtdw-logo-main { font-weight: 800; letter-spacing: -0.05em; }
+        .rqtdw-logo-sub { font-weight: 600; letter-spacing: 0.1em; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Age Group Selection Page Preview -->
+    <div class="flex-1 min-h-screen bg-gradient-to-br from-blue-100 via-teal-50 to-green-100 flex items-center justify-center py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <!-- Logo and Title -->
+            <div class="mb-8">
+                <h1 class="text-2xl sm:text-4xl mb-3">
+                    <span class="rqtdw-logo-main">
+                        <span class="text-blue-600">R</span>
+                        <span class="text-orange-600">Q</span>
+                        <span class="text-green-600">T</span>
+                        <span class="text-purple-600">D</span>
+                        <span class="text-teal-600">W</span>
+                        <span class="text-gray-900">©</span>
+                    </span>
+                    <span class="rqtdw-logo-sub text-gray-600 text-base sm:text-xl block mt-2">Human Thinking OS</span>
+                </h1>
+            </div>
+
+            <!-- Age Group Selection -->
+            <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-12 backdrop-blur-sm bg-opacity-95">
+                <h2 class="text-xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-6">
+                    연령대를 선택하세요
+                </h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
+                    맞춤형 질문 및 사고 훈련을 위해 연령대를 알려주세요
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
+                    <!-- 10대 -->
+                    <button
+                        onclick="alert('10대 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">🎓</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">10대</div>
+                            <div class="text-xs sm:text-sm opacity-90">10-19세</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 20대 -->
+                    <button
+                        onclick="alert('20대 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">🚀</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">20대</div>
+                            <div class="text-xs sm:text-sm opacity-90">20-29세</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 30대 -->
+                    <button
+                        onclick="alert('30대 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">💼</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">30대</div>
+                            <div class="text-xs sm:text-sm opacity-90">30-39세</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 40대 -->
+                    <button
+                        onclick="alert('40대 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-indigo-400 to-indigo-500 hover:from-indigo-500 hover:to-indigo-600 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">👔</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">40대</div>
+                            <div class="text-xs sm:text-sm opacity-90">40-49세</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 50대 -->
+                    <button
+                        onclick="alert('50대 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">🎯</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">50대</div>
+                            <div class="text-xs sm:text-sm opacity-90">50-59세</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 60대 -->
+                    <button
+                        onclick="alert('60대 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">🌅</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">60대</div>
+                            <div class="text-xs sm:text-sm opacity-90">60-69세</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+
+                    <!-- 70대 이상 -->
+                    <button
+                        onclick="alert('70대 이상 선택됨')"
+                        class="group relative overflow-hidden bg-gradient-to-br from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                    >
+                        <div class="relative z-10">
+                            <div class="text-3xl sm:text-4xl mb-2">🌳</div>
+                            <div class="text-base sm:text-xl font-bold mb-1">70대 이상</div>
+                            <div class="text-xs sm:text-sm opacity-90">70+</div>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </button>
+                </div>
+
+                <p class="mt-6 sm:mt-8 text-gray-500 text-xs sm:text-sm">
+                    연령대별로 최적화된 질문 예시와 사고 가이드를 제공합니다
+                </p>
+
+                <!-- Back Button -->
+                <button
+                    onclick="alert('이전 버튼 클릭')"
+                    class="mt-6 sm:mt-8 inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm sm:text-base transition-all"
+                >
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    </svg>
+                    이전 (언어 선택으로)
+                </button>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="mt-8 text-gray-600 text-xs sm:text-sm">
+                <p>연령대에 맞는 맞춤형 사고 훈련으로 더 효과적인 성장을 경험하세요</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Note -->
+    <div class="fixed bottom-4 right-4 bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 shadow-lg max-w-xs">
+        <p class="text-sm font-semibold text-yellow-800 mb-1">📋 미리보기 모드</p>
+        <p class="text-xs text-yellow-700">이것은 연령대 선택 페이지의 미리보기입니다. 버튼을 클릭하면 알림이 표시됩니다.</p>
+    </div>
+
+</body>
+</html>

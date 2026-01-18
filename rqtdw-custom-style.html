@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RQTDW - Custom Style Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, sans-serif;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            color: #888;
+            line-height: 1.8;
+        }
+        .platform-traits {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .trait {
+            background: rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #a5b4fc;
+        }
+
+        .recommendation {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        .recommendation h2 {
+            font-size: 16px;
+            color: #a5b4fc;
+            margin-bottom: 15px;
+        }
+        .recommendation p {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            border: 2px solid #333;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #ea580c, #16a34a, #9333ea, #4b5563);
+        }
+        .card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .style-num {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .style-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .style-info p {
+            color: #888;
+            font-size: 13px;
+        }
+        .best-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-display {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05));
+            border-radius: 16px;
+        }
+        .logo-main {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+        .logo-main .r { color: #2563eb; }
+        .logo-main .q { color: #ea580c; }
+        .logo-main .t { color: #16a34a; }
+        .logo-main .d { color: #9333ea; }
+        .logo-main .w { color: #ffffff; }
+        .logo-main .copy { color: #666; font-size: 0.5em; vertical-align: super; }
+
+        .logo-sub {
+            font-size: 20px;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .small-preview {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .small-preview .preview-item {
+            text-align: center;
+        }
+        .small-preview .label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .small-preview .logo-main {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .small-preview .logo-sub {
+            font-size: 11px;
+        }
+
+        .why-section {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .why-section h4 {
+            font-size: 14px;
+            color: #a5b4fc;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .why-section ul {
+            list-style: none;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 2;
+        }
+        .why-section li::before {
+            content: '✓';
+            color: #16a34a;
+            margin-right: 10px;
+        }
+
+        /* Custom Styles */
+        .style-1 .logo-main, .style-1 .logo-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+        .style-1 .logo-sub {
+            font-weight: 600;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .style-2 .logo-main, .style-2 .logo-sub {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .style-2 .logo-sub {
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+
+        .style-3 .logo-main, .style-3 .logo-sub {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+        .style-3 .logo-sub {
+            font-weight: 500;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+
+        .style-4 .logo-main, .style-4 .logo-sub {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .style-4 .logo-sub {
+            font-weight: 500;
+            letter-spacing: 3px;
+            font-size: 16px;
+        }
+
+        .style-5 .logo-main, .style-5 .logo-sub {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+        .style-5 .logo-sub {
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            border: 1px solid #333;
+        }
+        .footer p {
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .footer .highlight {
+            color: #a5b4fc;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>RQTDW© 플랫폼 맞춤 로고 스타일</h1>
+            <p>플랫폼의 핵심 성격을 분석하여 최적의 스타일을 제안합니다</p>
+            <div class="platform-traits">
+                <span class="trait">🧠 사고법 운영체제</span>
+                <span class="trait">📜 특허/저작권 등록</span>
+                <span class="trait">🌍 글로벌 인명사전 등재</span>
+                <span class="trait">🚀 AI를 넘어서는 혁신</span>
+            </div>
+        </div>
+
+        <div class="recommendation">
+            <h2>💡 RQTDW에 최적화된 스타일 방향</h2>
+            <p>
+                <strong>현대적 + 권위 + 혁신</strong>의 조합이 필요합니다.<br><br>
+                • <strong>Tesla처럼</strong> 대담하고 미래지향적이면서<br>
+                • <strong>학술적 권위</strong>를 갖추고 (특허/저작권)<br>
+                • <strong>사고법의 체계성</strong>을 표현하는 (OS = Operating System)<br><br>
+                아래 5가지 맞춤 스타일 중 선택해주세요.
+            </p>
+        </div>
+
+        <!-- Style 1: Tesla-inspired but Academic -->
+        <div class="card style-1">
+            <div class="card-header">
+                <div class="style-num">
+                    <span class="num">1</span>
+                    <div class="style-info">
+                        <h3>Future Authority</h3>
+                        <p>Montserrat Bold Extended</p>
+                    </div>
+                </div>
+                <span class="best-badge">최고 추천</span>
+            </div>
+            <div class="logo-display">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">HUMAN THINKING OS</div>
+            </div>
+            <div class="small-preview">
+                <div class="preview-item">
+                    <div class="label">Header Size</div>
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">HUMAN THINKING OS</div>
+                </div>
+                <div class="preview-item">
+                    <div class="label">Navigation Size</div>
+                    <div class="logo-main" style="font-size: 18px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                        <span class="logo-sub" style="font-size: 10px;">HUMAN THINKING OS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="why-section">
+                <h4>✨ 이 스타일이 RQTDW에 적합한 이유</h4>
+                <ul>
+                    <li>Tesla 스타일의 대담함 + 학술적 무게감 조합</li>
+                    <li>넓은 자간으로 "운영체제"의 체계성 표현</li>
+                    <li>굵은 획으로 권위와 신뢰감 전달</li>
+                    <li>대문자 사용으로 전문성 강조</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Style 2: Tech + Intellectual -->
+        <div class="card style-2">
+            <div class="card-header">
+                <div class="style-num">
+                    <span class="num">2</span>
+                    <div class="style-info">
+                        <h3>Tech Intellectual</h3>
+                        <p>Space Grotesk</p>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-display">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">HUMAN THINKING OS</div>
+            </div>
+            <div class="small-preview">
+                <div class="preview-item">
+                    <div class="label">Header Size</div>
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">HUMAN THINKING OS</div>
+                </div>
+                <div class="preview-item">
+                    <div class="label">Navigation Size</div>
+                    <div class="logo-main" style="font-size: 18px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                        <span class="logo-sub" style="font-size: 10px;">HUMAN THINKING OS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="why-section">
+                <h4>✨ 이 스타일이 RQTDW에 적합한 이유</h4>
+                <ul>
+                    <li>기술과 지성의 균형잡힌 표현</li>
+                    <li>약간의 기하학적 특성으로 "시스템" 느낌</li>
+                    <li>현대적이면서도 읽기 편한 가독성</li>
+                    <li>SpaceX/테크 기업 느낌 + 학술적 무게</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Style 3: Modern Premium -->
+        <div class="card style-3">
+            <div class="card-header">
+                <div class="style-num">
+                    <span class="num">3</span>
+                    <div class="style-info">
+                        <h3>Modern Premium</h3>
+                        <p>Outfit</p>
+                    </div>
+                </div>
+                <span class="best-badge">추천</span>
+            </div>
+            <div class="logo-display">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">HUMAN THINKING OS</div>
+            </div>
+            <div class="small-preview">
+                <div class="preview-item">
+                    <div class="label">Header Size</div>
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">HUMAN THINKING OS</div>
+                </div>
+                <div class="preview-item">
+                    <div class="label">Navigation Size</div>
+                    <div class="logo-main" style="font-size: 18px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                        <span class="logo-sub" style="font-size: 10px;">HUMAN THINKING OS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="why-section">
+                <h4>✨ 이 스타일이 RQTDW에 적합한 이유</h4>
+                <ul>
+                    <li>2024년 가장 트렌디한 폰트 중 하나</li>
+                    <li>둥근 곡선으로 "인간 친화적" 사고법 표현</li>
+                    <li>굵은 무게감으로 권위 유지</li>
+                    <li>프리미엄 SaaS/플랫폼 느낌</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Style 4: Warm Tech -->
+        <div class="card style-4">
+            <div class="card-header">
+                <div class="style-num">
+                    <span class="num">4</span>
+                    <div class="style-info">
+                        <h3>Human Tech</h3>
+                        <p>Sora</p>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-display">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">Human Thinking OS</div>
+            </div>
+            <div class="small-preview">
+                <div class="preview-item">
+                    <div class="label">Header Size</div>
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">Human Thinking OS</div>
+                </div>
+                <div class="preview-item">
+                    <div class="label">Navigation Size</div>
+                    <div class="logo-main" style="font-size: 18px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                        <span class="logo-sub" style="font-size: 10px;">Human Thinking OS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="why-section">
+                <h4>✨ 이 스타일이 RQTDW에 적합한 이유</h4>
+                <ul>
+                    <li>"Human" 친화적인 부드러운 곡선</li>
+                    <li>기술적이면서도 따뜻한 느낌</li>
+                    <li>소문자 사용으로 접근성 높임</li>
+                    <li>AI 시대에 "인간 중심" 강조</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Style 5: Bold System -->
+        <div class="card style-5">
+            <div class="card-header">
+                <div class="style-num">
+                    <span class="num">5</span>
+                    <div class="style-info">
+                        <h3>Bold System</h3>
+                        <p>Manrope</p>
+                    </div>
+                </div>
+            </div>
+            <div class="logo-display">
+                <div class="logo-main">
+                    <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                </div>
+                <div class="logo-sub">HUMAN THINKING OS</div>
+            </div>
+            <div class="small-preview">
+                <div class="preview-item">
+                    <div class="label">Header Size</div>
+                    <div class="logo-main">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                    </div>
+                    <div class="logo-sub">HUMAN THINKING OS</div>
+                </div>
+                <div class="preview-item">
+                    <div class="label">Navigation Size</div>
+                    <div class="logo-main" style="font-size: 18px;">
+                        <span class="r">R</span><span class="q">Q</span><span class="t">T</span><span class="d">D</span><span class="w">W</span><span class="copy">©</span>
+                        <span class="logo-sub" style="font-size: 10px;">HUMAN THINKING OS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="why-section">
+                <h4>✨ 이 스타일이 RQTDW에 적합한 이유</h4>
+                <ul>
+                    <li>GitHub/Vercel 등 개발자 플랫폼 느낌</li>
+                    <li>"Operating System"의 기술적 정체성 강조</li>
+                    <li>깔끔하고 체계적인 인상</li>
+                    <li>다양한 크기에서 가독성 우수</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><span class="highlight">1번 ~ 5번</span> 중 마음에 드는 스타일을 알려주세요!</p>
+            <p style="font-size: 14px; color: #666; margin-top: 15px;">
+                선택하시면 바로 코드에 적용해 드립니다.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
